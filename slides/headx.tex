@@ -1,0 +1,95 @@
+%%
+%%% macros for 2009 Semester 1 HG 803
+%%%
+\newcommand{\logo}{~}
+\newcommand{\header}[3]{%
+\title{\vspace*{-2ex} \large HG351  Corpus Linquistics
+\\[2ex] \Large  \emp{#2} \\ \emp{#3}}
+\author{\blu{Francis Bond}   \\ 
+\normalsize  \textbf{Division of Linguistics and Multilingual Studies}\\
+\normalsize  \url{http://www3.ntu.edu.sg/home/fcbond/}\\
+\normalsize  \texttt{bond@ieee.org}}
+\MyLogo{HG3051 (2018)}
+\renewcommand{\logo}{#2}
+\special{! /pdfmark where
+  {pop} {userdict /pdfmark /cleartomark load put} ifelse
+  [ /Author (Francis Bond)
+  /Title (#1: #2)
+  /Subject (HG3052: Corpus Linguistics)
+  /Keywords (Corpora)
+  /DOCINFO pdfmark}
+\date{#1 \\ \url{http://compling.hss.ntu.edu.sg/courses/hg3051/}}
+}
+
+
+\usepackage[dvips]{xcolor}
+\usepackage{graphicx}
+\newcommand{\blu}[1]{\textcolor{blue}{#1}}
+\newcommand{\grn}[1]{\textcolor{green}{#1}}
+\newcommand{\hide}[1]{\textcolor{white}{#1}}
+\newcommand{\emp}[1]{\textcolor{red}{#1}}
+\newcommand{\txx}[1]{\textbf{\textcolor{blue}{#1}}}
+\newcommand{\lex}[1]{\textbf{\mtcitestyle{#1}}}
+
+\usepackage{pifont}
+\renewcommand{\labelitemi}{\textcolor{violet}{\ding{227}}}
+\renewcommand{\labelitemii}{\textcolor{purple}{\ding{226}}}
+
+\newcommand{\subhead}[1]{\noindent\textbf{#1}\\[5mm]}
+
+\newcommand{\Bad}{\emp{\raisebox{0.15ex}{\ensuremath{\mathbf{\otimes}}}}}
+\newcommand{\bad}{*}
+
+\newcommand{\com}[1]{\hfill \textnormal{(\emp{#1})}}%
+\newcommand{\cxm}[1]{\hfill \textnormal{(\txx{#1})}}%
+\newcommand{\cmm}[1]{\hfill \textnormal{(#1)}}%
+
+\usepackage{relsize,xspace}
+\newcommand{\into}{\ensuremath{\rightarrow}\xspace}
+\newcommand{\ent}{\ensuremath{\Rightarrow}\xspace}
+\newcommand{\nent}{\ensuremath{\not\Rightarrow}\xspace}
+\newcommand{\tot}{\ensuremath{\leftrightarrow}\xspace}
+\usepackage{url}
+\newcommand{\lurl}[1]{\MyLogo{\url{#1}}}
+
+\usepackage{mygb4e}
+\let\eachwordone=\itshape
+\newcommand{\lx}[1]{\textbf{\textit{#1}}}
+
+\usepackage{times}
+%\usepackage{nttfoilhead}
+\newcommand{\myslide}[1]{\foilhead[-25mm]{\raisebox{12mm}[0mm]{\emp{#1}}}\MyLogo{\logo}}
+\newcommand{\myslider}[1]{\rotatefoilhead[-25mm]{\raisebox{12mm}[0mm]{\emp{#1}}}}
+%\newcommand{\myslider}[1]{\rotatefoilhead{\raisebox{-8mm}{\emp{#1}}}}
+
+\newcommand{\section}[1]{\myslide{}{\begin{center}\Huge \emp{#1}\end{center}}}
+
+
+
+\usepackage[lyons,j,e,k]{mtg2e}
+\renewcommand{\mtcitestyle}[1]{\textcolor{teal}{\textsl{#1}}}
+%\renewcommand{\mtcitestyle}[1]{\textsl{#1}}
+\newcommand{\chn}{\mtciteform}
+\newcommand{\cmn}{\mtciteform}
+\newcommand{\iz}[1]{\textup{\texttt{\textcolor{blue}{\textbf{#1}}}}}
+\newcommand{\rel}[1]{\textsc{\color{blue}{#1}}}
+\newcommand{\wn}[3]{\lex{#1}\ensuremath{_{#2:#3}}}
+\newcommand{\con}[1]{\textsc{#1}}
+\newcommand{\gm}{\textsc}
+\usepackage[normalem]{ulem}
+\newcommand{\ul}{\uline}
+\newcommand{\ull}{\uuline}
+\newcommand{\wl}{\uwave}
+\newcommand{\vs}{\ensuremath{\Leftrightarrow}~}
+\usepackage{hyperref}
+%%%
+%%% Bibliography
+%%%
+\usepackage{natbib}
+%\usepackage{url}
+\usepackage{bibentry}
+\usepackage{CJKutf8}
+\newcommand{\zh}[1]{\CJKfamily{gbsn}#1\CJKfamily{min}}
+%%% From Tim
+\newcommand{\WMngram}[1][]{$n$-gram#1\xspace}
+\newcommand{\infers}{$\rightarrow$\xspace}

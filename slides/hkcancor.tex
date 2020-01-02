@@ -1,0 +1,185 @@
+
+\documentclass[a4paper,landscape,headrule,footrule,dvips]{foils}
+
+\input{headx.tex}
+\usepackage{bibentry}
+\renewcommand{\cite}{\bibentry}
+
+%\header{Lecture 4}{Survey of Available Corpora}{}
+
+\usepackage{pst-node}
+\newcommand{\sa}[2]{\rnode{c#1}{\iz{#2}}}%\nodebox{c#1}}
+
+%\usepackage{hieroglf}
+\usepackage{wasysym}
+%\newcommand{\grn}[1]{\textcolor{PineGreen}{#1}}
+\newcommand{\ont}[1]{\textcolor{blue}{#1}}
+\newcommand{\jcy}[1]{\textcolor{orange}{#1}}
+\newcommand{\lxd}[1]{\textcolor{brown}{#1}}
+
+\newcommand{\hinoki}{\grn{Hinoki}\xspace}
+\newcommand{\lexeed}{\lxd{Lexeed}\xspace}
+\newcommand{\jacy}{\jcy{JACY}\xspace}
+\newcommand{\onto}{\ont{Ontology}\xspace}
+%\newcommand{\itsdb}{\textsf{[incr tsdb()]}\xspace}
+\newcommand{\GT}{Goi-Taikei\xspace}
+
+
+\begin{document}
+\begin{CJK}{UTF8}{min}
+\bibliographystyle{apalike}
+\nobibliography{abb,mtg,nlp,ling}
+
+\myslide{Corpus of Hong Kong Cantonese 香港粵語語料庫}
+\MyLogo{Francis Bond \url{<bond@ieee.org>} HG3051 lab2}
+\begin{itemize}
+\item 180,000-word corpus of Cantonese Speech
+\item 52 spontaneous conversations
+\item 42 radio programmes
+\item Transcribed (UTF-8); Transliterated Segmented; POS tagged
+\item English translation described in paper, not in downloadable corpus
+\item Available directly for download (no explicit license)
+\\ \url{http://compling.hss.ntu.edu.sg/hkcancor/}
+\item Produced by Luke Kang Kwong and ML Wong
+\end{itemize}
+\myslide{Creation}
+\begin{itemize}
+\item 30 hours of recordings (March 1997 --- August 1998)
+\item Native speakers of Cantonese
+\item ordinary settings with family members, friends and colleagues talking with each other freely on everyday topics such as current affairs, work and study, and personal hobbies
+\item Some parts selected
+\end{itemize}
+
+\myslide{Meta-Data/Annotation}
+\begin{itemize}
+\item Meta-Data
+  \begin{itemize}
+  \item Tape number (of recording);  Date of recording
+  \item Number of Speakers; List of Speakers (Code-Sex-Age-Origin) \\
+(e.g. A-M-22-HK says A is a 22-year-old male speaker from Hong Kong)
+  \end{itemize}
+\item Annotation
+  \begin{itemize}
+  \item Each Utterance has the speaker code
+  \item Utterances are segmented, POS tagged and transliterated
+    \begin{verbatim}
+基本上/d/ge3i1bun2soeng6/
+哩個/r/ni1go3/ze
+...
+\end{verbatim}
+  \end{itemize}
+\item The whole corpus is wrapped in xml (but not very well)
+\end{itemize}
+
+
+\myslide{Usage}
+\begin{itemize}
+\item Used to examine the uses of the frequently used sentence final particles w\v{o} and b\v{o} in the 1990s in Hong Kong Cantonese by examining speech data.
+\item Question: are w\v{o} (喎) and b\v{o} (噃) variant forms?
+\item Answer: No
+  \begin{quotation}
+    ``{[\ldots]} the two SFPs carry and serve different meanings and functions in modern Hong Kong Cantonese, and thus they are not exactly the same particles and not interchangeable as previously assumed.''
+    \citep[p21]{Leung:2010}
+  \end{quotation}
+\item Also used as a corpus in the \textit{PyCantonese} Project:
+  Working with Cantonese corpus data using Python, by Jackson L. Lee (\url{https://github.com/pycantonese/pycantonese})
+
+\end{itemize}
+
+\myslide{References}
+\begin{itemize}
+\item \cite{Luke:Wong:2015}
+\item \cite{Wong:2006}
+\item \cite{Leung:2010}
+\end{itemize}
+
+\myslide{ISLRN}
+\noindent{\footnotesize \begin{tabular}{lp{0.8\textwidth}}
+Title &  HKcancor \\
+Full Title &  Hong Kong Cantonese Corpus \\
+Resource Type &  Speech \\
+Source/URL &  \url{compling.hss.ntu.edu.sg/hkcancor} \\
+Format/MIME Type &  text/xml \\
+Size/Duration &   230,000 words \\
+Access Medium &  online \\
+Description &  The Hong Kong Cantonese Corpus was collected from
+             transcribed conversations that were recorded between
+             March 1997 and August 1998. About 230,000 Chinese
+             words were collected in the annotated corpus. It
+             contains recordings of spontaneous speech (51 texts)
+             and radio programmes (42 texts), which involve 2 to
+             4 speakers, with 1 text of monologue. The text were
+             word-segmented, annotated with part-of-speech
+             tagging and Cantonese pronunciation using the 
+             romanisation scheme of the Linguistic Society of Hong
+             Kong (LSHK). \\
+
+Version &  ?  \\
+Media Type &  Transcribed Speech \\
+Language &  yue (Cantonese)x \\
+Resource Creator &  KK Luke \\
+Distributor &  KK Luke \\
+Rights Holder &  KK Luke
+\end{tabular}}
+
+% \myslide{Redwoods Treebank of English}
+% \myslide{Creation/Annotation}
+% \myslide{Usage}
+% \myslide{References}
+% \begin{itemize}
+% \item \cite{}
+% \item \cite{}
+% \end{itemize}
+
+% \myslide{Tatoeba Corpus}
+% \myslide{Creation/Annotation}
+% \myslide{Usage}
+% \myslide{References}
+% \begin{itemize}
+% \item \cite{}
+% \item \cite{}
+% \end{itemize}
+
+% \myslide{NICT Multilingual Corpus/Kyoto Corpus}
+% \myslide{Creation/Annotation}
+% \myslide{Usage}
+% \myslide{References}
+% \begin{itemize}
+% \item \cite{}
+% \item \cite{}
+% \end{itemize}
+
+% \myslide{NTU Multilingual Corpus}
+% \myslide{Creation/Annotation}
+% \myslide{Usage}
+% \myslide{References}
+% \begin{itemize}
+% \item \cite{}
+% \item \cite{}
+% \end{itemize}
+
+
+% \myslide{Acknowledgments}
+% \MyLogo{HG351 (2011)}
+
+% \begin{itemize}
+% \item Thanks to Na-Rae Han for 
+%   inspiration for some of the slides (from  \textit{LING 2050 Special Topics in Linguistics: Corpus linguistics}, U Penn).
+% \item Thanks to Sandra K\"{u}bler for some of the slides from her 
+% \textit{RoCoLi\footnote{Romania Computational Linguistics Summer School} Course: Computational Tools for Corpus Linguistics}
+% %\item Thanks to Mark Davies (BYU) for the exploration ideas.
+% \item Definitions from WordNet 3.0
+% \end{itemize}
+
+%%
+%% Future
+%%
+\clearpage
+\end{CJK}
+\end{document}
+
+% Local Variables: 
+% TeX-view-style: (("." "xdvi-ja %d -paper a4r -s 7"))
+% LaTeX-section-list:  (("myslide" 1))
+% TeX-master: t
+% End:

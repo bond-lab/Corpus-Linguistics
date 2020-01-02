@@ -1,0 +1,742 @@
+\documentclass[a4paper,landscape,headrule,footrule,dvips]{foils}
+
+\input{headx.tex}
+\usepackage{bibentry}
+\renewcommand{\cite}{\bibentry}
+
+\header{Lecture 9}{Contrastive and Diachronic Studies}{}
+
+\usepackage{pst-node}
+\newcommand{\sa}[2]{\rnode{c#1}{\iz{#2}}}%\nodebox{c#1}}
+
+%\usepackage{hieroglf}
+\usepackage{wasysym}
+%\newcommand{\grn}[1]{\textcolor{PineGreen}{#1}}
+\newcommand{\ont}[1]{\textcolor{blue}{#1}}
+\newcommand{\jcy}[1]{\textcolor{orange}{#1}}
+\newcommand{\lxd}[1]{\textcolor{brown}{#1}}
+
+
+\newcommand{\psp}[1]{\textcolor{purple}{#1}}
+\newcommand{\dtr}[1]{\textcolor{blue}{#1}}
+\newcommand{\nam}[1]{\textcolor{blue}{#1}}
+\newcommand{\idm}[1]{\textcolor{brown}{#1}}
+\newcommand{\gen}[1]{\textcolor{orange}{#1}}
+\newcommand{\exl}[1]{\textcolor{orange}{#1}}
+\newcommand{\trg}[1]{\textcolor{red}{#1}}
+
+
+\newcommand{\hinoki}{\grn{Hinoki}\xspace}
+\newcommand{\lexeed}{\lxd{Lexeed}\xspace}
+\newcommand{\jacy}{\jcy{JACY}\xspace}
+\newcommand{\onto}{\ont{Ontology}\xspace}
+%\newcommand{\itsdb}{\textsf{[incr tsdb()]}\xspace}
+\newcommand{\GT}{Goi-Taikei\xspace}
+
+
+\begin{document}
+\begin{CJK}{UTF8}{min}
+\bibliographystyle{apalike}
+\nobibliography{abb,mtg,nlp,ling}
+\maketitle
+
+
+\myslide{Overview}
+
+\begin{itemize} 
+\item Revision of Case Studies
+  \begin{itemize} 
+  \item Possessive Pronouns
+  \item Classifiers
+  \end{itemize}
+\item Contrastive Studies
+\item Diachronic Studies
+\end{itemize}
+
+%%% 
+%%% this changes each year, so keep separate
+%%%
+\include{schedule}
+
+%%%
+\section{Revision of Case Studies}
+%%%
+
+\myslide{Possessive Pronouns in Japanese contrasted with English}
+\begin{itemize}\addtolength{\itemsep}{-5mm}
+\item Introduction
+
+\item Possessive Expressions in Japanese and English
+  
+ \begin{exe}
+   \ex
+    \begin{tabular}[t]{lllll}
+                                % 私は舌を噛んだ。I bit my tongue.
+      Kanji: &  私は &  舌を &  噛んだ\\
+      Jap:   &  \sl watashi-wa &  \sl shita-wo & \sl kanda\\
+      Gloss: &   I-{\sc top} &  tongue-{\sc acc} &  bit  \\
+      Eng:   & \multicolumn{4}{l}{`I bit \psp{my} tongue'}
+    \end{tabular}
+  \end{exe}
+  
+\item Differences in Noun Phrase Structure
+
+\item Pragmatic Analysis 
+
+\item Application to Machine Translation \\
+Proposed method for generating possessive pronouns \\
+Experimental Results 
+
+\item Conclusion 
+\end{itemize}
+
+\myslide{Application to Machine Translation}
+
+
+
+
+\begin{itemize}
+\item Mark nouns that head English noun phrases with possessive
+  determinatives where there is no possessive expression in the
+  Japanese in the lexicon (\trg{possessed-nouns})
+   \begin{itemize}
+      \item 205 different \trg{possessed-nouns} (MT test set)
+      \item heading 825 noun phrases
+      \item 359 (44\%) translated with possessive pronouns
+    \end{itemize}
+\item  Mainly nouns that denote \iz{kin, body parts, work, personal
+    possessions, attributes} and \iz{people defined by their
+    relation to another person}  
+\item Which nouns need to be marked is language specific, and probably
+  register and domain specific as well.
+\end{itemize}
+  
+%end
+
+
+\myslide{Corpus-based Study of Distribution}
+
+\noindent\begin{tabular}{llccccc}
+  \multicolumn{2}{l}{Type:}  &
+  \multicolumn{2}{c}{MT Test set} &
+  \multicolumn{2}{c}{News reports} \\
+   & & No.  & \%  & No.  & \%  \\ \hline
+   I & English Idiomatic Possessive & 105 & 16\% & 35 & 19\% \\
+   II & Possessive Expression in Japanese & 193 & 30\% & 5 & 3\% \\
+   III &No Possessive in Japanese & 359 &  \underline{54\%}& 176 & \underline{78\%} \\
+  \multicolumn{2}{l}{Total:} &  657 & & 181 & 
+\end{tabular}
+
+\begin{itemize}
+\item Two Corpora
+  \begin{itemize}
+  \item NTT MT Test set (6,200 sentences, 15,000 NPs)
+  \item Nikkei News Reports (1,382 sentences, 8000 NPs)
+  \end{itemize}
+\item Matched English:
+\\  \verb@[Mm]y|[Yy]our|[Hh]is|[Hh]er|[Ii]ts|[Tt]heir|[Oo]ur@
+\\ Then hand checked Japanese for translation (on paper with colored pens!)
+\end{itemize}
+
+
+\myslide{English:}
+
+\begin{enumerate}\addtolength{\itemsep}{-5mm}
+\item Possessive determinative contrasts with articles\\
+  --- equivalent effort
+\item Use of indefinite article implicates not
+  owned \\
+  --- unless `possession' predicated by verb
+\item Use of definite article implicates more restricted reference
+\item $\Rightarrow$ Use possessive determinative if relevant\\ --- unless 
+  `possession' predicated by verb (don't be more informative than is
+  required)
+\end{enumerate}
+
+\myslide{Japanese:}
+
+\begin{enumerate}
+\item Possessive expression requires extra effort
+\item  Don't use by default \\
+  --- interpretation is that subject is antecedent
+\item  $\Rightarrow$ Use possessive expression to contradict default
+\item  $\Rightarrow$ Use possessive expression to emphasize default
+\end{enumerate}
+
+
+  \myslide{Translating NPs headed by \trg{possessed-nouns}}
+
+{\small
+     \begin{enumerate} %\addtolength{\itemsep}{-5mm}
+     \item A noun phrase that fulfills all of the following conditions
+       will be generated with a default possessive determinative with
+       deictic reference determined by the modality of the sentence it
+       appears in.
+        \begin{enumerate}
+        \item The noun phrase is headed by a \trg{possessed-noun} that
+          denotes \iz{kin} or \iz{body parts}
+        \item The noun phrase is the subject of the sentence
+        \item The noun phrase is referential
+        \item The noun phrase has no other determiner
+        \end{enumerate}
+      \item A noun phrase that fulfills all of the following
+        conditions will be generated with a default possessive
+        determinative whose antecedent is the subject of the sentence
+        the noun phrase appears in.
+        \begin{enumerate}
+        \item The noun phrase is headed by a \trg{possessed-noun} 
+        \item The noun phrase is not the subject of the sentence
+        \item The noun phrase is referential
+        \item The noun phrase has no other determiner
+        \item The noun phrase is not the direct object of a verb of
+          \iz{possession} or \iz{acquisition}
+        \end{enumerate}
+      \end{enumerate}
+}
+
+\myslide{Experimental Results}
+
+Results of the generation of all noun phrases headed by
+\trg{possessed-nouns} in the MT test set (Total 752 noun phrases).
+
+  \begin{center}
+    \begin{tabular}{|l|l|l|} \hline
+      Result & Not generated & Generated  \\ \hline
+      Good &I hit him in \dtr{the} face  &  I hid \psp{my} face \\ \hline
+      Bad &  I scratched \dtr{a} face       & I lost \psp{my} face \\ \hline
+    \end{tabular}
+
+    \begin{tabular}{|l|l|rr|rr|} \hline
+      Result & \multicolumn{1}{c|}{Possessive}  &
+      \multicolumn{2}{c|}{MT-93} & \multicolumn{2}{c|}{MT-94}\\ 
+      & \multicolumn{1}{c|}{determinative}     & NPs & \%& NPs & \% \\ \hline
+      Good & Not generated & 429 & 57\% & 346  & 46\%\\
+      & Generated     &   0 & 0\%  & 263  & 35\%\\ \cline{2-6}
+      & --- Total & 429 &  57\% & 609 & 81\%  \\ \hline
+      Bad  & Not generated & 323 & 43\% &  60 & 8\% \\
+      & Generated     &   0 & 0\%  &  83 & 11\% \\ \cline{2-6}
+      & --- Total     &  323 & 43\% & 143 & 19\%  \\  \hline 
+    \end{tabular}
+  \end{center}
+
+%end
+
+\myslide{Conclusions}
+
+  \begin{enumerate}
+  \item Possessive determinatives are used in English even when there
+    is no equivalent possessive expression used in Japanese
+  \item This can be explained by the fact that in English possessive
+    determinatives function as determiners, while in Japanese the
+    possessive construction is an optional modifier phrase
+  \item `\trg{possessed-nouns}' can be identified in English that act
+    (imperfectly) as cues
+  \item Implementing an algorithm  that uses
+    \trg{possessed-nouns} in the Japanese-to-English MT system {\bf
+      ALT-J/E} generated possessive pronouns with an accuracy of
+    81\% (up from 57\%) and precision of 88\%.
+  \item Should also be applicable to other under-specified generation: AAC.
+  \end{enumerate}
+
+
+
+\myslide{How do we count Email in Japanese?}
+\lurl{http://www5b.biglobe.ne.jp/~aiida/iida2006-message.pdf}
+
+\begin{itemize}
+\item Japanese has two main classifiers for counting messages:
+  \begin{itemize}
+  \item 通 \jpn{tsuu}: used for letters
+  \item 件 \jpn{ken}: used for incidents
+  \item 本 \jpn{hon}: used for phone calls
+  \item コール \jpn{call}: used for phone calls
+  \end{itemize}
+\end{itemize}
+\begin{center}
+  \begin{tabular}{lrrrrrr}
+    Year &  1996 & 1998 & 2000 & 1002 & 2004 \\ \hline
+    Email Usage & 5\% & 11\% & 34\% & 81\% & 86\%\\
+    Classifier  & 通, 本  & 通  & 通 & 通, 件 & 通, 件 \\
+    SMS  Usage &   ---  & 39\% & 45\% & 67\% & 76\%\\
+    Classifier  &  &  通, コール  & 通  & 通 & 件, 通 \\
+    % & 件 \jpn{ken} & \\
+  \end{tabular}
+  \\[2ex] Change in Classifier use with increased familiarity
+  \\ Classifiers listed in frequency order
+\end{center}
+
+
+
+\section{Contrastive Studies}
+\MyLogo{}
+
+\myslide{Contrastive linguistics}
+
+\begin{itemize}
+\item  a linguistic approach that seeks to describe the differences and similarities between a pair of languages
+\item Some of the many applications:
+  \begin{itemize}
+  \item to avoid interference errors in foreign-language learning
+  \item to assist interlingual transfer in the process of translating texts from one language into another
+  \item to find lexical equivalents in the process of compiling bilingual dictionaries
+  \end{itemize}
+\item generalized to the differential description of one or more varieties within a language, such as styles (contrastive rhetoric), dialects, registers or terminologies of technical genres
+\end{itemize}
+
+
+\myslide{Three Common Approaches}
+
+\begin{itemize}
+\item Look at examples in a \blu{translation lexicon}
+  \begin{itemize}
+  \item well aligned sample
+  \item[x] no frequency information
+  \end{itemize}
+\item Look at examples in  \blu{comparable corpora} ``similar genre but not bitext''
+  \begin{itemize}
+  \item good for getting general trends
+  \item[x] hard to measure \textbf{comparability}
+  \end{itemize}
+\item Look at examples in  \blu{aligned corpora} ``bitext''
+  \begin{itemize}
+  \item can get numbers at a very detailed level
+  \item[x] translated text differs from monolingual text
+  \item[x] translations can be very free
+  \end{itemize}
+\end{itemize}
+
+
+
+
+\myslide{A Corpus based Comparison of Satellites in Chinese and English}
+\MyLogo{Hui Yin (2008) in Xiao et al (2008)}
+
+\begin{itemize}
+\item two balanced corpora (BNC and Academia Sinica Balanced Corpus of Modern
+Chinese) were used to compare satellites in Chinese and English
+
+\item Satellites:
+  \begin{itemize}
+  \item[E]  verb+particle \eng{go out, look up}
+  \item[C]  verb+complement \eng[fly out from, lit: fly exit-come]{fei chulai}
+  \end{itemize}
+\item more satellites used in Chinese than in English
+\item mainly due to use as aspect markers
+\end{itemize}
+
+\myslide{Comparable Corpora}
+\MyLogo{}
+\begin{itemize}
+\item British National Corpus (BNC)
+  \begin{itemize}
+  \item 100 million words
+  \item balanced
+  \item 10\% speech
+  \end{itemize}
+\item Academia Sinica Balanced Corpus of Modern Chinese (Sinica Corpus) 
+  \begin{itemize}
+  \item 5 million words
+  \item balanced
+  \item 10\% speech
+  \end{itemize}
+\item Compared 1,000 sentences randomly selected from each
+  \begin{itemize}
+  \item 500 Chinese satellites
+  \item 300 English satellites
+  \end{itemize}
+\end{itemize}
+
+\myslide{English and Chinese Satellites}
+
+\begin{tabular}[t]{lr}
+English  & Frequency \\ \hline
+\lex{out}      & 55 \\
+\lex{up}       & 31 \\
+\lex{in}       & 28 \\
+\lex{back}     & 27 \\
+\lex{down}     & 23 \\
+\lex{into}     & 20 \\
+\lex{on}       & 17 \\
+\lex{through}  & 14 \\
+\lex{away}     & 13 \\
+\lex{off}      & 13 \\
+% round    & 9 \\
+% along    & 8 
+\end{tabular}
+\begin{tabular}[t]{llr}
+Chinese & Gloss  & Frequency \\ \hline
+\lex{lai}     & come & 75 \\
+\lex{qu}      & go & 55 \\
+\lex{chu}     & exit & 52 \\
+\lex{chulai}  & exit come & 36\\
+\lex{dao}     & arrive, achieve & 35\\
+\lex{shang}   & ascend & 32 \\
+\lex{qilai}   & rise come & 32\\
+\lex{zou}     & walk, away & 21\\
+\lex{qi}      & rise & 18 \\
+\lex{zhu}     & hold & on \\
+\lex{xia}     & descend & 16 \\
+\lex{kai}     & open & 14 \\
+\lex{shangqu} & ascend go & 12\\
+% xialai  & descend come & 10\\
+% xiaqu   & descend go & 10
+% hui     &  &  \\
+% huiqu   & return, go & 8\\
+% guolai  & cross, come & 7 \\
+\end{tabular}
+\\ Types with Token frequency $ > 10$
+
+\myslide{Discussion}
+
+\begin{itemize}
+\item More double satellites in Chinese
+\\ None in the English top ten
+\item More varied semantics for the Chinese:
+\\  fulfillment,  underfulfillment, overfulfillment, antifulfillment and other events
+\item The satellites themselves are only vaguely comparable 
+\bigskip
+\item FCB comments:
+  \begin{itemize}
+  \item I would liked to have seen some examples from a parallel corpus
+  \end{itemize}
+\end{itemize}
+
+\myslide{Task}
+\begin{itemize}
+\item In a language you speak, try to come up with examples of verb+satellite
+\item Try to find some examples of verb-satellite from the NTU-MC (or
+  another corpus such as OPUS)
+  \begin{itemize}
+  \item try to find at least one example with verb-satellite
+    translated as verb-satellite
+  \end{itemize}
+\end{itemize}
+
+
+\myslide{Contrastive connectors in English and Chinese}
+\MyLogo{Wang, Jianxin Yin (2008) in Xiao et al (2008)}
+
+\begin{itemize}
+\item a comparative study of \lex{however} and its Chinese counterparts
+\item  in two translation corpora
+  \begin{itemize}
+  \item the HLM parallel corpus
+  \item the Babel English-Chinese Parallel Corpus
+  \end{itemize}
+\item a good example of comparison with parallel text
+  \begin{itemize}
+  \item a deep analysis of a small number of examples
+  \end{itemize}
+\end{itemize}
+
+\myslide{English-Chinese Parallel Corpora}
+\MyLogo{}
+% \newcommand{\zh}[1]{\CJKfamily{bsmi}#1\CJKfamily{min}}
+\newcommand{\ZH}[1]{\CJKfamily{gbsn}#1\CJKfamily{min}}
+\begin{itemize}
+\item HLM Parallel Corpus: \ZH{红楼梦} \eng{H\'ong L\'ou M\`eng}
+  \begin{itemize}
+  \item Two complete English translations
+    \begin{itemize}
+    \item ``The Story of the Stone'' David Hawkes and John Minford \hfill (literal)
+    \item ``A Dream of Red Mansions'' Gladys Yang and Yang Hsien-yi \hfill (free)
+    \end{itemize}
+  \end{itemize}
+\item Babel Corpus (no longer online)
+  \begin{itemize}
+  \item 327 English articles and their translations in Mandarin Chinese
+  \item 544,095 words (253,633 English words and 287,462 Chinese tokens)
+  \item half  from \textit{World of English} and half from \textit{Time} (2000--2001)
+  \end{itemize}
+\end{itemize}
+
+\myslide{HLM Parallel Corpus}
+
+\begin{itemize}
+\item Took 20 English sentences with \lex{however} and compared to the Chinese translation and then the other English Translation
+  \begin{itemize}
+  \item 13 no translation of \lex{however}
+  \item 2 \zh{到底} \eng[however]{daodi}
+  \item 2 \zh{卻} \eng[of course]{que}
+  \item 1 \zh{雖 \ldots 卻} \eng[though \ldots never the less]{sui \ldots que}
+  \item 1 \zh{任憑是什麼好的} ``however good they are''
+  \item 1 \zh{人來客往} ``however many guests''
+  \end{itemize}
+\end{itemize}
+
+\myslide{Discussion}
+
+\begin{itemize}
+\item 75\% of the Chinese contrastive connectors are implied
+\item  90\% of connectors are used between sentences; only 10\%  at clausal level
+\item  The positional distributions of the contrastive connectors in
+these two languages differ considerably.
+\begin{itemize}
+\item  85\% of the Chinese contrastive connectors occur in the
+beginning of the sentence or clause
+\item 52.5\% do in English only; second initial position is also common.
+\item The lack of contrastive connectors in Chinese compared to
+  English is likely to be related to the frequent omission of subjects
+\end{itemize}
+\end{itemize}
+
+\myslide{Babel Parallel Corpus}
+
+\begin{itemize}
+\item 101 sentence pairs
+  \begin{itemize}
+  \item 4  no translation of \lex{however}
+  \item 38 \zh{然而} \eng{raner} 
+  \item 26 \zh{不过} \eng{bu guo}
+  \item 11 \zh{但是} \eng{danshi}
+  \item 7 \zh{但} \eng{dan}
+  \item 4 \zh{可是} \eng{keshi}
+  \item 6 others
+  \end{itemize}
+\end{itemize}
+
+\myslide{Discussion}
+
+\begin{itemize}
+\item 96\% of the Chinese contrastive connectors translated
+  \begin{itemize}
+  \item difference between literary and news style
+  \end{itemize}
+%\item  90\% of connectors are used between sentences; only 10\%  at clausal level
+\item  The positional distributions of the contrastive connectors in
+these two languages differ considerably.
+\begin{itemize}
+\item  94.1\% of the Chinese contrastive connectors occur in the
+beginning of the sentence or clause
+\item 49.5\% sentence initial, 38.6\% second position.
+\end{itemize}
+\item word order differences should be emphasized in teaching
+\item FCB comments:
+  \begin{itemize}
+  \item different samples show very different results: sample wisely
+  \end{itemize}
+\end{itemize}
+
+
+\myslide{A Parallel Corpus-based Study of Translational Chinese}
+\MyLogo{Kefei WANG, Hongwu QIN (2008) in Xiao et al (2008)}
+
+\begin{itemize}
+\item Compared English Text (EST), Original Chinese Text (OCT),
+  Translated Chinese Text (TCT)
+\item Translational Chinese has the following features
+  \begin{itemize}
+  \item TCT uses fewer monosyllabic words than OCT does
+  \item TCT tends to expand the normal load capacity of some Chinese constructions,
+which leads to longer sentence segments
+\item compared with OCT, TCT uses more function words
+\item TCT can change or expand the compositionality of some words or morphemes in
+Chinese.
+\end{itemize}
+\item TCT use more types and longer segments than OCT. This does not
+  support the hypothesis of lexical and syntactic simplification in translation.
+\end{itemize}
+
+\section{Diachronic Studies}
+\MyLogo{}
+
+\myslide{Historical Linguistics}
+\begin{itemize}
+\item All Historical linguistics is corpus linguistics: we can not ask
+  Old English speakers for grammatical judgments
+\item The texts of a historical period or a dead language form a closed corpus 
+  \begin{itemize}  \item  can only be extended by the (re-)discovery of previously unknown texts
+  \end{itemize}
+\item For some languages you can  use (almost) all of the closed corpus of a language for research 
+  \begin{itemize}
+  \item  the \textit{Theasurus Linguae Graecae} corpus contains most of extant ancient Greek literature.
+  \end{itemize}
+\end{itemize}
+
+\myslide{Corpus-based historical linguistics}
+
+% In recent years, however, some historical linguistics have changed their approach, resulting in an upsurge in strictly corpus-based historical linguistics and the building of corpora for this purpose. The most widely known English historical corpus is the Helsinki corpus.
+%\myslide{Diachronic Studies}
+\begin{itemize}
+\item Comparable corpora sampled over different times have made it
+  possible to quantitatively study language change %over time
+\begin{itemize}
+\item An early, influential corpus is the \blu{Helsinki Corpus of English Texts: Diachronic and Dialectal}
+  \\The Corpus contains a diachronic part covering the period from c. 750 to c. 1700 and a dialect part based on transcripts of interviews with speakers of British rural dialects from the 1970's.
+  \\ \url{http://khnt.hit.uib.no/icame/manuals/hc/index.htm} 
+\item Recently the \blu{Corpus of Historical American English} has been created
+\\ COHA allows you to quickly and easily search more than 400 million words of text of American English from 1810 to 2009. 
+\\ \url{http://corpus.byu.edu/coha/}
+\item Also \url{http://ngrams.googlelabs.com/}
+\end{itemize}
+\end{itemize}
+
+
+\myslide{The Helsinki Corpus}
+\begin{itemize}
+\item approximately 1.6 million words of English dating from the earliest Old English Period to the end of the Early Modern English period 
+  \begin{itemize}
+  \item Old English (before AD 850)
+  \item Middle English
+  \item Early Modern English (to 1710)
+  \end{itemize}
+\item Each period is subdivided into  100 or 70-year sub periods
+\item The Helsinki corpus covers a range of genres, regional varieties and sociolinguistics variables such as gender, age, education and social class
+\item Two satellite Corpora:
+  \begin{itemize}
+  \item early Scots English
+  \item early American English
+  \end{itemize}
+\end{itemize}  
+
+
+\myslide{The \lex{by}-agent in English}
+
+\begin{itemize}
+\item  Peitsara (1993) used four subperiods from the Helsinki corpus to calculate the frequencies of different prepositions introducing agent phrases
+  \begin{itemize}
+  \item In late Middle English (\textit{c.} 1350) \lex{of} and
+    \lex{by} were in roughly equal distribution (10.6:9)
+  \item By the fifteenth century \lex{by} was three times more
+    common than \lex{of}
+  \item By 1640 \lex{by} was eight times as common
+  \end{itemize}
+\item There was marked influence of text type: statutes and official
+  documents were much more likely to use \lex{by}
+  \begin{itemize}
+  \item This is probably due to bilingual influence from French
+  \end{itemize}
+\end{itemize}
+
+
+Peitsara, K. (1993) "On the development of the by-agent in English", in \textit{Early English in the Computer Age}. Rissanen, Kytö and Palander-Collin eds, 1993 pp 217-33, Berlin, Mouton de Gruyter. 
+
+\myslide{The case of it’s and ‘tis}
+Peitsara, K. (2004) ``Variants of contraction: The case of it’s and ‘tis'' \textit{ICAME} \textbf{28} pp 77-94
+
+\begin{itemize}
+\item two contracted forms of \lex{it is}
+  \begin{itemize}
+  \item \lex{'tis} (\lex{tys, ‘t is, t is, t‘ is})
+  \item \lex{it's} 
+
+  \end{itemize}
+\item Contractions are more often used in speech than text
+  \begin{itemize}
+  \item Their use or absence in text may reflect the editor's or
+    printer's choice not the writer's actual usage
+  \item ``the forms and structures of speech are best reflected in
+    text categories that imitate speech, are addressed to a less
+    educated readership, or are written in the less formal register
+    and by less educated writers'' (Kytö and Rissanen 1993: 12)
+  \end{itemize}
+\end{itemize}
+
+\myslide{The case of it’s and ‘tis}
+\MyLogo{Peitsara, K. (2004) Table 2}
+
+\begin{center}
+  \lex{'tis} vs \lex{it's} in the Early Modern English
+  part of the Helsinki Corpus
+\end{center}
+\begin{tabular}{lrrrrrrrr}
+& \multicolumn{2}{c}{EModE1} &
+\multicolumn{2}{c}{EModE2} &
+\multicolumn{2}{c}{EModE3} &
+\multicolumn{2}{c}{Total} \\
+& \multicolumn{2}{c}{(1500–1570)} &
+\multicolumn{2}{c}{(1570–1640)} &
+\multicolumn{2}{c}{(1640–1710)} \\
+\hline
+ & N & \% & N & \% & N & \% & N & \% \\
+\lex{'tis} & 5 & 100 & 41 & 93.18 & 67 & 65.68 & 113 & 74.83 \\
+\lex{it's} & --- & --- & 3 & 6.82 & 35 & 34.31 & 38 & 25.17 \\
+\end{tabular}
+\myslide{The case of it’s and ‘tis}
+\MyLogo{Peitsara, K. (2004) Table 5 (\url{http://lion.chadwyck.com/})}
+
+\begin{center}
+  \lex{'tis} vs \lex{it's} in the prose part of the LION corpus (all spelling variants)
+\end{center}
+\begin{tabular}[lrrrrrr]{lrrrrrrrrr}
+              & -1600 & -1650 & -1700 & -1750 & -1800 & -1850 & -1900 & 1900- \\
+\hline
+\lex{'tis} &  82 & 286 & 2302 & 1950 & 2137 & 4641 & 1964 & 3\\
+\% & 100.00 & 96.30 & 98.33 & 98.19 & 81.75 & 28.78 & 15.78 & 1.67\\
+\lex{it's} &  & 11 & 39 & 36 & 479 & 11485 & 10484 & 177\\
+\% &   & 3.70 & 1.67 & 1.81 & 18.25 & 71.22 & 84.22 & 98.33\\
+\end{tabular}
+
+\begin{itemize}
+\item Big break between 1800 and 1850
+\item Considerable variation in individual writers
+  \begin{itemize}
+  \item Thomas Hardy 90\% \lex{'tis}
+  \item American writers use \lex{'tis} relatively more
+  \end{itemize}
+\end{itemize}
+
+\myslide{Why the change?}
+\MyLogo{}
+\begin{itemize}
+\item General trend from proclisis (initial) to enclisis (embedded)
+  \begin{itemize}
+  \item  OE and ME proclitic negation (\lex{nam, nis, neren,} etc.)
+  \item  ModE enclitic contractions (\lex{isn’t, ain’t, weren’t,} etc.).
+  \end{itemize}
+\item Perhaps in analogy to  personal pronouns with be (\lex{I’m, he’s,
+she’s, we're}, etc.), supported by other enclitic contractions (\lex{we’ll, he’d, etc.}).
+\item Note: \lex{'tis} survives in the south-western varieties of British English and also in Newfoundland English
+\end{itemize}
+
+\myslide{Issues with Historical Linguistics}
+\MyLogo{}
+Rissanen (1989) identifies three main problems associated with using historical corpora
+\begin{itemize}
+\item The \blu{philologist's dilemma} ---the danger that the use of a corpus and a computer may supplant the in-depth knowledge of language history which is to be gained from the study of original texts in their context
+\item  The \blu{God's truth fallacy} --- the danger that a corpus may be used to provide representative conclusions about the entire language period, without understanding its limitations in the terms of which genres it does and does not cover
+\item The \blu{mystery of vanishing reliability} --- the more variables which are used in sampling and coding the corpus (periods, genres, age, gender etc) the harder it is to represent each one fully and achieve statistical reliability. The most effective way of solving this problem is to build larger corpora (if possible)
+\end{itemize}
+
+Rissanen, M. (1989) "Three problems connected with the use of
+diachronic corpora", ICAME Journal 13: 16-19.
+
+\myslide{Acknowledgments}
+ \MyLogo{HG351 (2011)}
+
+ \begin{itemize}
+ \item Historical Linguistics examples taken from Chapter 4 of
+   \bibentry{Biber:Conrad:Reppen:1998}
+ \item Several papers from Richard Xiao, Lianzhen He, and Ming Yue
+   (2008) \textit{Proceedings of The International Symposium on Using
+     Corpora in Contrastive and Translation Studies (UCCTS 2008)}, Alberta
+\\ \url{www.lancs.ac.uk/fass/projects/corpus/UCCTS2008Proceedings/}
+ \end{itemize}
+% \item Thanks to Stefan Th. Gries (University of California, Santa
+%    Barbara) for his great introduction \textit{Useful statistics for
+%      corpus linguistics} \url{http://www.linguistics.ucsb.edu/faculty/stgries/research/UsefulStatsForCorpLing.pdf}
+%  \item Some examples taken from Ted Dunning's \textit{Surprise and
+%      Coincidence - musings from the long tail}
+%    \url{http://tdunning.blogspot.com/2008/03/surprise-and-coincidence.html}
+
+%   inspiration for some of the slides (from  \textit{LING 2050 Special Topics in Linguistics: Corpus linguistics}, U Penn).
+% \item Thanks to Sandra K\"{u}bler for some of the slides from her 
+% \textit{RoCoLi\footnote{Romania Computational Linguistics Summer School} Course: Computational Tools for Corpus Linguistics}
+% %\item Thanks to Mark Davies (BYU) for the exploration ideas.
+% \item Definitions from WordNet 3.0
+% \end{itemize}
+
+
+
+%%
+%% Future
+%%
+\clearpage
+\end{CJK}
+\end{document}
+
+% Local Variables: 
+% TeX-view-style: (("." "xdvi-ja %d -paper a4r -s 7"))
+% LaTeX-section-list:  (("myslide" 1))
+% TeX-master: t
+% End:

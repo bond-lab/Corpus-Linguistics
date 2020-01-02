@@ -1,0 +1,1373 @@
+\documentclass[a4paper,landscape,headrule,footrule,dvips]{foils}
+
+\input{headx.tex}
+\usepackage{bibentry}
+\renewcommand{\cite}{\bibentry}
+
+\header{Lecture 8}{Case Studies: Pronouns and Classifiers}{}
+
+\usepackage{pst-node}
+\newcommand{\sa}[2]{\rnode{c#1}{\iz{#2}}}%\nodebox{c#1}}
+
+%\usepackage{hieroglf}
+\usepackage{wasysym}
+%\newcommand{\grn}[1]{\textcolor{PineGreen}{#1}}
+\newcommand{\ont}[1]{\textcolor{blue}{#1}}
+\newcommand{\jcy}[1]{\textcolor{orange}{#1}}
+\newcommand{\lxd}[1]{\textcolor{brown}{#1}}
+
+\newcommand{\psp}[1]{\textcolor{purple}{#1}}
+\newcommand{\dtr}[1]{\textcolor{blue}{#1}}
+\newcommand{\nam}[1]{\textcolor{blue}{#1}}
+\newcommand{\idm}[1]{\textcolor{brown}{#1}}
+\newcommand{\gen}[1]{\textcolor{orange}{#1}}
+\newcommand{\exl}[1]{\textcolor{orange}{#1}}
+\newcommand{\trg}[1]{\textcolor{red}{#1}}
+
+\newcommand{\hsp}{\hspace*{1.5cm}}
+\newcommand{\hhsp}{\hspace*{2.5cm}}
+\newcommand{\tag}[1]{$<${\bf #1}$>$}
+
+\newcommand{\hinoki}{\grn{Hinoki}\xspace}
+\newcommand{\lexeed}{\lxd{Lexeed}\xspace}
+\newcommand{\jacy}{\jcy{JACY}\xspace}
+\newcommand{\onto}{\ont{Ontology}\xspace}
+%\newcommand{\itsdb}{\textsf{[incr tsdb()]}\xspace}
+\newcommand{\GT}{Goi-Taikei\xspace}
+
+
+
+
+\begin{document}
+\begin{CJK}{UTF8}{min}
+\bibliographystyle{apalike}
+\nobibliography{abb,mtg,nlp,ling}
+\maketitle
+
+
+\myslide{Overview}
+
+\begin{itemize} 
+\item Revision of Lexical, Morphological and Syntactic Studies
+  \begin{itemize} 
+  \item Lexical Studies
+  \item Grammatical Studies
+  \item Variation
+  \end{itemize}
+\item Case Studies
+  \begin{itemize}
+  \item Pronouns
+  \item Classifiers
+  \end{itemize}
+\end{itemize}
+%%% 
+%%% this changes each year, so keep separate
+%%%
+\include{schedule}
+
+%%%
+\section{Revision of \\
+Lexical, Morphological and Syntactic Studies}
+%%%
+
+\section{Corpus Studies of Lexicography}
+\myslide{Discussion \lex{big}, \lex{large}, \lex{great}}
+
+\begin{itemize}
+\item \lex{big}  mainly for concrete things
+\item \lex{large}  mainly for amounts and numbers
+\item \lex{great} similar to \lex{large} but many special senses
+  \begin{itemize}
+  \item \lex{great deal}  
+  \item \lex{great man}  
+  \item \lex{great burrow}
+  \item \lex{great} \iz{relative}
+  \end{itemize}
+also use as intensifier \eng{great big, great importance}
+\end{itemize}
+
+\section{Corpus Studies of Morphology}
+
+\myslide{Discussion}
+
+\begin{itemize}
+\item  \lex{-[ts]ion} more common in Academic (but common everywhere)
+  \\ basic use is to make an action non-agentive
+  \begin{itemize}
+  \item \eng{It provides a direct \ul{indication} of fuel \ul{consumption}.}
+  \end{itemize}
+\item \lex{-ment} often used for mental states
+  \\ \eng{agreement, amazement, embarrassment} \com{Fiction}
+  \begin{itemize}
+  \item \eng{Patrick shrugged in \ul{embarrassment}.} 
+  \end{itemize}
+\item \lex{-ness} used for personal qualities
+  \\ \eng{bitterness, happiness, politeness} \com{Fiction}
+  \begin{itemize}
+  \item \eng{The \ul{bitterness} in his heart was mixed with \ldots . }
+  \end{itemize}
+\end{itemize}
+
+It would be good if we could automatically divide the words according
+to their semantic field (which we can approximate with WordNet, \ldots)
+%%FIXME expand
+
+\section{Corpus Studies of Syntax}
+\MyLogo{}
+\myslide{Discussion}
+
+Typically \lex{start} is used to show the onset of a process, often
+with an adverb
+\begin{itemize}
+\item \eng{The soil formation  process may \ul{start} again in the fresh material}
+\item \eng{The train \ul{started} down the hill}
+\end{itemize}
+
+\lex{begin} is used with more concrete agents
+\begin{itemize}
+\item \eng{Then I \ul{began}  to laugh a bit.}
+\item \eng{The original mass of gas cooled and \ul{began} to contract.}
+\end{itemize}
+
+Because the corpus doesn't mark \txx{animacy} or \txx{concrete agent} these
+statements are weak: we can't really make predictions or measure correlation.
+
+\myslide{\lex{little} vs \lex{small}: Interpretation}
+
+
+\begin{itemize}
+\item Attributive much more common for both
+  \begin{itemize}
+  \item Predicative relatively more common in conversation
+  \item Predicative relatively more common for \lex{small} than \lex{little}
+  \end{itemize}
+\item Collocation results:
+  \begin{itemize}
+  \item \lex{little}: concrete objects (\eng{little boy})
+  \item \lex{small}: amounts  (\eng{small proportion})
+  \end{itemize}
+\item But predicative \lex{small} also for physical size:
+  \begin{itemize}
+  \item \eng{She's small and really skinny}
+  \item \eng{He's really small isn't he?}
+  \end{itemize}
+\item We still don't really know why \frownie
+ \\ corpus linguistics gives us the \emp{what}, but not the \emp{why}
+\end{itemize}
+
+% \myslide{Can we do better?}
+% \lurl{http://nltk.ldc.upenn.edu:8080/ts/search}
+% \begin{itemize}
+% \item Treebanks exist for some languages
+% \item We can search some English treebanks (wikipedia)
+% \\ \lurl{http://nltk.ldc.upenn.edu:8080/ts/search}
+% \begin{itemize}
+% \item  \verb|//VP/ADJP/JJ/small| \com{predicative}
+% \item \verb|//NP/ADJP/JJ/small| + \verb|//NP/JJ/small| \com{attributive}
+% \end{itemize}
+% \item This can also be done offline to get counts
+% \end{itemize}
+
+
+
+\myslide{Where do we go from here?}
+\MyLogo{}
+\begin{itemize}
+\item Corpora show clearly that even very similar words can show
+  different behavior.
+\item But they still don't explain why
+  \begin{itemize}
+  \item Hand correction limits data sizes
+  \item Without semantic tags, we can't generalize automatically
+  \end{itemize}
+\item Corpora with more mark-up (syntax and semantics) would help
+  \begin{itemize}
+  \item But they are expensive, \ldots
+  \end{itemize}
+\end{itemize}
+
+
+\section{Case Study: Pronouns}
+
+\myslide{Possessive Pronouns in Japanese contrasted with English}
+\begin{itemize}\addtolength{\itemsep}{-5mm}
+\item Introduction
+
+\item Possessive Expressions in Japanese and English
+  
+ \begin{exe}
+   \ex
+    \begin{tabular}[t]{lllll}
+                                % 私は舌を噛んだ。I bit my tongue.
+      Kanji: &  私は &  舌を &  噛んだ\\
+      Jap:   &  \sl watashi-wa &  \sl shita-wo & \sl kanda\\
+      Gloss: &   I-{\sc top} &  tongue-{\sc acc} &  bit  \\
+      Eng:   & \multicolumn{4}{l}{\eng{`I bit \psp{my} tongue'}}
+    \end{tabular}
+  \end{exe}
+  
+\item Differences in Noun Phrase Structure
+
+\item Pragmatic Analysis 
+
+\item Application to Machine Translation \\
+Proposed method for generating possessive pronouns \\
+Experimental Results 
+
+\item Conclusion 
+\end{itemize}
+
+%end
+
+
+\myslide{Introduction}
+
+\subhead{Possessive expressions}
+
+\begin{quote}
+  Possessive determinatives are often used as determiners in English
+  when no equivalent would be used in a Japanese sentence with the
+  same meaning.
+\end{quote}
+{\bf Larger Problem}
+\begin{quote}
+  Japanese has no syntactic equivalent to determiners in English,
+  no articles, and noun phrases are normally not marked for number.
+\end{quote}
+
+\emp{Under-specified elements need to be deduced!}
+
+
+\myslide{Corpus-based Study of Distribution}
+
+\noindent\begin{tabular}{llccccc}
+  \multicolumn{2}{l}{Type:}  &
+  \multicolumn{2}{c}{MT Test set} &
+  \multicolumn{2}{c}{News reports} \\
+   & & No.  & \%  & No.  & \%  \\ \hline
+   I & English Idiomatic Possessive & 105 & 16\% & 35 & 19\% \\
+   II & Possessive Expression in Japanese & 193 & 30\% & 5 & 3\% \\
+   III &No Possessive in Japanese & 359 &  \underline{54\%}& 176 & \underline{78\%} \\
+  \multicolumn{2}{l}{Total:} &  657 & & 181 & 
+\end{tabular}
+
+\begin{itemize}
+\item Two Corpora
+  \begin{itemize}
+  \item NTT MT Test set (6,200 sentences, 15,000 NPs)
+  \item Nikkei News Reports (1,382 sentences, 8000 NPs)
+  \end{itemize}
+\item Matched English:
+\\  \verb@[Mm]y|[Yy]our|[Hh]is|[Hh]er|[Ii]ts|[Tt]heir|[Oo]ur@
+\\ Then hand checked Japanese for translation (\blu{on paper with colored pens!})
+\end{itemize}
+
+%Matched EnglishSearched for \verb@[Mm]y|[Yy]our|[Hh]is|[Hh]er|[Ii]ts|[Tt]heir|[Oo]ur@
+
+% \vfill
+% 297 idioms including English possessives in 15,000 predicate frames\\
+% (Goi-Taikei)
+
+%end
+
+\myslide{Examples}
+
+
+
+\emp{Type I: English Idiomatic Possessive (16\%--19\%)}
+\begin{exe}
+\ex
+\begin{tabular}[t]{llll} 
+Kanji: &  彼女は &  知恵を &  絞った。\\
+Jap:   &  \sl kanojo-wa & \sl chie-wo & \sl shibotta \\
+Gloss: &   she-\textsc{top}  &  knowledge-\textsc{acc}    &  squeezed \\
+Eng:   & \multicolumn{3}{l}{\eng{`She racked \idm{her} brains'}}
+\end{tabular}
+\end{exe}
+
+%私は心を決めた。
+%I made up my mind.
+%心を鬼にして、子供を叱った。
+%I (He) hardened my (his) heart and scolded the children.
+
+\emp{Type II: Possessive expression in Japanese (30\%--3\%)}
+\begin{exe} 
+\ex MT test set is not a corpus of \blu{natural} text \\[1ex] 
+\begin{tabular}[t]{lllll}
+% 彼女は彼の顔を見た。She saw his face.
+ Kanji: &  彼女は &  \exl{彼の} &  顔を &  見た。\\
+ Jap:   &  \sl kanojo-wa &  \sl kare-no & \sl kao-wo & \sl mita\\
+ Gloss: &   she-\textsc{top} &  he-\textsc{adn} &  face-\textsc{acc} &  saw  \\
+ Eng:   & \multicolumn{4}{l}{\eng{`She saw \exl{his} face'}}
+\end{tabular}
+%線路が私の家のそばを通っている。
+%The tracks pass by my house.
+\end{exe}
+
+\clearpage
+\emp{Type III: No possessive expression in Japanese (54\%--78\%)}
+\begin{exe} 
+% 彼女は財布をなくした。
+\ex
+\begin{tabular}[t]{lllll}
+Kanji: &  彼女は &  財布 を &  なくした。\\
+Jap:   &  \sl kanojo-wa &  \sl saifu-wo & \sl nakushita\\
+Gloss: &   she-\textsc{top} &  wallet-\textsc{acc} &  lost  \\
+Eng:   & \multicolumn{3}{l}{\eng{`She lost \psp{her} wallet'}}
+\end{tabular}
+  \ex \glll {NTT は} メンバーネットの 名処で {今年}
+  {２月から} 常に サービスを 開始している \\
+ NTT-wa `menber-netto'-no meesho-de kotoshi
+  nigatsu-kara tsune-ni sa--bisu-o kaishi-shite-iru \\
+  NTT-\textsc{top} `member-net'-\textsc{adn} name-by {this year}
+  February-from already service-\textsc{acc} start-is \\
+  \trans \eng{``NTT began \psp{its} VPN services in February.''}
+\end{exe}
+%	私は娘に本を読んでやる。
+%	I read a book to my daughter.
+ %私は学校に行ってから宿題をやる。%
+%	I do my homework after I go to school.
+%end
+
+\myslide{Distribution of possessives in English}
+
+\begin{itemize}
+\item Possessive determinatives used relatively frequently\\
+  --- \eng{of \textsc{possessive pronoun}} rare
+\item Generally not used after verbs of \iz{possession} or
+  \iz{acquisition}, except for emphasis\\ \eng{I have \ul{a} car} vs \eng{I
+    have \ul{my} car}
+\item Typically referential use, not generic or ascriptive
+\end{itemize}
+
+In particular, words which denote \iz{work, body parts, personal
+  possessions, attributes} and relational nouns such as \iz{kin} and
+\iz{people defined by their relation to another person} (such as 
+\eng{assailant, subordinate}) are often modified by possessive
+determinatives in English.
+
+\myslide{Distribution of possessives in Japanese}
+
+\setcounter{exx}{4}
+ 
+\begin{itemize}\addtolength{\itemsep}{-1ex}
+\item Normally only if `possessor' is not subject
+
+\hspace*{-1cm}\parbox{\textwidth}{
+  \begin{exe}
+    \ex \gll watashi-wa saifu-o otoshita\\
+    I-\textsc{top} wallet-\textsc{acc} dropped\\
+    \trans \eng{I dropped \psp{my} wallet}
+    \ex \gll watashi-wa \exl{jibun-no} saifu-o otoshita\\
+    I-\textsc{top} self-\textsc{adn} wallet-\textsc{acc} dropped\\
+    \trans \eng{I dropped \exl{my own} wallet}
+    \ex \gll watashi-wa \exl{kare-no} saifu-o otoshita\\
+    I-\textsc{top} he-\textsc{adn} wallet-\textsc{acc} dropped\\
+    \trans \eng{I dropped \exl{his} wallet}
+  \end{exe}}
+\item Use of any pronouns is rare \\
+  All 5 uses in the newspaper corpus are common nouns (pronominalized in 
+  translation)
+%\item Typically referential use, not generic or ascriptive
+\end{itemize}
+
+\myslide{Two examples:}
+
+\begin{exe}
+  \ex  インドネシア政府は三千五億ドルの資金をインフラ整備として投入する計画だ。
+  \gll indoneshia-\textsc{top} 3.5x10$^{11}$-doru-\textsc{adn}
+  shikin-\textsc{acc} infura-seibi-toshite tounyuu-suru keikaku-da \\
+  Indonesia  3.5x10$^{11}$-dollars capital
+  infrastructure-preparation-as invest-do plan-is\\
+  \trans ``\eng{Indonesia$_i$ is planning to invest 300.5 billion dollars to
+  expand \psp{its}$_i$ infrastructure}'' 
+\newpage
+  \ex ムバラク大統領の来日時に表明する考えだ。
+  \gll mubaraku-daitouryou-\textsc{adn} rainichi-ji-ni hyoumei-suru
+  kangae-da\\
+   President-Mubarak japan-visit-time-in convey-do thought-is\\
+  \trans ``\eng{the decision will be conveyed to  President Muhammad Hosni Mubarak$_i$ during \psp{his}$_i$  visit to Tokyo}''
+
+\end{exe}
+
+
+\myslide{English NP Structure}
+\MyLogo{NP's headed by count nouns must have an article}
+\begin{enumerate}\addtolength{\itemsep}{-5mm}
+\item NP $\rightarrow$ Det (Mod)* Noun \hfill (Det is specifier)
+\item Possessive determinative functions as central determiner
+\item Unique
+\item Contrasts with a closed set (+ integers):
+  \begin{description}
+  \item[articles] \textsc{zero}, \eng{a/an, some, the}, \textsc{null}
+%\footnotemark[1] \\
+
+  \item[possessive phrases] e.g. \eng{the man's}
+  \item[demonstratives] \eng{this, these, that, those}
+  \item[pronouns] \eng{we, you, us}
+  \item[quantifiers] \eng{each, enough, much, more, most, less, a few, 
+      a little} \ldots
+  \item[wh-words] \eng{which, what} (interrogative or relative)
+  \item[determinatives] \eng{some, any, no, either, neither, another}
+  \end{description}
+%  \footnotemark[1] \textsc{zero} occurs with indefinite uncountable or
+%  plural noun phrases, \textsc{null} occurs with definite noun
+%  phrases, typically singular countable ones.
+\end{enumerate}
+
+\myslide{Japanese NP Structure}
+
+\begin{enumerate}\addtolength{\itemsep}{-5mm}
+\item NP $\rightarrow$ (Mod)*  Noun \hfill (no specifier)
+\item Possessive expression functions as modifier
+\item Can be multiple modifiers: (rare) 
+ \begin{exe}
+    \ex \gll \exl{watashi-no} \exl{kono} hon \\
+   me-\textsc{adn} this book \\
+    \trans Lit: ``\eng{\exl{my} \exl{this} book}''
+%    \ex \gll Tarou-no kinou-no hanashi \\
+%    Tarou-\textsc{adn} yesterday-\textsc{adn} story \\
+%    \trans Lit: ``Taro's yesterday's story''
+  \end{exe}
+\item Is a member of an open set, including:
+  \begin{description}
+  \item[none]  (most common)
+  \item[genitive noun phrases]\jpn[Taro's]{Tarou-no},
+    \jpn[Japanese]{nihon-no} \dots
+  \item[demonstratives] \jpn[this]{kono}, \jpn[that]{sono}, \jpn[ano]{that over there}
+  \item[quantifiers] \jpn[each]{koko-no}, \jpn[each]{kaku} \ldots
+  \item[wh-words] \jpn[which, what]{dono} \dots
+  \end{description}
+%  \footnotemark[3] Most Japanese noun phrases have nothing that
+%  corresponds to an English determiner.  
+\end{enumerate}
+
+
+\myslide{Analysis}
+
+Explain the differences with Grice's Conversational Maxims.
+
+\begin{itemize}\addtolength{\itemsep}{-5mm}
+  \item \textit{The Maximum of Quantity}:\\
+    (i) make your contribution as informative as is required for
+    the current purposes of the exchange \\
+ (ii) do not make your contribution more informative than is
+    required   
+  \item \textit{The Maximum of Relevance}:\\
+      Make your contributions relevant
+\end{itemize}
+
+The kind of information encoded by determinatives such as quantifiers
+and demonstratives is generally encoded in both Japanese and
+English.  The Maxim of Relevance requires its presence if relevant.
+
+%\myslide{Analysis (2)}
+
+
+\myslide{English:}
+
+\begin{enumerate}\addtolength{\itemsep}{-5mm}
+\item Possessive determinative contrasts with articles\\
+  --- equivalent effort
+\item Use of indefinite article \emp{implicates} not
+  owned \\
+  --- unless `possession' predicated by verb
+\item Use of definite article implicates more restricted reference
+\item $\Rightarrow$ Use possessive determinative if relevant\\ --- unless 
+  `possession' predicated by verb 
+\\ (don't be more informative than is
+  required)
+\end{enumerate}
+
+\myslide{Japanese:}
+
+\begin{enumerate}
+\item Possessive expression requires extra effort
+\item  Don't use by default \\
+  --- interpretation is that subject is antecedent
+\item  $\Rightarrow$ Use possessive expression to contradict default
+\item  $\Rightarrow$ Use possessive expression to emphasize default
+\end{enumerate}
+
+\myslide{A complicated example}
+
+The word 経常利益 \jpn[pretax profit]{keijourieki} appeared 29 times.  In
+Japanese it was only pre-modified by time expressions (12 times).
+
+\noindent  The English equivalents were more varied:
+
+\noindent \begin{tabular}{lcl}
+Det & Freq & Comment \\
+$\phi$ & 12 & Prepositional phrase \\
+$\phi$ & 4 & Direct Object (3 x \eng{post}, 1 x \eng{expect}) \\
+$\phi$ & 4 & Subject \\
+its & 1 & Subject \\
+its & 4 & \textsc{Company} \eng{said/announced that its \ldots} \\
+A & 1 & \eng{A one billion yen pretax profit}\\
+both & 1 & very free translation \\
+Toyobo's & 1 & Subject (Toyobo from other sentence) \\
+their & 1 & Direct Object of (\eng{post}) \\
+ & & Subject is many companies
+\end{tabular}
+
+
+\myslide{A complicated example (cont)}
+
+\begin{exe}
+  \ex \textsc{Company}$_i$ announced Wednesday it$_i$ has posted \dtr{$\phi$}$_i$
+  pretax profits  
+  of \ldots
+  \ex \textsc{Company}$_i$ announced Tuesday that \psp{its}$_i$ pretax
+  profit rose 
+  \ldots
+  \ex \textsc{Company}'s 11 [\ldots] subsidiaries$_i$ are expected to
+  post \psp{their}$_i$ first-ever combined pretax profits of \ldots 
+  \ex  \textsc{Company}$_i$ will  post a rise of 6\% in \dtr{$\phi$}$_i$
+  pretax profits 
+  \ldots
+  \ex  \textsc{Company}$_i$ will  post  28 billion yen in \dtr{$\phi$}$_i$
+  pretax profits 
+  \ldots  
+
+\end{exe}
+
+The direct object of \eng{post} implies `possession' by its subject,
+the direct object of \eng{announce} doesn't.  But what about the PPs?
+
+Should we put this in the lexicon?
+
+\myslide{Application to Machine Translation}
+\MyLogo{Taking what we have learned and using it to make predictions. }
+
+
+
+\begin{itemize}
+\item Mark nouns that head English noun phrases with possessive
+  determinatives where there is no possessive expression in the
+  Japanese in the lexicon (\trg{possessed-nouns})
+   \begin{itemize}
+      \item 205 different \trg{possessed-nouns} (MT test set)
+      \item heading 825 noun phrases
+      \item 359 (44\%) translated with possessive pronouns
+    \end{itemize}
+\item  Mainly nouns that denote \iz{kin, body parts, work, personal
+    possessions, attributes} and \iz{people defined by their
+    relation to another person}  
+\item Which nouns need to be marked is language specific, and probably
+  register and domain specific as well.
+\end{itemize}
+  
+%end
+
+  \myslide{Translating NPs headed by \trg{possessed-nouns}}
+  \MyLogo{$^*$First person for declarative, 
+              second person for imperative or interrogative.}
+     \begin{enumerate} %\addtolength{\itemsep}{-5mm}
+     \item A noun phrase that fulfills all of the following conditions
+       will be generated with a default possessive determinative with
+       deictic reference determined by the modality of the sentence it
+       appears in$^*$.
+        \begin{enumerate}
+        \item The noun phrase is headed by a \trg{possessed-noun} that
+          denotes \iz{kin} or \iz{body parts}
+        \item The noun phrase is the subject of the sentence
+        \item The noun phrase is referential
+        \item The noun phrase has no other determiner
+        \end{enumerate}
+\newpage
+\MyLogo{}
+      \item A noun phrase that fulfills all of the following
+        conditions will be generated with a default possessive
+        determinative whose antecedent is the subject of the sentence
+        the noun phrase appears in.
+        \begin{enumerate}
+        \item The noun phrase is headed by a \trg{possessed-noun} 
+        \item The noun phrase is not the subject of the sentence
+        \item The noun phrase is referential
+        \item The noun phrase has no other determiner
+        \item The noun phrase is not the direct object of a verb of
+          \iz{possession} or \iz{acquisition}
+        \end{enumerate}
+      \end{enumerate}
+
+%end
+
+\myslide{Effects of noun phrase referentiality}
+
+\noindent Only for \emp{Referential} NPs:
+
+\begin{exe}
+  \ex
+\begin{tabular}[t]{lll}
+% 鼻がかゆい。 A nose itches.
+Kanji: &  鼻が &  かゆい。\\
+Jap:   &  \sl hana-ga & \sl kayui \\
+Gloss: &   nose-\textsc{nom} &  itch \\
+Eng:   & \multicolumn{2}{l}{`\psp{My} nose itches'} \\
+MT-93 & \multicolumn{2}{l}{\tt \dtr{A} nose itches} \\
+MT-94 & \multicolumn{2}{l}{\tt \psp{My} nose itches} 
+\end{tabular}
+\end{exe}
+\newpage
+\noindent Not for \emp{Generic} NPs:
+
+\begin{exe}
+  \ex
+\begin{tabular}[t]{llll}
+% 鼻は感覚器官だ。A nose is a sense organ.
+Kanji: &  鼻は &  感覚器官 &  だ。 \\
+Jap:   &  \sl hana-wa &  \sl kankakukikan & \sl da  \\
+Gloss: &   nose-\textsc{top} &  sensory organ &  is  \\
+Eng:   & \multicolumn{3}{l}{`\dtr{The} nose is a sensory organ'} \\
+MT-93: & \multicolumn{3}{l}{\tt \dtr{A} nose is a sensory organ} \\
+MT-94: & \multicolumn{3}{l}{\tt \dtr{$\phi$} Noses are sensory organs}
+\end{tabular}
+\end{exe}
+
+\myslide{Restrictions from verbs}
+
+
+\begin{itemize}
+\item If a noun phrase headed by a \trg{possessed-noun} is the direct object
+  of a verb of \iz{possession} or \iz{acquisition} then do not
+  generate a possessive pronoun.
+%\footnote{Furthermore if the noun phrase has no
+%    pre-determiner, determiner or post-determiner then maybe generate
+%    the determiner {\sl some\/} (or {\sl any\/} depending on the
+%    sentence aspect and noun phrase countability and number).}
+\end{itemize}
+
+\begin{exe} 
+\ex
+\begin{tabular}[t]{clll}
+% 白い靴下を持っていますか。
+Kanji: &  車を &  持っていますか。\\
+Jap:   &  \sl kuruma-wo & \sl motteimasu-ka  \\
+Gloss: &  car-{\sc OBJ} &  have-{\sc Q}  \\
+Eng:   & \multicolumn{2}{l}{`Do you have \dtr{a} car?'} \\
+MT-93: & \multicolumn{2}{l}{\tt Do you have \dtr{a} car?} \\
+MT-94$'$: & \multicolumn{2}{l}{\tt Do you have \psp{your} car?} \\
+MT-94: & \multicolumn{2}{l}{\tt Do you have \dtr{a} car?}
+\end{tabular}
+\end{exe}
+
+%end
+
+\myslide{Experimental Results}
+
+Results of the generation of all noun phrases headed by
+\trg{possessed-nouns} in the MT test set (Total 752 noun phrases).
+
+  \begin{center}
+    \begin{tabular}{|l|l|l|} \hline
+      Result & Not generated & Generated  \\ \hline
+      Good &I hit him in \dtr{the} face  &  I hid \psp{my} face \\ \hline
+      Bad &  I scratched \dtr{a} face       & I lost \psp{my} face \\ \hline
+    \end{tabular}
+
+    \begin{tabular}{|l|l|rr|rr|} \hline
+      Result & \multicolumn{1}{c|}{Possessive}  &
+      \multicolumn{2}{c|}{MT-93} & \multicolumn{2}{c|}{MT-94}\\ 
+      & \multicolumn{1}{c|}{determinative}     & NPs & \%& NPs & \% \\ \hline
+      Good & Not generated & 429 & 57\% & 346  & 46\%\\
+      & Generated     &   0 & 0\%  & 263  & 35\%\\ \cline{2-6}
+      & --- Total & 429 &  57\% & 609 & 81\%  \\ \hline
+      Bad  & Not generated & 323 & 43\% &  60 & 8\% \\
+      & Generated     &   0 & 0\%  &  83 & 11\% \\ \cline{2-6}
+      & --- Total     &  323 & 43\% & 143 & 19\%  \\  \hline 
+    \end{tabular}
+  \end{center}
+
+%end
+
+\myslide{Over All Results}
+%For noun phrases correctly translated by the system: 
+323 NPs required possessive determinatives \\
+\hsp Appropriately generated: 263 \\
+\hsp Inappropriately generated: 83
+
+\hhsp \begin{tabular}{|l|c|r|} \hline
+& \multicolumn{1}{c|}{MT-93} & \multicolumn{1}{c|}{MT-94}\\ \hline
+Accuracy &  57\% &  81\% \\ \hline
+Precision & --- &  88\% \\ \hline
+\end{tabular}
+
+\emp{Improve accuracy by:} \\
+\hsp improving parsing and transfer stages \\
+\hsp correctly identifying all \trg{possessed-nouns} (use parsed aligned corpora)
+
+\emp{Improve precision by:} \\
+\hsp improving determination of referentiality \\
+%\hhsp (Bond et al. 1995b) at TMI \\
+\hsp add explicit semantic constraints: \\only  
+for \trg{possessed-nouns} that denote \iz{clothes}  if the antecedent is \iz{human}
+%end
+
+\myslide{Conclusions}
+
+  \begin{enumerate}
+  \item Possessive determinatives are used in English even when there
+    is no equivalent possessive expression used in Japanese
+  \item This can be explained by the fact that in English possessive
+    determinatives function as determiners, while in Japanese the
+    possessive construction is an optional modifier phrase
+  \item `\trg{possessed-nouns}' can be identified in English that act
+    (imperfectly) as cues
+  \item Implementing an algorithm  that uses
+    \trg{possessed-nouns} in the Japanese-to-English MT system {\bf
+      ALT-J/E} generated possessive pronouns with an accuracy of
+    81\% (up from 57\%) and precision of 88\%.
+  \item Should also be applicable to other under-specified generation: AAC.
+  \end{enumerate}
+
+\myslide{Gratuitous Discussion}
+
+\begin{enumerate}\addtolength{\itemsep}{-3mm}
+\item Satoru Ikehara calls our approach \emp{meaning analysis} as opposed
+  to \emp{meaning understanding}.  We attempt to
+  solve problems, even if not perfectly, by stepwise refinement.
+\item Generally, a brute-force approach of adding information to the lexicon
+  (which may mean checking 70,000+ common nouns \ldots) and adding new
+  rules takes 3-6 months and gets an 80\% solution.
+\item I did this once for number/countability and articles (which took
+  three years), then possessive pronouns, and then numeral
+  classifiers. 
+\item By this stage, determiners and number were good enough that problems with
+  prepositions and tense/aspect became more pressing.
+\item The hope is that any work done will still be useful in the next
+  version/refinement of the problem: this has proved to be the case so
+  far.
+
+\end{enumerate}
+
+
+% \end{document}
+
+
+
+
+
+% \myslide{Existing translation algorithms \\
+%     (can translate Explicit \& Idiomatic)}
+
+%   \begin{description}
+%   \item[I (explicit)] Noun phrases with an explicit possessive in the Japanese
+%     can be directly translated.  
+%   \item[\sl jibun] The genitive reflexive construction {\sl jibun-no}
+%     is translated with the clause subject as antecedent, or if it is
+%     modifying the subject then deictically.
+%     \begin{exe} 
+%       \begin{tabular}[t]{clllll}
+%         (5) & Kanji: &  {\exl{自分の}}&  机で &  勉強しなさい。\\
+%         & Jap:   &  \sl jibun-no &  \sl tsukue-de & \sl benky\=o-shinasai\\
+%         & Gloss: &  self-\textsc{adn} &  desk-at &  study-\textsc{imp.}  \\
+%         & Eng:   & \multicolumn{3}{l}{`Study at  {\exl{your own}} desk.'}
+%       \end{tabular}
+%     \end{exe}
+%     \item[II (idiomatic)]  Idiomatic expressions identify the antecedent
+%     within the translation rule. 
+%     \begin{quote}
+%       N1-{\sl wa chie-wo shiboru\/} \\
+%       `N1-\textsc{TOP} knowledge-\textsc{ACC} squeeze' \\ 
+%       $\rightarrow$ N1 \textsl{racks} \idm{N1'\textsl{s}} \textsl{brains}
+%     \end{quote} 
+%   \end{description}
+
+% %end
+
+
+
+% \myslide{}
+% %    {\bf Existing translation algorithms}
+
+%     Antecedent $\rightarrow$ possessive pronoun
+%   \begin{flushleft}
+%     \small
+% \begin{tabbing}
+% 123\=123\=123\=123\=123\= \kill
+%       \> if the antecedent is a simple noun phrase \\
+%       \> \> if it is 1st per \\
+%       \> \> \> if it is Si ({\sl I\/}) \\
+%       \> \> \> \> use \sl my \\
+%       \> \> \> else if it is  Pl ({\sl we}) \\
+%       \> \> \> \> use \sl our \\
+%       \> \> if it is 2nd per  ({\sl you}) \\ %Si or Pl
+%       \> \> \> use \sl your \\
+%       \> \> else (treat it as 3rd per)\\
+%       \> \> \> if it is Si \\
+%       \> \> \> \> if it is the generic pronoun {\sl one\/} \\
+%       \> \> \> \> \> use \sl one's \\
+%       \> \> \> \> else if it is \textsc{MALE} ({\sl he}/{\sl Mr Bond}) \\
+%       \> \> \> \> \> use \sl his \\
+%       \> \> \> \> else if it is \textsc{FEMALE} ({\sl she}/{\sl Ms Bond}) \\
+%       \> \> \> \> \> use \sl her \\
+%       \> \> \> \> else if it is \textsc{HUMAN} ({\sl Dr Bond}) \\
+%       \> \> \> \> \> use \sl their  \\
+%       \> \> \> \> else (it is Si and \textsc{NON-HUMAN})  ({\sl it}/{\sl NTT}) \\
+%       \> \> \> \> \> use \sl its \\
+%       \> \> \> else (it is  Pl) ({\sl they\/}/{\sl the G7 Nations}) \\
+%       \> \> \> \> use \sl their \\
+%       \> else (the antecedent is a compound noun phrase) \\
+%       \> \> if one element is 1st per\\
+%       \> \> \> use \sl our \\
+%       \> \> else if one element is 2nd per \\
+%       \> \> \> use \sl your \\
+%       \> \> else (treat as 3rd per) \\
+%       \> \> \> use \sl their \\
+% \end{tabbing}
+%   \end{flushleft}
+
+
+% %end
+
+
+
+
+% \myslide{Effects of noun phrase referentiality}
+
+% Noun-possesseded possessive pronouns are only generated for referential
+% noun phrases.
+
+% \emp{Referential:}
+% \begin{exe} 
+% \ex
+% \begin{tabular}[t]{lll}
+% % 鼻がかゆい。 A nose itches.
+% Kanji: &  鼻が &  かゆい。\\
+% Jap:   &  \sl hana-ga & \sl kayui \\
+% Gloss: &   nose-\textsc{nom} &  itch \\
+% Eng:   & \multicolumn{2}{l}{`\psp{My} nose itches'} \\
+% MT-93 & \multicolumn{2}{l}{\tt \dtr{A} nose itches} \\
+% MT-94 & \multicolumn{2}{l}{\tt \psp{My} nose itches} 
+% \end{tabular}
+% \end{exe}
+% \emp{Generic:}
+
+% \begin{exe} 
+% \ex
+% \begin{tabular}[t]{llll}
+% % 鼻は感覚器官だ。A nose is a sense organ.
+% Kanji: &  鼻は &  感覚器官 &  だ。 \\
+% Jap:   &  \sl hana-wa &  \sl kankakukikan & \sl da  \\
+% Gloss: &   nose-\textsc{top} &  sensory organ &  is  \\
+% Eng:   & \multicolumn{3}{l}{`\dtr{The} nose is a sensory organ'} \\
+% MT-93: & \multicolumn{3}{l}{\tt \dtr{A} nose is a sensory organ} \\
+% MT-94: & \multicolumn{3}{l}{\tt \dtr{$\phi$} Noses are sensory organs}
+% \end{tabular}
+% \end{exe}
+
+% %end
+
+
+% \myslide{Restrictions determined from the meanings of verbs}
+% \begin{itemize}
+% \item If a noun phrase headed by a \trg{possessed-noun} is the direct object
+%   of a verb of \textsc{POSSESSION} or \textsc{ACQUISITION} then do not
+%   generate a possessive pronoun.
+% %\footnote{Furthermore if the noun phrase has no
+% %    pre-determiner, determiner or post-determiner then maybe generate
+% %    the determiner {\sl some\/} (or {\sl any\/} depending on the
+% %    sentence aspect and noun phrase countability and number).}
+% \end{itemize}
+
+% \begin{exe} 
+% \ex
+% \begin{tabular}[t]{lll}
+% % 白い靴下を持っていますか。
+% Kanji: &  車を &  持っていますか。\\
+% Jap:   &  \sl kuruma-wo & \sl motteimasu-ka  \\
+% Gloss: &  car-\textsc{ACC} &  have-\textsc{Q}  \\
+% Eng:   & \multicolumn{2}{l}{`Do you have \dtr{a} car?'} \\
+% MT-93: & \multicolumn{2}{l}{\tt Do you have \dtr{a} car?} \\
+% MT-94$'$: & \multicolumn{2}{l}{\tt Do you have \psp{your} car?} \\
+% MT-94: & \multicolumn{2}{l}{\tt Do you have \dtr{a} car?}
+% \end{tabular}
+
+% \end{exe}
+
+% %end
+
+% \myslide{Filling the determiner slot}
+
+% Default possessive pronouns will not be generated if the determiner
+% slot has been filled.
+
+% \begin{exe} 
+% \ex
+% \begin{tabular}[t]{llll}
+% Kanji: &   私は &  昨日 &  買った  \\ 
+%        &  財布を &  なくした\\
+% Jap:   &  \sl watashi-wa & \sl kinou & \sl katta \\  
+%        & \sl saifu-wo & \sl nakushita \\
+% Gloss: &  I-\textsc{TOP} &  yesterday & bought \\  
+%        & wallet-\textsc{ACC} &  lost  \\
+% Eng:   & \multicolumn{3}{l}{`I lost \dtr{the} wallet I bought }\\
+%        & \multicolumn{3}{l}{\tt yesterday'} \\
+% MT-93: & \multicolumn{3}{l}{\tt I lost \dtr{the} wallet I bought}  \\
+%        & \multicolumn{3}{l}{\tt yesterday'} \\
+% MT-94: & \multicolumn{3}{l}{= MT-93} \\
+% \end{tabular}
+% \ex
+% \begin{tabular}[t]{lllll}
+% Kanji: &   私は &  財布を &  なくした\\
+% Jap:   &  \sl watashi-wa & \sl saifu-wo & \sl nakushita \\
+% Gloss: &   I-\textsc{TOP}  & wallet-\textsc{ACC} &  lost  \\
+% Eng:   & \multicolumn{3}{l}{`I lost \psp{my} wallet'}\\
+% MT-93: & \multicolumn{3}{l}{\tt I lost \dtr{a} wallet}  \\
+% MT-94: & \multicolumn{3}{l}{\tt I lost \psp{my} wallet} \\
+% \end{tabular}
+% \end{exe}
+
+% %end
+
+
+
+
+
+%  \begin{tabular}{lrrrr}
+%    \multicolumn{1}{c}{Generated noun phrase}   & \multicolumn{2}{c}{MT-93} & \multicolumn{2}{c}{MT-94}\\ 
+%    & NPs & \% & NPs & \% \\ \hline
+%    Pronoun not appropriate: \\
+%    not generated  & 429 & 57\% & 346 & 46\%\\
+%    Pronoun appropriate: \\
+%    generated          &   0 & 0\%  & 263 & 35\%\\
+%    Pronoun appropriate: \\
+%    not generated      & 323 & 43\% &  60 & 8\%\\
+%    Pronoun generated \\ 
+%    when not appropriate  &   0 & 0\%  &  83 & 11\% \\ \hline
+%  \end{tabular}
+
+%end
+
+\myslide{Conclusions}
+  \begin{enumerate}
+  \item Possessive pronouns are used in English even when there is no
+    equivalent possessive expression used in Japanese
+  \item `\trg{possessed-nouns}' can be identified in English that act
+    as cues 
+  \item An algorithm is proposed that uses \trg{possessed-nouns} to
+    appropriately generate possessive pronouns in a
+    Japanese-to-English MT system
+  \item Implementing the algorithm in {\bf ALT-J/E} generated
+    possessive pronouns with an accuracy of 81\% ($\uparrow$ 57\%)
+    and precision of 88\%.
+   
+  \end{enumerate}
+
+
+\section{Annotation of Pronouns 
+in a Multilingual Corpus 
+ of Mandarin Chinese, English and Japanese}
+\MyLogo{Francis \textbf{Bond}, Yu Jie \textbf{Seah}
+David \textbf{Moeljadi}, Luis \textbf{Morgado da Costa} and  
+\textbf{Wang} Shan (2104), LREC}
+
+%%% FIXME: add Petter's examples
+
+  \myslide{Motivation and Overview}
+
+    \begin{itemize}
+    \item Attempting to model lexical and structural semantics
+    \begin{itemize}
+    \item For multiple languages --- identify cross-lingual differences
+    \item Exploit them to learn meaning (make the \emp{implicit} \emp{explicit})
+    \end{itemize}
+  \item Started by annotating \emp{content words} (with \emp{wordnets})
+    \item But  nouns were often translated as pronouns$_i$ 
+      --- so tag them$_i$
+      \begin{enumerate}
+      \item \emp{Identify pronouns} used in the corpus
+      \item \emp{Analyze in terms of components} --- aids matching 
+        \begin{itemize}
+        \item Extended wordnet gives \emp{full decompositional analysis}
+        \end{itemize}
+      \item \emp{Annotate} the pronouns \emp{monolingually} in each language
+        \begin{itemize}
+        \item \emp{Link to} extended wordnet for \emp{analysis}
+        \end{itemize}
+      \item \emp{Annotate} their correspondences across \emp{languages}
+      \item \emp{Analyze the distribution cross-lingually}
+      \end{enumerate}
+    \end{itemize}
+
+
+
+
+
+
+    \myslide{Identifying Pronouns}
+\MyLogo{numbers out of date}
+    \begin{itemize}
+       \item Examined words tagged as pronouns in (Mandarin) Chinese, English,
+         Japanese (and later Indonesian) parts of the NTU Multilingual
+         Corpus (NTU-MC) --- used the POS tags
+         \begin{itemize}
+         \item Different tag-sets identified quite different collections
+         \end{itemize}
+       \item We took the union, and filled in missing entries by hand
+         \begin{itemize}
+         \item also referred to reference grammars
+         \item not complete, but getting there 
+         \end{itemize}
+       \item 117 different types; 249 tokens:
+         %grep -v '#' extended.tab | cut -f 1 | sort -u | wc -l
+         %grep -v '#' extended.tab | cut -f 2 | grep lemma | sort | uniq -c
+         \begin{tabular}[t]{lrl}
+           Chinese & 57\\
+           English & 68\\
+           Indonesian & 40 & (in progress)\\
+           Japanese & 84 
+         \end{tabular}
+       \item We include related determiners (demonstratives and quantifiers)
+       \end{itemize}
+
+\myslide{Components}%\vspace{2em}
+\hspace*{-5em}
+{\small
+\begin{tabular}{lllllllll}
+Head &
+Person &
+Number &
+Gender &
+Case &
+Q/Type &
+Formality &
+Proximity
+\\\hline
+Quantifier &
+First &
+Dual &
+Feminine &
+Objective &
+Assertive &
+Formal &
+Proximal
+\\
+Entity &
+First (I) & 
+Plural &
+Masculine &
+Possessive &
+Elective &
+Informal &
+Distal
+\\
+Time &
+First (E) & 
+Singular &
+Neuter &
+Subjective &
+Negative &
+~ &
+~~Medial
+\\
+Manner &
+Second &
+~ &
+~ &
+~ &
+Other &
+Politeness &
+~~Remote\\ \cline{7-7}
+Person &
+Third &
+~ &
+~ &
+~ &
+Reciprocal &
+Polite &
+~ \\
+Place &
+~ &
+~ &
+~ &
+~ &
+Universal &
+~ &
+~\\
+Reason &
+~ &
+~ &
+~ &
+~ &
+Interrogative &
+~ &
+~\\
+Thing  &
+~ &
+~ &
+~ &
+~ &
+Reflexive &
+~ &
+~\\
+\end{tabular}}
+
+\textbf{Similative} are treated as +Manner, +Proximity
+
+
+
+       \myslide{Analyzing Pronouns Mono-lingually}
+       \begin{itemize}
+       \item Decompose into: 
+         \begin{itemize}
+         \item \textbf{head} (\rel{hyponym})
+         \item \textbf{quantifier} (\rel{quantifier}: new relation)
+         \item \textbf{features} (\rel{domain-usage})
+         \end{itemize}
+       \item Also mark as \rel{instance} of \wn{pronoun}{n}{1} or its hyponyms
+       \item E.g. 
+         \begin{tabular}[t]{lll}
+           \wn{there}{n}{1}: &\rel{hyponym} &\wn{location}{n}{1};
+          \\ &\rel{domain-usage} &\wn{distal}{a}{1}; 
+          \\ &\rel{instance} &\wn{demonstrative pronoun}{n}{1}
+        \end{tabular}
+        % \\  \wn{that}{a}{1}: \rel{hyponym} \wn{quantifier}{n}{1};
+        % \\  \wn{that}{a}{1}: \rel{hyponym} \wn{quantifier}{n}{1};
+     \end{itemize}   
+
+
+\myslide{Components: Place}%\vspace{2em}
+%\begin{tikzfigure}[Head Types]
+\MyLogo{Already refined}
+\hspace*{-3ex}\begin{tabular}{llllll}
+   Head & Type/Proximity & English & Japanese & Chinese \\
+   \hline
+   Place & Interrogative & \textit{where} &  何処, どこ \textit{doko} &  \zh{哪里} \textit{nǎlǐ}  \\
+            & Proximal      & \textit{here} & 此処, ここ \textit{koko} & \zh{这里} \textit{zhèlǐ}  \\
+            & Distal        & \textit{there}  &  & \zh{那里} \textit{nàli} \\
+            & ~~Medial        &   & 其処, そこ \textit{soko} &   \\
+            & ~~Remote        &  & 彼処, あそこ \textit{asoko} & \\
+            & Universal     & \textit{everywhere} & 
+                             どこ も\textit{doko mo} & \zh{到处} \textit{dàochù}\\
+            & Existential & & どこ か \textit{doko ka}
+ &  \zh{某处} \textit{mǒuchù} \\
+            & ~~~Assertive     & \textit{somewhere} & \\
+            & ~~~Elective     & \textit{anywhere} & \\
+            & Other         & \textit{elsewhere} & よそ \textit{yoso}
+  & \zh{别处} \textit{biéchù} \\[2ex]
+\multicolumn{4}{l}{Not all lemmas shown}
+\end{tabular}
+
+
+\myslide{Tagging Pronouns Mono-lingually}
+\MyLogo{Real FYPs for the win}
+       \begin{itemize}
+       \item Tagged one document by hand \textit{The Adventure of the
+           Speckled Band}
+       \item   \begin{tabular}[t]{lrrr}
+           Language & English &  Chinese & Japanese \\ \hline
+           Contentful & 1,370 & 1,177 & 463 \\
+           Other & 75 & 19 & 51\\
+           \hline 
+           Total &  1,445 & 1,196 & 514
+         \\
+           \hline 
+           Sentences & 599 & 620 & 702 \\
+           Words & 11,628 & 12,433 & 13,902 
+         \end{tabular}
+       \item Distinguished existential \lex{there} (but not dummy \lex{it})
+         with POS tags
+       \item \textit{other} includes relative pronouns, dummy
+         \lex{it}, idioms and segmentation errors
+       \end{itemize}
+     %\note[targetoffsetx=50mm, targetoffsety=-20mm, angle=90, radius=3cm,
+%width=8cm, rotate=-10, roundedcorners=30, innersep=1cm]{\large 
+%  Far fewer pronouns in Japanese}
+
+
+\myslide{Tagging and Analyzing Pronouns Cross-lingually}
+       \begin{itemize}
+       \item Automatically linked by matching features
+       \item Hand corrected:\\
+\hspace*{-3em}
+  \begin{tabular}[t]{lrrrrrccc}
+ & \multicolumn{6}{c}{Linked Pronouns} & \multicolumn{2}{c}{Non-linked Pronouns} \\
+ &\multicolumn{5}{c}{\# Matching Features} & Pronoun & English & Other \\
+ & 5 & 6 & 7 & 8 & 9 & to Noun & & \\
+\hline
+\# Chinese   & 5 & 19 & 54 & 789 & 58 & 134 & 369 & 215 \\
+\# Japanese  & 15 & 120 & 114 & 37 & 32 & 139 & 943 & 109
+  \end{tabular}
+\item Case and politeness mismatches common
+\item A surprising number of non-linked pronouns in Chinese and Japanese
+\end{itemize}
+
+
+
+     \myslide{Interesting Cross-Linguistics Differences}
+\begin{exe}
+  \ex \ul{She}$_i$ shot \ul{him}$_j$ and then \ul{herself}$_i$
+  \begin{xlist}
+    \ex \gll \ul{奥-さん} が \ul{旦那-さん} を 撃って 、 それから \ul{自分} も 撃った \\
+    oku-san ga danna-san wo utte , sorekara jibun mo utta \\
+%    wife-HON NOM husband-HON ACC shoot-CONJ , and+then self too shoo-PST \\
+    \trans \ul{Wife}$_i$ shot \ul{husband}$_j$ and then shot \ul{self}$_i$ too
+\CJKfamily{gbsn}
+    \ex  \gll \ul{她} 拿 枪  先 打 \ul{丈夫} , 然后 打 \ul{自己}\\
+    t\={a} ná qi\={a}ng xi\={a}n d\v{a} zhàngf\={u} , ránh\`{o}u d\v{a} zìj\v{\i} \\
+\CJKfamily{min}
+%    3SG take gun first shoot husband , and+then shoot self\\
+    \trans \ul{She}$_i$ took the gun to first shoot \ul{husband}$_j$, and then shot \ul{self}$_i$
+  \end{xlist}
+\newpage
+
+\ex\label{s:none}    \mbox{[many (cases) strange] \ldots but \ul{none} commonplace \ldots}
+\begin{xlist}
+  \CJKfamily{gbsn}
+  \ex \gll      但是    却   \ul{没有}    \ul{一例} 是  平淡无奇      的 \\
+  Dan4shi4 que4 mei2you3 yi1li4 shi4 ping2dan4wu2qi2 de \\
+  \CJKfamily{min}
+  \trans ‘But, there is \ul{not  one case} that is featureless.’
+  \ex \gll  \ul{どれ も} 尋常で は \ul{ない} 事件 である \\
+  {Dore mo}   jinjode   wa \ul{nai}    jiken dearu \\
+  \trans ‘\ul{Everything} is a case which is \ul{not} usual.’
+\end{xlist}
+  \ex\label{s:dif}  \ul{It} is a swamp adder!
+  \begin{xlist}
+    \CJKfamily{gbsn}
+    \ex \gll \ul{这}     是   一 条      沼地        蝰蛇 ！ \\
+    Zhe4 shi4 yi1tiao2 zhao3di4 kui2she2 ! \\
+    \CJKfamily{min}
+    \trans `\ul{This} is a swamp adder!'
+    \ex \gll  沼蛇 だ ！ \\
+    numahebi da ! \\
+    \trans `\ul{$\phi$} is a swamp snake'
+  \end{xlist}
+\end{exe}
+ 
+
+\myslide{Discussion}
+\begin{itemize}
+\item A new way of annotation that links wordnets to corpora
+
+\item Unresolved issues (possible ideas for project 2)
+  \begin{itemize}
+  \item Further analysis of unlinked pronouns: which and why?
+    \\ In particular how and why are Japanese and Chinese different?
+  \item Tag more corpora (ongoing); Extend to more languages;
+  \item Integrate to HPSGs: ERG, Jacy, MCG, IndoGram
+  \end{itemize}
+\end{itemize}
+
+
+
+\section{Classifiers}
+
+\myslide{How do we count Email in Japanese?}
+\lurl{http://www5b.biglobe.ne.jp/~aiida/iida2006-message.pdf}
+
+\begin{itemize}
+\item Japanese has two classifiers for counting messages:
+  \begin{itemize}
+  \item 通 \jpn{tsuu}: used for letters
+  \item 件 \jpn{ken}: used for incidents
+  \item 本 \jpn{hon}: used for phone calls
+  \end{itemize}
+\item See how they are used to count Email and SMS
+  \begin{itemize}
+  \item Look at a newspaper corpus Mainichi News (CD-ROM)
+\\ 1996, 1998, 2000, 2002, 2004 
+  \end{itemize}
+\end{itemize}
+
+From Asako Iida "The current transition of Japanese numeratives for counting digital messages" (2006).
+
+
+\myslide{Change with familiarity}
+
+\begin{center}
+  \begin{tabular}{lrrrrrr}
+    Year &  1996 & 1998 & 2000 & 1002 & 2004 \\ \hline
+    Email Usage & 5\% & 11\% & 34\% & 81\% & 86\%\\
+    Classifier  & 通, 本  & 通  & 通 & 通, 件 & 通, 件 \\
+    SMS  Usage &   ---  & 39\% & 45\% & 67\% & 76\%\\
+    Classifier  &  &  通, コール  & 通  & 通 & 件, 通 \\
+    % & 件 \jpn{ken} & \\
+  \end{tabular}
+  \\[2ex] Change in Classifier use with increased familiarity
+  \\ Classifiers listed in frequency order
+\end{center}
+
+通 has more of a one-way feeling, while  件 is more of a conversation.
+
+Sometimes depends on the tool (which classifier does it use).
+
+\myslide{Conclusions}
+
+\begin{itemize}
+\item Different questions require different resources
+\item Good corpora are useful for multiple tasks
+\end{itemize}
+
+
+\myslide{More SQL}
+
+\begin{itemize}
+\item Find animals
+\begin{verbatim}
+select * from synset where synset in 
+(select synset from xlink where resource='lexnames' and xref=5)
+limit 125
+\end{verbatim}
+\item find sentences with animals
+\begin{verbatim}
+attach 'eng.db' as as 'e';
+select sent from e.sent join e.concept 
+on e.sent.sid=e.concept.sid
+where tag in (
+select synset from synset where synset in 
+(select synset from xlink where resource='lexnames' and xref=5))
+limit 50
+\end{verbatim}
+\newpage
+\item Another way (without duplicate sentences)
+
+\begin{verbatim}
+select sent from e.sent 
+where sid in 
+(select distinct sid from concept
+where tag in 
+(select synset 
+from synset 
+where synset in 
+(select synset from xlink 
+where resource='lexnames' and xref=5)))
+limit 50
+\end{verbatim}
+\end{itemize}
+% \myslide{Acknowledgments}
+% \MyLogo{HG351 (2011)}
+
+% \begin{itemize}
+% \item Many examples from chapters 3 and 4 of \bibentry{Biber:Conrad:Reppen:1998}
+% \end{itemize}
+% %
+%\item Thanks to Stefan Th. Gries (University of California, Santa
+%    Barbara) for his great introduction \textit{Useful statistics for
+%      corpus linguistics} \url{http://www.linguistics.ucsb.edu/faculty/stgries/research/UsefulStatsForCorpLing.pdf}
+%  \item Some examples taken from Ted Dunning's \textit{Surprise and
+%      Coincidence - musings from the long tail}
+%    \url{http://tdunning.blogspot.com/2008/03/surprise-and-coincidence.html}
+
+%   inspiration for some of the slides (from  \textit{LING 2050 Special Topics in Linguistics: Corpus linguistics}, U Penn).
+% \item Thanks to Sandra K\"{u}bler for some of the slides from her 
+% \textit{RoCoLi\footnote{Romania Computational Linguistics Summer School} Course: Computational Tools for Corpus Linguistics}
+% %\item Thanks to Mark Davies (BYU) for the exploration ideas.
+% \item Definitions from WordNet 3.0
+% \end{itemize}
+
+
+
+%%
+%% Future
+%%
+\clearpage
+\end{CJK}
+\end{document}
+
+% Local Variables: 
+% TeX-view-style: (("." "xdvi-ja %d -paper a4r -s 7"))
+% LaTeX-section-list:  (("myslide" 1))
+% TeX-master: t
+% End:

@@ -1,0 +1,727 @@
+\documentclass[a4paper,landscape,headrule,footrule]{foils}
+
+\input{headx.tex}
+
+\header{Lecture 1}{Introduction to Corpus Linguistics}{Main Issues}
+
+
+\begin{document}
+\maketitle
+
+
+\myslide{Introduction}
+
+\begin{itemize}
+%\item Self Introduction
+\item Administrivia
+\item What is Corpus Linguistics
+\item What this course is (and isn't)
+\item Getting to know each other (what do you want?)
+\end{itemize}
+
+% \myslide{Self Introduction}
+
+% \begin{itemize}\addtolength{\itemsep}{-3mm}
+% %\item Francis Bond 
+% \item BA in Japanese and Mathematics 
+% \item BEng in Power and Control %(Electrical Systems Engineering)
+%   \raisebox{-2ex}[0mm][0mm]{\includegraphics{pwm.eps}}
+% \item PhD on  ``Determiners and Number in English
+%   contrasted with Japanese,  as exemplified in Machine
+%   Translation'' 
+% \item 1991-2006 NTT (Nippon Telegraph and Telephone)
+%   \begin{itemize}
+%   \item Japanese - English/Malay Machine Translation
+%   \item Japanese corpus, grammar and ontology (Hinoki)
+%   \end{itemize}
+% \item 2006-2009 NICT (National Inst. for Info. and Comm. Technology)
+%   \begin{itemize}
+%   \item Japanese - English/Chinese Machine Translation
+%   \item Japanese WordNet
+%   \end{itemize}
+% \item 2009- NTU
+% \end{itemize}
+
+\myslide{Corpora I have been involved with}
+
+\begin{itemize}
+\item Semantic markup of the LDC \textit{Call Home Corpus}
+\\ sense tagging of Japanese telephone transcripts
+\item \textit{Hinoki Treebank of Japanese}
+\\ HPSG parses of Japanese definitions, examples and newspaper text
+\\ sense tagging of same
+\item \textit{Tanaka Corpus} of aligned Japanese-English text
+\\ Now the \textit{Tatoeba multilingual project}x: \url{www.tatoeba.org}
+\item NICT English learner corpus (advisor)
+\item \textit{Japanese WordNet gloss corpus}, jSEMCOR corpus
+\\  aligned Japanese-English text, sense tagging
+\end{itemize}
+
+\myslide{Corpora I am building now}
+\MyLogo{\citep{Tan:Bond:2012,NTUCLE:2017}}
+\begin{itemize}
+\item \textbf{\blu{NTU Multilingual Corpus: NTU-MC}}
+\\ with help from Tan Liling, HG2002, HG8011 and many more
+  \begin{itemize}
+  \item Arabic, Chinese, English, Indonesian, Japanese, Korean, Vietnamese
+    \begin{itemize}
+    \item Essays
+    \item Short Stories (Sherlock Holmes)
+    \item News Text
+    \item Singapore Tourist Web Sites
+    \end{itemize}
+  \item Wordnet sense tagging, HPSG parses
+  \item Cross lingual alignment
+  \item Tagging various phenomena
+  \item Used in URECA and FYP research, we will use it in this course
+  \end{itemize}
+\item \txx{NTU Corpus of Learner English: NTUCLE}
+  \begin{itemize}
+  \item With help from LCC
+  \end{itemize}
+
+\end{itemize}
+
+
+
+
+\myslide{100\% Continuous Assessment}
+
+
+\begin{itemize}
+\item Individual Lab Work (4x10\%)
+\item Individual Project (20\%) 
+  \begin{itemize}
+  \item  Describe some linguistic phenomenon quantitatively in a 6-page paper (ACL format)
+  \item The paper must motivate both the choice of phenomenon and corpus
+  \end{itemize}
+\item Group Project (30\%) One of:
+  \begin{itemize}
+  \item A program to perform some substantial corpus processing task
+  \item The collection and annotation of a new (sub)corpus
+  \item[+]     8-page paper (ACL full paper format with extra page for references) describing your approach
+  \end{itemize}
+\item Class Participation  (10\%)
+\end{itemize}
+
+
+\myslide{Guidelines for Written Work in HG3051}
+
+\begin{itemize}
+\item All assignments must follow the \textit{(Computational)
+    Linguistic Style Guidelines: a guide for the perplexed. } \\
+  \url{http://www3.ntu.edu.sg/home/fcbond/data/ling-style.pdf}
+\item Proper citation is important 
+    \\ --- failure to cite is plagiarism --- \textbf{zero} or \textbf{fail}
+\item Local Rules
+  \begin{itemize}
+  \item ACL format for paper submission (No need for LMS title page)
+    \\ only the first $n$ pages will be marked
+  \item Late assignments get \textbf{zero}
+  \item I expect some quantitative analysis
+  \item I will try to give you real problems to work on
+  \end{itemize}
+\end{itemize}
+
+
+\myslide{Extra Credit}
+
+\begin{itemize}
+\item If you submit a patch\footnote{a short set of commands to correct a bug in a computer program} that gets accepted to a corpus or tool we use
+  \begin{itemize}
+  \item you can get 1-5\% extra credit (depending on the size/difficulty)
+    \\ typically 10$^{n-1}$ where $n$ is the number of lines you changed
+  \item you can't go over 100\%
+  \end{itemize}
+\item A patch can involve
+  \begin{itemize}
+  \item extending the corpus/code with new capabilities
+  \item fixing a bug in annotation/code
+  \item fixing a bug in or extending documentation
+    \begin{itemize}
+    \item fixing a spelling error; rewording for clarity; translating to a new language
+    \end{itemize}
+  \end{itemize}
+\item Has to be for this course (not overlap with URECA, project, HG2051, \ldots)
+\end{itemize}
+
+
+\myslide{The goal of this course}
+
+\begin{center}
+  \LARGE 
+Master the uses of text corpora 
+\\ in linguistics research and applications.
+\end{center}
+\begin{itemize}\addtolength{\itemsep}{-1ex}
+\item Selecting text
+\item Marking up extra information
+\item The range of existing corpora
+\item How to build your own corpus
+\item Using corpora to test linguistic hypotheses
+\item Using corpora to train language tools
+\item Extracting knowledge from corpora
+\end{itemize}
+
+
+\myslide{HG3051 Prerequisites: HG1002 or HG2051}
+
+\begin{itemize}
+\item Some linguistic knowledge assumed
+  \begin{itemize}
+  \item You know what a \txx{lexeme} is
+  \item You know what an \txx{inflectional paradigm} is
+  \item You know what a \txx{constituent} is
+  \end{itemize}
+ If you don't know these, you will have to do a little background
+ reading, I recommend \citet{Huddleston:1988} 
+\item A little computational knowledge (waived but useful)
+  \begin{itemize}
+  \item You will learn some very simple techniques here
+  \item You will learn to use some corpus programs
+  \item If you can program a little \blu{I encourage you to use your skills}
+  \end{itemize}
+\end{itemize}
+
+% \myslide{Course Content} 
+
+% This course introduces basic corpus skills for linguists:
+% \begin{itemize}
+% \item Marking up extra information
+% \item Selecting text
+% \item The range of existing corpora
+% \item How to build your own corpus
+% \item Using corpora to test linguistic hypotheses
+% \item Using corpora to train language tools
+% \end{itemize}
+
+\myslide{What do you learn?}
+
+On completion of this module, students should be able to:
+
+\begin{itemize}
+\item Understand the uses of text corpora in language research
+  \\ Be able to manipulate them with simple tools
+\item Use a concordance program to extract data from a corpus
+\item Design and build a corpus for some task
+\item Understand how to analyse corpus data through basic statistical methods
+\end{itemize}
+    
+%%%
+%%% this changes each year, so keep separate
+%%%
+\include{schedule}
+
+
+\myslide{Textbook and Readings}
+
+\begin{itemize}
+\item I haven't found a good text book, so we won't use one.
+  \begin{itemize}
+  \item Stubbs, Michael, \textit{Text and Corpus Analysis}. Blackwell Publishers, 1996
+\\ is not bad
+  \end{itemize}
+\item Readings will be assigned, I will try to choose
+  works that are on-line.
+\item All Wikipedia articles cited have been checked by me, and I will watch
+  them for changes. \com{extend the web of trust}
+\end{itemize}
+
+% Other References
+
+% Biber, D., S. Conrad \& R. Reppen, Corpus Linguistics: Investigating Language Structure and Use. Cambridge University Press, 1998.
+
+% Kennedy, G. An Introduction to Corpus Linguistics. Longman, 1998.
+
+% McEnery, Tony et al. Corpus-Based Language Studies: An Advanced Resource Book. Routledge, 2006.
+
+% McEnery, Tony and Andrew Wilson Corpus Linguistics 2nd ed, Edinburgh UP, 2001
+
+% Sinclair, John. Corpus Concordance Collocation. Oxford: Oxford UP, 1991
+
+
+\myslide{Student Responsibilities}
+
+By remaining in this class, the student agrees to:
+\begin{enumerate}
+\item  Make a good-faith effort to learn and enjoy the material.
+\item  Read assigned texts and participate in class discussions and activities.
+\item Submit assignments on time.
+\item Attend class at all times, barring special circumstances (see below).
+\item Get help early: approach me when you first have trouble understanding a concept or homework problem rather than complaining about a lack of understanding afterward.
+\item Treat other students with respect in all class-related activities, including on-line discussions.
+\end{enumerate}
+\myslide{Attendance}
+\begin{enumerate}
+\item You are expected to attend all classes.
+\item Be on time - lateness is disruptive to your own and others' learning.
+\item Valid reasons for missing class include the following:
+\begin{enumerate}
+\item A medical emergency (including mental health emergencies)
+\item A family emergency (death, birth, natural disaster, etc).
+\end{enumerate}
+You must provide documentation to me and the student office.
+\item There will be significant material covered in class that is not in your readings.  You cannot expect to do well without coming to class.
+\item If you miss a class, it is your responsibility to get the notes, any handouts you missed, schedule changes, etc. from a classmate.
+\end{enumerate}
+
+\myslide{Remediation and Academic Integrity}
+\begin{enumerate}
+\item No late work will be accepted, except in the case of a documented excuse.
+\item For planned, justified, absences on class days or days on which assignments are due, advance notice must be provided.
+\item Cheating will not be tolerated. Violations, including plagiarism, will be seriously dealt with, and could result in \textbf{a failing grade for the entire course}.
+\item For all other issues of academic integrity, refer to the University Honour Code: \url{http://www.ntu.edu.sg/sao/Pages/HonourCode.aspx}
+\item As always, use your common sense and conscience.
+\end{enumerate}
+
+
+
+
+\myslide{Why do you do HG351?}
+
+\begin{itemize}
+\item Language Poll (What do you speak and/or study?)
+  \begin{itemize}
+  \item Natural
+    \begin{itemize}
+    \item Mandarin
+    \item Bahasa Malay
+    \item Tamil
+    \item[\ldots]
+    \end{itemize}
+  \item Corpus Type
+    \begin{itemize}
+    \item Text
+    \item Speech
+    \item Other
+    \item[\ldots]
+    \end{itemize}
+  \end{itemize}
+
+
+\end{itemize}
+
+
+
+\myslide{What is a Corpus?}
+
+\lx{corpus} (pl: \lx{corpora}):
+\begin{enumerate}
+\item A collection of texts, especially if
+complete and self-contained: the corpus of
+Anglo-Saxon verse.
+\item In linguistics and lexicography, a body of texts, utterances, or other
+specimens considered more or less representative
+of a language, and usually stored as an electronic
+database. Currently, computer corpora may store
+many millions of running words, whose features can
+be analyzed by means of tagging (the addition of
+identifying and classifying tags to words and other
+formations) and the use of concordancing
+programs. Corpus linguistics studies data in any
+such corpus \ldots
+\end{enumerate}
+(from \textit{The Oxford Companion to the English Language}, ed.
+McArthur \& McArthur, 1992)
+
+\myslide{Definition of a corpus}
+\begin{itemize}
+\item  In principle, any collection of more than one text can be called a
+\txx{corpus}
+\item  Characteristics of modern corpora:
+  \begin{itemize}
+  \item machine-readable (i.e., computer-based)
+  \item authentic (i.e., naturally occurring)
+  \item sampled (bits of text taken from multiple sources)
+  \item representative of a particular language or language variety.
+  \end{itemize}
+\item  \citet[171]{Sinclair:1991}:
+  \begin{quote}
+    A corpus is a collection of naturally-occurring language text, chosen to characterize a state of variety of language.
+\end{quote}
+% \item Corpus linguistics is the study of language as expressed in samples
+% (corpora) or ``real world'' text.
+\end{itemize}
+
+
+\myslide{Why Are Electronic Corpora Useful?}
+\begin{itemize}
+\item as a collection of examples for linguists
+\item as a data resource for lexicographers
+\item as instruction material for language teachers and learners
+\item as training material for natural language processing applications
+  \begin{itemize}
+  \item training of speech recognizers
+  \item training of statistical part-of-speech taggers and parsers
+  \item training of example-based and statistical machine translation systems
+  \end{itemize}
+\item ``Big Data'' is just another corpus, to analyze it wisely
+  requires the same techniques
+
+\end{itemize}
+
+
+
+\myslide{Examples for Linguists}
+
+Give examples for English noun phrases \ldots
+
+\myslide{Examples for Linguists}
+Examples from the Penn treebank:
+\begin{exe}
+  \ex \eng{USX 's transition from Big Steel to Big Oil}
+  \ex \eng{Pittsburgh instead of New York or Findlay,  Ohio, Marathon 's home}
+  \ex \eng{his concern about boosting shareholder value}
+  \ex \eng{the modest goal of becoming tax manager by the age of 46}
+  \ex \eng{a move that, in effect, raised the cost of a \$7.19 billion Icahn bid by about \$3
+  billion}
+\ex \eng{an undistinguished college student who dabbled in zoology until he concluded that he couldn't stand cutting up frogs }
+\ex \eng{the sale of the reserves of Texas Oil \& Gas, which was acquired three years ago and
+hasn't posted any significant operating profits since}
+\end{exe}
+
+
+
+\myslide{Some Linguists dismiss Corpus Linguistics}
+
+\begin{quotation}
+\ldots it is obvious that the set of grammatical
+sentences cannot be identified with any particular corpus
+of utterances \ldots  
+
+\bigskip
+\ldots a grammar mirrors the behavior of the speaker, who,
+on the basis of a finite and accidental experience with
+language, can produce or understand an indefinite
+number of new sentences.   
+
+\bigskip
+\ldots  ones's ability to produce and recognize
+grammatical utterances is not based on notions of
+statistical approximations or the like.
+\ldots  If we rank the sequences of a given length in order of
+statistical approximation to English, we will find both
+grammatical and ungrammatical sequences scattered
+throughout the list; there appears to be no particular
+relation between the order of approximations and
+grammatical.  
+\\ \mbox{} \hfill \citet[pp15--17]{Chomsky:1957} \textit{Syntactic Structures}  
+\end{quotation}
+
+\myslide{Can grammaticality be predicted?}
+
+%\myslide{What is grammatical and what isn't?}
+ \begin{exe}
+ \ex\label{gram} {~}\eng{Colorless green ideas sleep furiously.}
+ \ex\label{ungram} *\eng{Furiously sleep ideas green colorless.}
+ \hfill (Chomsky, 1957: as (1) and (2))
+ \end{exe}
+ \begin{quote}
+   It is fair to assume that neither sentence (\ref{gram}) nor
+   \ref{ungram}) (nor indeed any part of these sentences) has ever
+   occurred in an English discourse. Hence, in any statistical model
+   for grammaticalness, these sentences will be ruled out on identical
+   grounds as equally `remote' from English. Yet (\ref{gram}), though
+   nonsensical, is grammatical, while (\ref{ungram}) is not.
+ \end{quote}
+
+\txx{Yes!}
+Using a simple probabilistic model (based only on the probability of a
+word occurring given the two proceeding words) \citet{Pereira:2000} showed
+that P(\ref{gram}) $\gg$ P(\ref{ungram}) ($\times 200,000$).
+
+\myslide{Context helps}
+\MyLogo{\url{http://www.linguistlist.org/issues/2/2-457.html}}
+\begin{quotation}
+  \eng{It can only be the thought of verdure to come, which prompts us in
+  the autumn to buy these dormant white lumps of vegetable matter
+  covered by a brown papery skin, and lovingly to plant them and care
+  for them. It is a marvel to me that under this cover they are
+  labouring unseen at such a rate within to give us the sudden awesome
+  beauty of spring flowering bulbs. While winter reigns the earth
+  reposes but these colourless green ideas sleep furiously.}
+  \emph{C.M Street (1985)}
+\end{quotation}
+
+\myslide{Why do Linguists need Corpora?}
+
+\begin{description}
+\item[Chomksy] The verb \lex{perform} cannot be used with mass word objects: one can \eng{perform a task} but not \eng{perform labour}.
+\item[Hatcher] How do you know, if you don't use a corpus and have not studied the verb \lex{perform}?
+\item[Chomksy] How do I know?  Because I am a native speaker of the English Language.
+\end{description}
+Hill (1962:29) cited in \citet[11]{McEnery:Wilson:2001}
+
+\myslide{This is why}% English C\myslide{orpora}
+From the BNC (search for ``\texttt{perform [nn1*]}'')
+\begin{verbatim}
+PERFORM MUSIC 	4
+PERFORM WORK 	4
+PERFORM SURGERY 	3
+PERFORM EUTHANASIA 	2
+PERFORM RESEARCH        2
+\end{verbatim}
+
+\eng{many Continental musicians, and it can not be doubted that professional English singers often \ul{perform music} which they have not had time to " learn " in any sense of}
+
+\eng{Not only do `` Saxtet '' \ul{perform music} previously unassociated with the saxophone, but they include a selection of their own}
+
+Linguists' intuitions are unreliable: \blu{Explanations of languages
+  based on false data are not very valuable.}
+
+
+\myslide{Examples for Lexicographers}
+
+How many senses does the word \lex{line} have?
+
+\myslide{Examples for Lexicographers}
+
+The noun line has 30 senses according to WordNet (first 23 from tagged texts):
+
+\begin{enumerate}
+\item (51) \lex{line} --- (a formation of people or things one beside another; \eng{the \ul{line} of soldiers advanced with their bayonets fixed}; \eng{they were arrayed in \ul{line} of battle}; \eng{the cast stood in \ul{line} for the curtain call})
+\item (20) \lex{line} --- (a mark that is long relative to its width; \eng{He drew a \ul{line} on the chart})
+\item (15) \lex{line} --- (a formation of people or things one behind another; \eng{the \ul{line} stretched clear around the corner}; \eng{you must wait in a long \ul{line} at the checkout counter})
+\item (13) \lex{line} --- (a length (straight or curved) without breadth or thickness; the trace of a moving point)
+\item (11) \lex{line} --- (text consisting of a row of words written across a page or computer screen; \eng{the letter consisted of three short \ul{line}s}; \eng{there are six \ul{line}s in every stanza})
+\item (10) \lex{line} --- (a single frequency (or very narrow band) of radiation in a spectrum)
+\item (10) \lex{line} --- (a fortified position (especially one marking the most forward position of troops); \eng{they attacked the enemy's \ul{line}})
+\item (10) argumentation, logical argument, argument, \ul{line} of reasoning, \lex{line} --- (a course of reasoning aimed at demonstrating a truth or falsehood; the methodical process of logical reasoning; \eng{I can't follow your \ul{line} of reasoning})
+\item (9) cable, \lex{line}, transmission line --- (a conductor for transmitting electrical or optical signals or electric power)
+\item (8) course, \lex{line} --- (a connected series of events or actions or developments; \eng{the government took a firm course}; \eng{historians can only point out those \ul{line}s for which evidence is available})
+\item (6) \lex{line} --- (a spatial location defined by a real or imaginary unidimensional extent)
+\item (5) wrinkle, furrow, crease, crinkle, seam, \lex{line} --- (a slight depression in the smoothness of a surface; \eng{his face has many \ul{line}s}; \eng{ironing gets rid of most wrinkles})
+\item (4) pipeline, \lex{line} --- (a pipe used to transport liquids or gases; \eng{a pipeline runs from the wells to the seaport})
+\item (4) \lex{line}, railway line, rail line --- (the road consisting of railroad track and roadbed)
+\item (3) telephone line, phone line, telephone circuit, subscriber line, \lex{line} --- (a telephone connection)
+\item (3) \lex{line} --- (acting in conformity; \eng{in line with}; \eng{he got out of \ul{line}}; \eng{toe the \ul{line}})
+\item (2) lineage, \lex{line}, line of descent, descent, bloodline, blood line, blood, pedigree, ancestry, origin, parentage, stemma, stock -- (the descendants of one individual; \eng{his entire lineage has been warriors})
+\item (2) \lex{line} --- (something (as a cord or rope) that is long and thin and flexible; \eng{a washing \ul{line}})
+\item (2) occupation, business, job, line of work, \lex{line} --- (the principal activity in your life that you do to earn money; \eng{he's not in my \ul{line} of business})
+\item (1) \lex{line} --- (in games or sports; a mark indicating positions or bounds of the playing area)
+\item (1) channel, communication channel, \lex{line} --- ((often plural) a means of communication or access; \eng{it must go through official channels}; \eng{lines of communication were set up between the two firms})
+\item (1) \lex{line}, product line, line of products, line of merchandise, business line, line of business -- (a particular kind of product or merchandise; \eng{a nice \ul{line} of shoes})
+\item (1) \lex{line} --- (a commercial organization serving as a common carrier)
+\item agate line, \lex{line} --- (space for one line of print (one column wide and 1/14 inch deep) used to measure advertising)
+\item credit line, line of credit, bank line, \lex{line}, personal credit line, personal line of credit -- (the maximum credit that a customer is allowed)
+\item tune, melody, air, strain, melodic line, \lex{line}, melodic phrase -- (a succession of notes forming a distinctive sequence; \eng{she was humming an air from Beethoven})
+\item \lex{line} --- (persuasive but insincere talk that is usually intended to deceive or impress; \eng{`let me show you my etchings' is a rather worn \ul{line}}; \eng{he has a smooth \ul{line} but I didn't fall for it}; \eng{that salesman must have practiced his fast \ul{line} of talk})
+\item note, short letter, \lex{line}, billet -- (a short personal letter; \eng{drop me a \ul{line} when you get there})
+\item \lex{line}, dividing line, demarcation, contrast -- (a conceptual separation or distinction; \eng{there is a narrow \ul{line} between sanity and insanity})
+\item production line, assembly line, \lex{line} --- (mechanical system in a factory whereby an article is conveyed through sites at which successive operations are performed on it)
+\end{enumerate}
+
+\myslide{Instruction for Language Learning}
+
+Which do you say in English: \eng{think about} or \eng{think on}?
+\myslide{Instruction for Language Learning}
+
+Which do you say in English: \eng{think about} or \eng{think on}?
+
+If in doubt, ask google:
+\begin{tabular}[t]{rl}
+ 36,300,000 hits & \eng{think about} \\
+ 738,000 hits &  \eng{think on}  
+\end{tabular}
+
+
+\myslide{Types of Corpora}
+\begin{itemize}
+\item mono-lingual versus multi-lingual corpora
+\item special-purpose, domain-specific corpora versus general-purpose, large-scale corpora
+\item spoken language corpora versus collections of written text
+\item ad-hoc corpus collections versus balanced, representative corpora
+\item raw text versus marked-up documents
+\item unannotated versus annotated corpora
+\item Web as a corpus
+\end{itemize}
+
+\myslide{What does a corpus consist of?}
+
+\begin{itemize}
+\item A collection of ordinary text files (Raw Corpus)
+\item Annotated corpora
+  \begin{itemize}
+  \item Raw corpora with html/xml tags (genre, date, subject, \ldots)
+  \item Annotated corpora (part of speech, syntactic structures, etc.)
+  \end{itemize}
+\end{itemize}  
+
+\myslide{The British National Corpus (BNC)}
+\begin{itemize}
+\item 100 million words of written and spoken British English \citep{Burnard:2000}
+\item Designed to represent a wide cross-section of British English from late 20th century: balanced and representative
+\item POS tagging (2 million word sampler hand checked)
+\end{itemize}
+\begin{small}
+
+  \begin{tabular}{l|lll}
+    Written  & Domain  & Date & Medium \\ \hline
+    (90\%)  & Imaginative (22\%) & 1960-74 (2\%) & Book (59\%) \\
+    & Arts (8\%) & 1975-93 (89\%)  & Periodical (31\%)   \\
+    & Social science (15\%)  & Unclassified (8\%)  & Misc. published (4\%) \\
+    & Natural science (4\%) \ldots  & & Misc. un-pub (4\%)    \\  \hline
+    Spoken  & Region  & Interaction type  & Context-governed \\ \hline
+    (10\%)  &  South (46\%)  & Monologue (19\%)  & Informative (21\%) \\
+    & Midlands (23\%)  & Dialogue (75\%)  & Business (21\%) \\
+    & North (25\%)  \ldots & Unclassified (6\%)  & Institutional (22\%)  \ldots\\
+  \end{tabular}
+\end{small}
+
+
+\myslide{General vs. specialized corpora}
+\begin{itemize}
+\item General corpora (such as “national” corpora) are a huge undertaking.
+These are built on an institutional scale over the course of many years.
+\item  Specialized corpora (ex: corpus of English essays written by Japanese
+university students, medical dialogue corpus) can be built relatively
+quickly for the purpose at hand, and therefore are more common
+\item Characteristics of corpora:
+  \begin{enumerate}
+  \item Machine-readable, authentic
+  \item Sampled to be balanced and representative
+  \end{enumerate}
+\newpage
+\item  Trend: for specialized corpora, criteria in (2) are often weakened in favor of quick assembly and large size
+  \begin{itemize}
+  \item Do-it-yourself corpora
+  \item World-Wide Web as a corpus
+  \item Google 1T corpus
+  \end{itemize}
+ Rare phenomena only show up in large collections
+\end{itemize}
+
+\myslide{A short list of well-known corpora}
+\begin{itemize}
+\item \blu{National corpora}:
+  \begin{itemize}
+  \item The British National Corpus
+  \item The American National Corpus
+  \item The German National Corpus
+  \item King Sejong the Great Corpus
+  \end{itemize}
+  Chinese, Greek, Italian, Hungarian, Polish, Czech \ldots
+\item \blu{Other Well Known Corpora}:
+  \begin{itemize}
+  \item Brown Corpus
+  \item Corpus of Contemporary American English
+  \item  Michigan Corpus of Academic Spoken English
+\newpage
+  \item  1st Language acquisition:
+    \begin{itemize}
+    \item  CHILDES (Child Language Data Exchange System)
+    \end{itemize}
+  \item  2nd Language acquisition (mostly English)
+    \begin{itemize}
+    \item  ICLE (the International Corpus of Learner English) and LOCNESS (the Louvain Corpus of Native English Essays)
+    \item  Longman Learners' Corpus
+    \item  CLC (Cambridge Learner Corpus)
+    \end{itemize}
+  \item Multilingual Corpora
+    \begin{itemize}
+    \item Canadian Hansard
+    \item Hong Kong Hansard
+    \item Europarl
+    \end{itemize}
+  \item Parsed  Corpora
+    \begin{itemize}
+    \item Penn Treebank (WSJ, Brown, Chinese)
+    \item Czech Dependency Bank
+    \item Redwoods HPSG corpus of English
+    \end{itemize}
+\end{itemize}
+\end{itemize}
+
+\myslide{See Also}
+
+\begin{itemize}
+\item Linguist list corpora page
+\\ \url{https://www.linguistlist.org/sp/GetWRListings.cfm?wrtypeid=1}
+\item ACL Siglex Links to the CORPORA Mailing List Archive
+\item Linguistics Data Consortium (LDC)
+\item European Language Resources Association (ELRA)
+\item 言語資源協会 \textit{Gengo Shigen Kyouyuukikou} Language Resource Consortium (GSK)
+\item \zh{中文语言资源联盟} Chinese Linguistic Data Consortium (CLDC)
+\end{itemize}
+
+\myslide{Corpora at NTU}
+
+\begin{itemize}
+%\item Collins WordBank (NTU Library$|$Databases)
+%\item BNC (online)
+\item Cantonese Corpus (KK)
+\item Tatoeba Japanese-English (FCB)
+\item Various small corpora (AC, FK)
+\item NTU Multilingual Corpus (under construction: FCB)
+\item NTU Learner Corpus (under construction: FCB)
+\item \emp{We may add to these in this class}
+\end{itemize}
+
+\myslide{Let's Explore}
+\MyLogo{Inspired by \url{davies-linguistics.byu.edu/ling485/projects/p01.htm}}
+
+Go to the BYU interface to the BNC: \url{http://corpus.byu.edu/bnc/}
+
+Please log in giving a suitable category.
+
+\begin{description}
+\item [MORPHOLOGY]: Look for words starting with the prefix \eng{dis-}
+  (e.g. \eng{dissent}).  What are the three most common singular nouns
+  (\url{dis*.[nn1]}), the three most common adjectives (\url{dis*.[j*]}), and the
+  three most common infinitival verbs (\url{dis*.[vvi]})
+
+\item [LEXICAL]: Search for \eng{robot} [using CHARTS] and then
+  compare the frequency in the five main genres.  In which genre is it
+  the most/least common? In which sub-genre is it the most common
+  (click on [SEE ALL SECTIONS]
+\newpage
+
+ \item [COLLOCATIONS]: What are the 5 most frequent adjectives with
+   \eng{curry} as a noun (\url{curry.[nn*]})? (CONTEXT = [j*], [4] [4], [SORT] =
+   [FREQUENCY]). Now change to [SORT] = [RELEVANCE]. What are the five
+   most highly-ranked adjectives. What has changed, and why?
+
+\item[GRAMMATICAL]: In which genre is the present perfect (\url{has [vvn*]}) and the past perfect (\url{had [vvn*]}) most common? Any idea why?
+
+\item[LEXICO-GRAMMAR]: Look at the top five adjectives following \eng{come} and \eng{go} ( use [COMPARE WORDS]; WORD(S) = come , go; CONTEXT =  [j*] [0] [2]). Is there any pattern in terms of which adjectives occur with the two verbs?
+\newpage
+\item[SEMANTICS]: Compare the collocates of \eng{find} and
+  \eng{discover} ( use [COMPARE WORDS]; WORD(S) = find.[v*] ,
+  discover.[v*]; CONTEXT = [nn*] [0] [2]). Any patterns here?
+
+\item[LEXICO-GRAMMAR]: Compare the five most common phrases with
+  \url{we [v*]} in SPOKEN vs ACADEMIC.  What is the major difference
+  between the two registers?
+
+\item[LEXICAL]: Compare the most frequent singular and plural nouns
+  (\url{[nn1*]} and \url{[nn2*]}) in MAGAZINE vs ACADEMIC).  Which
+  types are more common in each register?
+\end{description}
+
+
+
+
+\myslide{Acknowledgments}
+
+
+\begin{itemize}
+\item Thanks to Na-Rae Han for 
+  inspiration for some of the slides (from  \textit{LING 2050 Special Topics in Linguistics: Corpus linguistics}, U Penn) and also for the Student Policies (adapted).
+\item Thanks to Sandra K\"{u}bler for some of the slides from her 
+\textit{RoCoLi\footnote{Romania Computational Linguistics Summer School} Course: Computational Tools for Corpus Linguistics}
+\item Thanks to Mark Davies (BYU) for the exploration ideas.
+\item Definitions from WordNet 3.0
+\end{itemize}
+
+
+\small
+\bibliographystyle{aclnat}
+\bibliography{abb,mtg,nlp,ling}
+
+\end{document}
+
+% Local Variables: 
+% TeX-view-style: (("." "xdvi-ja %d -paper a4r -s 7"))
+% LaTeX-section-list:  (("myslide" 1))
+% TeX-master: t
+% End:

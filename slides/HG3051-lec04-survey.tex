@@ -1,0 +1,463 @@
+
+\documentclass[a4paper,landscape,headrule,footrule,dvips]{foils}
+
+\input{headx.tex}
+\usepackage{bibentry}
+\renewcommand{\cite}{\bibentry}
+
+\header{Lecture 4}{Survey of Available Corpora}{}
+
+\usepackage{pst-node}
+\newcommand{\sa}[2]{\rnode{c#1}{\iz{#2}}}%\nodebox{c#1}}
+
+%\usepackage{hieroglf}
+\usepackage{wasysym}
+%\newcommand{\grn}[1]{\textcolor{PineGreen}{#1}}
+\newcommand{\ont}[1]{\textcolor{blue}{#1}}
+\newcommand{\jcy}[1]{\textcolor{orange}{#1}}
+\newcommand{\lxd}[1]{\textcolor{brown}{#1}}
+
+\newcommand{\hinoki}{\grn{Hinoki}\xspace}
+\newcommand{\lexeed}{\lxd{Lexeed}\xspace}
+\newcommand{\jacy}{\jcy{JACY}\xspace}
+\newcommand{\onto}{\ont{Ontology}\xspace}
+%\newcommand{\itsdb}{\textsf{[incr tsdb()]}\xspace}
+\newcommand{\GT}{Goi-Taikei\xspace}
+
+
+\begin{document}
+\begin{CJK}{UTF8}{min}
+\bibliographystyle{apalike}
+\nobibliography{abb,mtg,nlp,ling}
+\maketitle
+
+
+\myslide{Overview}
+
+\begin{itemize} 
+\item Revision 
+  \begin{itemize}
+  \item \blu{Multi-modal Corpora}
+  \item \blu{Multi-lingual Corpora}
+  \end{itemize}
+\item Survey of Corpora
+  \begin{itemize}
+  \item Corpora that caught your interest
+  \item Corpora that caught my interest
+  \end{itemize}
+\end{itemize}
+
+%%%
+%%% this changes each year, so keep separate
+%%%
+\include{schedule}
+
+%%
+\section{Revision of \\
+Multi-modal  and Multi-lingual Corpora}
+%%%
+
+
+\myslide{Multi-modal Corpora}
+
+\begin{itemize}
+\item Language is not the only channel for communication: It is often
+  combined with other modalities
+  \begin{itemize}
+  \item speech
+  \item gesture
+  \item facial expression
+  \item gaze
+  \item body posture
+\\ ECG (Electrocardiogram), HR (Heart Rate), GSR (Galvanic Skin Response)
+  \item activity: nursing, drawing, building
+  \end{itemize}
+\item Corpora that include more than one of these are \blu{multi-modal}
+\end{itemize}
+
+\myslide{HCRC Map Task}
+\MyLogo{\url{http://groups.inf.ed.ac.uk/maptask/}}
+\begin{itemize}
+\item Early, influential dialog corpus (with maps)
+  \begin{itemize}
+  \item Two speakers sit opposite one another
+  \item Each has a (different) map which the other cannot see
+  \item One explains the route to the other
+  \end{itemize}
+\item Conditions
+  \begin{itemize}
+  \item familiar (friends) vs non-familiar
+  \item gaze vs no-gaze
+  \end{itemize}
+\item Landmarks chosen for phonetic properties
+\item Annotation: POS, Parse, Discourse structure, Gaze
+\item Now replicated in many languages and dialects
+\end{itemize}
+
+\myslide{Other Multimodal Corpora}
+\MyLogo{}
+\begin{itemize}
+\item E-Nightingale: Nursing Task Corpus
+\begin{itemize}
+\item Japanese project to analyze Nursing tasks and dialogs
+\item recorder worn all day
+\item beeps at ten minute intervals  (event-driven recording)
+\end{itemize}
+\item Many Meeting Corpora
+  \begin{itemize}
+  \item VACE Multimodal Meeting Corpus
+    \begin{itemize}
+    \item extra linguistic information very important
+    \end{itemize}
+  \end{itemize}
+\end{itemize}  
+\myslide{Multi-Lingual Corpora}
+
+\begin{itemize}
+\item Multilingual corpora are useful for
+  \begin{itemize}
+  \item Contrastive linguistic analysis
+  \item Language learning
+  \item Machine translation training
+  \end{itemize}
+\item Well known Corpora
+  \begin{itemize}
+  \item Europarl: 20+ languages;  18-40 million words, .6--1.3 million sentences
+  \item OPUS:  On-line collection of multilingual text
+  \item Taoteba:  User generated corpus of example sentences
+  \item Canadian Hansard
+  \item Hong Kong Hansard
+  \item Bible Translation Corpus
+  \item GALE Chinese-English, Japanese-English (DoD)
+  \item NICT Japanese-English, Japanese-Chinese
+  \end{itemize}
+\end{itemize}
+
+\myslide{Multilingual Corpus Construction}
+\begin{itemize}
+\item Other languages used as annotation
+  \begin{itemize}
+  \item Assumed high quality
+  \end{itemize}
+\item Other construction often done automatically
+\item Article, Sentence and Word alignment
+  \begin{itemize}
+  \item Length/Structure based cues
+  \item Lexically based cues
+  \end{itemize}
+\item Driven by MT research
+\item Not so much high quality alignable multi-lingual text
+\end{itemize}
+
+\section{Your Corpora}
+
+\myslide{Slides}
+\MyLogo{When you are really famous, it's OK}
+\begin{itemize}\addtolength{\itemsep}{-1.5ex}
+\item \blu{You need to learn to follow instructions} ($\frac{-1}{10}$/issue)
+  \begin{itemize}
+  \item pdf not powerpoint
+  \item no more than 5 pages
+  \item Name on page one
+  \item Deadline is not negotiable --- late revisions don't count 
+  \end{itemize}
+\item For paper/grant submissions 
+\\ --- your submission paper will be rejected without review
+\item In the workplace
+\\ --- you will get shouted at and made to do it again
+\item Why is it so important?
+  \begin{itemize}
+  \item The reviewer/boss has to read/process many, many submissions
+  \item Anything that distracts them/takes extra time is bad
+  \end{itemize}
+\item Even if you forget everything about Corpora, \blu{remember this lesson}
+\end{itemize}
+
+\myslide{Presentations}
+\MyLogo{}
+\begin{itemize}
+\item 5 minutes + 2 minutes for question
+  \begin{itemize}
+  \item I will indicate time at 4:00 and 5:00 (and 7:00)
+  \item You \emp{must} stop talking at 5:00
+  \end{itemize}
+\item Everyone must ask one (new) question!
+\item We need to keep time strictly
+  \begin{itemize}
+  \item Choose one or two points about your corpus to emphasize
+  \end{itemize}
+\end{itemize}
+
+\section{My Corpora}
+
+\myslide{Some corpora of interest (and why)}
+
+\begin{itemize}
+\item Open American National Corpus
+\item Corpus of Hong Kong Cantonese 香港粵語語料庫 (by KK Luke)
+\item Hinoki Treebank of Japanese
+\item Redwoods Treebank of English
+\item Tatoeba Corpus
+\item NICT Multilingual Corpus/Kyoto Corpus
+\item NTU Multilingual Corpus
+\end{itemize}
+
+\myslide{Open American National Corpus}
+\lurl{http://www.anc.org/OANC/}
+
+\begin{tabular}{llrr}
+Name & Domain & No. files & No. words \\
+\hline
+charlotte & 	face to face 	& 93 &198,295 \\
+switchboard & 	telephone	& 2,307 &3,019,477 \\
+\hline
+911  report & 	government, technical 	& 17  &	 281,093 \\
+berlitz & 	travel guides 	& 179 &1,012,496 \\
+biomed & 	technical	& 837 &3,349,714 \\
+eggan & 	fiction 	& 1 &61,746 \\
+icic & 	letters	& 245 &91,318 \\
+oup & 	non-fiction	& 45 &330,524 \\
+plos & 	technical	& 252 &409,280 \\
+slate & 	journal	& 4,531 &4,238,808 \\
+verbatim & 	journal	& 32 &582,384 \\
+web  data &	government	& 285 &1,048,792 \\
+\hline
+Total& & 8,832 & 	14,623,927\\
+\end{tabular}
+
+A large collection of freely available data
+
+\myslide{Creation/Annotation}
+
+\begin{itemize}\addtolength{\itemsep}{-1ex}
+\item OANC Annotation
+  \begin{itemize}
+  \item  Structural markup (sections, chapters, \ldots, paragraph, sentence)
+  \item  Words (tokens) with part of speech annotations using the Penn tagset
+  \item  Noun, Verb chunks
+\end{itemize}
+\item Contributed annotations
+  \begin{itemize}
+  \item BBN Named Entities (inline format)
+  \item Syntactic parses
+    \begin{itemize}
+    \item Charniak constituency-based parser (Charniak \& Johnson, 2005)
+    \item LTH dependency converter (Johansson \& Nugues, 2007)
+    \item MaltParser (Nivre et al., 2007).
+    \item English Resource Grammar \citep{Flickinger:2008}
+    \end{itemize}
+  \item Slate coreference (anaphora) annotations
+  \item CLAWS part of speech tags
+  \end{itemize}
+\end{itemize}
+
+\myslide{Manually Annotated Sub-Corpus (MASC)}
+
+\begin{itemize}
+\item 82,000 words drawn from the OANC
+  \begin{itemize}
+  \item WordNet senses
+  \item FrameNet frame annotations
+  \item Validated annotations for token and sentence boundaries, part of speech, noun chunks, verb chunks, named entities, and Penn Treebank syntactic annotation
+  \item Language Understanding Corpus annotations
+  \item Opinion, PropBank, and TimeML are either included in MASC I or forthcoming
+  \end{itemize}
+\item  All annotations are in LAF/GrAF format and can therefore be merged or combined using the ANC Tool and transduced to other formats using ANC2Go. 
+\end{itemize}
+  
+\myslide{References}
+\begin{itemize} \small
+\item $n$-gram search \url{http://www.americannationalcorpus.org/OANC/ngram.html}
+\item  Ide, N., Baker, C., Fellbaum, C., Passonneau, R. (2010). The Manually Annotated Sub-Corpus: A Community Resource For and By the People. Proceedings of the 48th Annual Meeting of the Association for Computational Linguistics, Uppsala, Sweden.
+\item  Ide, N., Suderman, K., Simms, B. (2010). ANC2Go: A Web Application for Customized Corpus Creation. Proceedings of the Seventh Language Resources and Evaluation Conference (LREC 2010), Valletta, Malta.
+\item  Ide, N. (2008). The American National Corpus: Then, Now, and Tomorrow. In Michael Haugh, Kate Burridge, Jean Mulder and Pam Peters (eds.), Selected Proceedings of the 2008 HCSNet Workshop on Designing the Australian National Corpus: Mustering Languages, Cascadilla Proceedings Project, Sommerville, MA. 
+\end{itemize}
+
+
+\myslide{Corpus of Hong Kong Cantonese 香港粵語語料庫}
+\lurl{http://www.hku.hk/hkcancor/}
+\begin{itemize}
+\item 180,000-word corpus
+\item 52 spontaneous conversations
+\item 42 radio programmes
+\item Segmented; POS tagged; Romanized
+\item Available directly for download (no explicit license)
+\item Produced by KK Luke
+\end{itemize}
+\myslide{Creation/Annotation}
+\begin{itemize}
+\item 30 hours of recordings (March 1997 --- August 1998)
+\item Native speakers of Cantonese
+\item ordinary settings with family members, friends and colleagues talking with each other freely on everyday topics such as current affairs, work and study, and personal hobbies
+\item Some parts selected
+\end{itemize}
+\myslide{Usage}
+\begin{itemize}
+\item Used to examine the uses of the frequently used sentence final particles wo3 and bo3 in the 1990s in Hong Kong Cantonese by examining speech data.
+\item Question: are wo (喎) and bo (噃) variant forms?
+\item Answer: No
+  \begin{quotation}
+    {[\ldots]} the two SFPs carry and serve different meanings and functions in modern Hong Kong Cantonese, and thus they are not exactly the same particles and not interchangeable as previously assumed.
+    \citep[p21]{Leung:2010}
+  \end{quotation}
+
+\end{itemize}
+
+\myslide{References}
+\begin{itemize}
+\item \cite{Wong:2006}
+\item \cite{Leung:2010}
+\end{itemize}
+
+\myslide{Hinoki Treebank of Japanese}
+ \begin{itemize}
+  \item Based on an HPSG grammar of Japanese \com{\jacy}
+  \item Parsing dictionary definition sentences \com{\lexeed}
+  \item Creating a corpus that can be studied \com{\hinoki}
+  \item Creating an ontology that links senses \com{\onto}
+  \end{itemize}
+
+\vfill
+\begin{center}%\large
+  We want to combine \\
+  \large \textbf{\jcy{structural}} {\normalsize and}
+ \textbf{\ont{lexical}}\\
+  semantics
+\end{center}
+\vfill
+
+\myslide{Creation/Annotation}
+\begin{small}
+  \begin{itemize}
+  \item \jcy{Grammar Development}
+    \begin{itemize}
+    \item Lexical acquisition from MRDs, Corpora, hand-built
+    \item Treebanking (Definition and Example sentences)
+    \end{itemize}
+  \item \ont{Ontology Development}
+    \begin{itemize}
+    \item Extracting from MRDs
+    \item Boot-strapping from a closed world
+    \end{itemize}
+  \end{itemize}
+\end{small}
+\vspace*{-10mm}
+\newcommand{\SB}[1]{\psshadowbox[linecolor=yellow]{#1}}
+%\newcommand{\SB}[1]{\fbox{#1}}
+\begin{scriptsize}
+ \begin{psmatrix}
+    [name=hinoki]\SB{\begin{tabular}{lrcc}
+        \multicolumn{4}{c}{\ul{\emp{Corpus}: \hinoki}}\\
+        Type & \# Sents & \jcy{Tree} & \ont{Sense} \\ \hline
+        % \multicolumn{2}{c}{構文木, 語義タグ}\\ \hline
+        Def. & 81,000 & ○ &   ○   \\
+        Ex. &   46,000 & ○ &   ○  \\
+        News &   74,000 & △ &   ○   \\
+      \end{tabular}}
+    &
+    [name=lex]\SB{\begin{tabular}{lr}
+        \multicolumn{2}{c}{\ul{\emp{Lexicon}: \lexeed}} \\
+        \multicolumn{2}{c}{Familiarity, Defs, Exs.} \\ \hline
+        Head words & 28,000\\
+        \ont{Senses} & 46,000 \\
+        % 例文 & 46,000 \\
+      \end{tabular}}
+    \\[-0.5ex]%
+    \SB{\begin{tabular}{lr}
+        \multicolumn{2}{c}{\ul{\emp{Grammar}: \jacy (HPSG)}}\\
+        \multicolumn{2}{c}{Lex-types, rules, lex-items} \\ \hline
+        Lex-items &     37,000\\
+        Types &  7,000 \\
+        Rules &  114 \\
+
+      \end{tabular}} &
+
+    \SB{\begin{tabular}{lr}
+        \multicolumn{2}{c}{\ul{\emp{Meaning}: \onto}}\\
+        \multicolumn{2}{c}{links the \lexeed senses}\\ \hline
+        relation types &  11\\
+        % & \small 上位, 同位, 分野, \ldots \\
+        \multicolumn{2}{c}{\smaller \iz{hypernym, meronym,  \ldots}}\\
+        relations & 81,300  \\
+        % リンク & 語彙大系, WordNet
+      \end{tabular}}
+  \end{psmatrix}
+ \end{scriptsize}
+  
+
+\myslide{Usage}
+\begin{itemize}
+\item Ontology Extraction (also for English)
+\item Parse Ranking using Semantics (+3.8\%)
+\item Word Sense Disambiguation using Parsing
+\item POS tagger training
+\end{itemize}
+
+\myslide{References}
+\begin{itemize}
+\item \cite{Bond:Fujita:Tanaka:2008}
+\item \cite{Tanaka:Bond:Baldwin:Fujita:Hashimoto:2007}
+\item \cite{Fujita:Bond:Tanaka:Oepen:2010}
+\end{itemize}
+
+% \myslide{Redwoods Treebank of English}
+% \myslide{Creation/Annotation}
+% \myslide{Usage}
+% \myslide{References}
+% \begin{itemize}
+% \item \cite{}
+% \item \cite{}
+% \end{itemize}
+
+% \myslide{Tatoeba Corpus}
+% \myslide{Creation/Annotation}
+% \myslide{Usage}
+% \myslide{References}
+% \begin{itemize}
+% \item \cite{}
+% \item \cite{}
+% \end{itemize}
+
+% \myslide{NICT Multilingual Corpus/Kyoto Corpus}
+% \myslide{Creation/Annotation}
+% \myslide{Usage}
+% \myslide{References}
+% \begin{itemize}
+% \item \cite{}
+% \item \cite{}
+% \end{itemize}
+
+% \myslide{NTU Multilingual Corpus}
+% \myslide{Creation/Annotation}
+% \myslide{Usage}
+% \myslide{References}
+% \begin{itemize}
+% \item \cite{}
+% \item \cite{}
+% \end{itemize}
+
+
+% \myslide{Acknowledgments}
+% \MyLogo{HG351 (2011)}
+
+% \begin{itemize}
+% \item Thanks to Na-Rae Han for 
+%   inspiration for some of the slides (from  \textit{LING 2050 Special Topics in Linguistics: Corpus linguistics}, U Penn).
+% \item Thanks to Sandra K\"{u}bler for some of the slides from her 
+% \textit{RoCoLi\footnote{Romania Computational Linguistics Summer School} Course: Computational Tools for Corpus Linguistics}
+% %\item Thanks to Mark Davies (BYU) for the exploration ideas.
+% \item Definitions from WordNet 3.0
+% \end{itemize}
+
+%%
+%% Future
+%%
+\clearpage
+\end{CJK}
+\end{document}
+
+% Local Variables: 
+% TeX-view-style: (("." "xdvi-ja %d -paper a4r -s 7"))
+% LaTeX-section-list:  (("myslide" 1))
+% TeX-master: t
+% End:

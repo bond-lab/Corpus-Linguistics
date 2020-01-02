@@ -1,0 +1,750 @@
+\documentclass[a4paper,landscape,headrule,footrule,dvips]{foils}
+
+\input{headx.tex}
+\usepackage{bibentry}
+\renewcommand{\cite}{\bibentry}
+
+\header{Lecture 7}{Lexical and Grammatical Studies, Variation}{}
+
+\usepackage{pst-node}
+\newcommand{\sa}[2]{\rnode{c#1}{\iz{#2}}}%\nodebox{c#1}}
+
+%\usepackage{hieroglf}
+\usepackage{wasysym}
+%\newcommand{\grn}[1]{\textcolor{PineGreen}{#1}}
+\newcommand{\ont}[1]{\textcolor{blue}{#1}}
+\newcommand{\jcy}[1]{\textcolor{orange}{#1}}
+\newcommand{\lxd}[1]{\textcolor{brown}{#1}}
+
+\newcommand{\hinoki}{\grn{Hinoki}\xspace}
+\newcommand{\lexeed}{\lxd{Lexeed}\xspace}
+\newcommand{\jacy}{\jcy{JACY}\xspace}
+\newcommand{\onto}{\ont{Ontology}\xspace}
+%\newcommand{\itsdb}{\textsf{[incr tsdb()]}\xspace}
+\newcommand{\GT}{Goi-Taikei\xspace}
+
+
+\begin{document}
+\begin{CJK}{UTF8}{min}
+\bibliographystyle{apalike}
+\nobibliography{abb,mtg,nlp,ling}
+\maketitle
+
+
+\myslide{Overview}
+
+\begin{itemize} 
+\item Revision  of DIY Corpora
+  \begin{itemize} 
+  \item DIY Corpora
+  \item Corpus Tools
+  \item Processing Raw Text
+  \item SQL
+  \end{itemize}
+\item Lexical Studies
+\item Grammatical Studies
+\item Variation
+\end{itemize}
+%%% 
+%%% this changes each year, so keep separate
+%%%
+\include{schedule}
+
+%%%
+\myslide{Revision  of DIY Corpora}
+%%%
+
+
+\myslide{DIY Corpora}
+
+\begin{enumerate}
+\item Decide what you want to study
+\\ see if you can do it with existing resources
+\\ No \frownie
+\item Collect data that fits your needs
+  \begin{itemize}
+  \item Speech (expensive)
+  \item Text (easy to get, hard to do legally)
+  \end{itemize}
+\item Process it
+  \begin{itemize}
+  \item Clean up
+  \item Mark up
+  \item Annotation
+  \end{itemize}
+\end{enumerate}
+
+\myslide{Web as Corpus}
+\myslide{Two Approaches to using the Web as a Corpus}
+\begin{itemize}
+\item \blu{Direct Query}: Search Engine as Query tool and WWW as corpus?
+\\  (Objection: Results are not reliable)
+\begin{itemize}
+\item Population and exact hit counts are unknown → no statistics
+possible.
+\item Indexing does not allow to draw conclusions on the data.
+\item[\Bad] Google is missing functionalities that linguists /
+lexicographers would like to have.
+\end{itemize}
+\item \blu{Web Sample}: Use search engine to download data from the
+net and build a corpus from it.
+\begin{itemize}
+\item known size and exact hit counts → statistics possible.
+\item people can draw conclusions over the included text types.
+\item (limited) control over the content.
+\item[\Bad] sparser data
+\end{itemize}
+\end{itemize}
+
+
+\myslide{Structured Query Language}
+
+A special-purpose programming language designed for managing data held
+in a relational database management system (RDBMS)
+
+\begin{itemize} \addtolength{\itemsep}{-1ex}
+\item The simplest query
+  \begin{itemize}
+  \item \txx{SELECT} desired attributes
+  \item \txx{FROM} one or more tables
+  \item \txx{WHERE} condition applies about the records in the tables
+  \end{itemize}
+\item What lemmas are there associated with the word \eng{does}?
+
+  \begin{tabular}{l|ll}
+\textbf{QUERY}  &   \textbf{word} & \textbf{lemma} \\ \hline
+SELECT word, lemma  &   does & do \\
+FROM word           &   does & do \\
+WHERE word = 'does' &   does & doe \\
+    & \ldots
+  \end{tabular}
+\end{itemize}
+
+\myslide{Queries can be rather complicated}
+
+\begin{itemize}
+\item Tell me more about frequent common nouns
+\begin{verbatim}
+SELECT count(word), count(DISTINCT word),
+       MIN(LENGTH(word)), 
+       MAX(LENGTH(word)), AVG(LENGTH(word))
+FROM word
+WHERE word 
+IN (SELECT word
+    FROM word
+    WHERE POS in ('NN', 'NNS') 
+    GROUP BY word
+    ORDER BY COUNT(word) DESC
+    LIMIT 10)
+
+\end{verbatim}
+  \begin{tabular}{lllll}
+    \textbf{count}  & \textbf{distinct} &\textbf{min}  &  \textbf{max} & \textbf{avg} \\ \hline
+    1096 & 10 & 3 & 10 & 5.13
+  \end{tabular}
+\item First find the ten most common words, then do things to them
+  \begin{itemize}
+  \item \emp{the trick is to write simple queries first, and then combine them}
+  \end{itemize}
+\item Note that more common words are shorter (as we would expect)
+\end{itemize}
+\begin{center}
+  SQL allows you to search for a very wide variety of things
+\end{center}
+
+
+%%%
+%%%
+%%%
+\section{Corpus Studies of Lexicography}
+
+\myslide{\lex{big}, \lex{large}, \lex{great}}
+\MyLogo{\citet[\S~2.6]{Biber:Conrad:Reppen:1998}}
+
+\begin{itemize}
+\item Same syntax (all adjectives)
+\item Similar meaning:
+  \begin{itemize}
+  \item \lex{large, big} --- ``above average in size or number or quantity or magnitude or extent'' \eng{a large city; set out for the big city; a large sum; a big (or large) barn;  a large family;  big businesses;  a big expenditure; a large number of newspapers; a big group of scientists; large areas of the world}
+  \item \lex{great} --- ``relatively large in size or number or extent; larger than others of its kind'' \eng{a great juicy steak; a great multitude; the great auk; a great old oak; a great ocean liner; a great delay} 
+\end{itemize}
+\item How do they differ?
+\end{itemize}
+
+\myslide{Distribution of \lex{big}, \lex{large}, \lex{great}}
+\MyLogo{(After table 2.5 \citep[p 60]{Biber:Conrad:Reppen:1998})}
+
+\begin{tabular}{lrrr}
+ &   Academic &   Fiction & Combined\\
+\hline
+\lex{big}    &  31 & 408 & 230 \\
+\lex{large}  & 605 & 232 & 408 \\
+\lex{great}  & 284 & 490 & 393 
+\end{tabular}
+\\ (frequency/million words)
+
+\begin{itemize}
+\item Counts from Longman-Lancaster Corpus
+  \begin{itemize}
+  \item Academic Text: 2.7 Million Words
+  \item Fiction: 3.0 Million Words
+  \end{itemize}
+\end{itemize}
+
+\myslide{Immediate Right Collocates}
+\MyLogo{(frequency/million words)}
+\begin{center}
+  \begin{tabular}{lrlrlr}
+& &   \multicolumn{2}{c}{\emp{Academic}}\\[1ex]
+    \multicolumn{2}{c}{\lex{big}} &   
+    \multicolumn{2}{c}{\lex{large}} &
+    \multicolumn{2}{c}{\lex{great}}\\
+\hline
+    enough & 2.2 & number & 48.3 & deal & 44.6 \\
+    traders & 1.1 & numbers & 31.3 & importance & 12.5 \\
+    &     & scale & 18.0 & number &  8.9 \\
+    &     & and & 28.0 & majority & 8.1 \\ 
+    &     & enough & 15.9 & variety & 7.0 \\ [1ex]
+
+ & &   \multicolumn{2}{c}{\emp{Fiction}}\\[1ex]
+    \multicolumn{2}{c}{\lex{big}} &   
+    \multicolumn{2}{c}{\lex{large}} &
+    \multicolumn{2}{c}{\lex{great}}\\
+\hline
+    man  & 9.6 & and & 15.2 & deal & 40.4 \\
+    enough & 8.9 & black & 4.3 & man & 6.6 \\
+    and & 8.3 & enough & 3.6 & burrow &  5.6 \\
+    house    & 7.6 & room & 2.7 & big & 4.6 \\ 
+    big        & 7.0 & white & 2.7 & aunt & 4.3 \\ 
+  \end{tabular}
+\end{center}
+
+\myslide{Discussion \lex{big}, \lex{large}, \lex{great}}
+
+\begin{itemize}
+\item \lex{big}  mainly for concrete things
+\item \lex{large}  mainly for amounts and numbers
+\item \lex{great} similar to \lex{large} but many special senses
+  \begin{itemize}
+  \item \lex{great deal}  
+  \item \lex{great man}  
+  \item \lex{great burrow} (\textit{Watership Down})
+  \item \lex{great} \iz{relative}
+  \end{itemize}
+also use as intensifier \eng{great big, great importance}
+\end{itemize}
+
+The dictionary definition does not really tell us this.
+
+\section{Corpus Studies of Morphology}
+
+\myslide{Distribution and Function of Nominalizations}
+\MyLogo{\citet[\S~3.2]{Biber:Conrad:Reppen:1998}}
+
+\begin{itemize}
+\item Investigate how common normalizations are in different registers
+\item Count four common derivational suffixes:  \lex{-[ts]ion, -ment, -ness, -ity}
+\item In three registers: Academic, Fiction, Speech
+\item Search for words ending in \eng{tion, sion, ity, \ldots}
+\\ with a stop list: \lex{nation, station, city, \ldots}
+\item First run the matcher, then add stop words, then rerun, \ldots
+\\ hard to do with a web interface
+\end{itemize}
+
+\myslide{Results (1)}
+\MyLogo{(After table 3.1 \citep[p 60]{Biber:Conrad:Reppen:1998})}
+\noindent \textbf{Nominalizations per thousand words across registers}
+\\ \begin{tabular}{lrrr}
+ Academic & Fiction & Speech \\ \hline
+ 44.0   & 11.2    &  11.3   
+\end{tabular}
+
+
+\begin{itemize}
+\item Nominalizations much more common in Academic text
+\item A few words very common (more than 500 per million)
+\\ \eng{movement, activity, information,$^*$ development, relation, equation}
+\begin{itemize}
+\item If \lex{movement} has occurred recently \ldots \com{Academic}
+\item Garth [\ldots] \lex{moved} his hand crabwise along the table.
+\com{Fiction}
+\item When we \lex{moved} into the new house  \ldots \com{Speech}
+\end{itemize}
+\item Academic text focuses on generalized processes
+\item Speech and fiction focus on a specific person doing some activity
+\end{itemize}
+
+
+\myslide{Results (2)}
+\MyLogo{(After table 3.2 \citep[p 63]{Biber:Conrad:Reppen:1998})}
+\noindent \textbf{Proportions of different suffixes across registers}
+\\[2ex] \begin{tabular}{lrrr}
+  suffix   & Academic & Fiction & Speech \\\hline
+  \lex{-[ts]ion} & 68\%     & 51\%    &  56\% \\  
+  \lex{-ment}   & 15\%     & 21\%    &  24\% \\  
+  \lex{-ness}    &  2\%     & 13\%    &   5\% \\  
+  \lex{-ity}     & 15\%     & 15\%    &  15\% \\  
+\end{tabular}
+
+\begin{itemize}
+\item  \lex{-[ts]ion} more common in Academic (but common everywhere)
+\item \lex{-ment} commoner in Fiction and Speech
+\item \lex{-ness} common in Fiction
+\end{itemize}
+\myslide{Discussion}
+
+\begin{itemize}
+\item  \lex{-[ts]ion} more common in Academic (but common everywhere)
+  \\ basic use is to make an action non-agentive
+  \begin{itemize}
+  \item \eng{It provides a direct \ul{indication} of fuel \ul{consumption}.}
+  \end{itemize}
+\item \lex{-ment} often used for mental states
+  \\ \eng{agreement, amazement, embarrassment} \com{Fiction}
+  \begin{itemize}
+  \item \eng{Patrick shrugged in \ul{embarrassment}.} 
+  \end{itemize}
+\item \lex{-ness} used for personal qualities
+  \\ \eng{bitterness, happiness, politeness} \com{Fiction}
+  \begin{itemize}
+  \item \eng{The \ul{bitterness} in his heart was mixed with \ldots . }
+  \end{itemize}
+\end{itemize}
+
+It would be good if we could automatically divide the words according
+to their semantic field (which we can approximate with WordNet, \ldots)
+%%FIXME expand
+
+\section{Corpus Studies of Syntax}
+\MyLogo{}
+\myslide{\lex{begin} vs \lex{start}}
+\MyLogo{\citet[\S~4.3]{Biber:Conrad:Reppen:1998}}
+
+\begin{itemize}
+\item \lex{begin} and \lex{start} are very similar in meaning
+  \begin{itemize}
+  \item \lex{get down, begin, get, start out, start, set about, set
+      out, commence} --- ``take the first step or steps in carrying
+    out an action'' \eng{We began working at dawn; Who will start?;
+      Get working as soon as the sun rises!; The first tourists began
+      to arrive in Cambodia; He began early in the day; Let's get down
+      to work now}
+  \item \lex{begin, start} 
+ --- ``have a beginning, in a temporal, spatial, or evaluative sense''
+ \eng{The DMZ begins right over the hill; The second movement begins
+   after the Allegro; Prices for these homes start at \$250,000}
+  \item \lex{begin, lead off, start, commence} --- ``set in motion, cause to start'' 
+    \eng{the U.S. started a war in the Middle East; the Iraqis began
+      hostilities; begin a new chapter in your life}
+  \end{itemize}
+\end{itemize}
+
+
+\myslide{\lex{begin} vs \lex{start}}
+\MyLogo{}
+
+\begin{itemize}
+\item \lex{begin} and \lex{start} are very similar in possible usage
+  \begin{itemize}
+  \item \txx{intransitive}
+    \\ \eng{I had better rest before we \ul{begin/start}}
+  \item \txx{transitive (NP)}
+    \\ \eng{I will  \ul{begin/start} the lecture at 18:00}
+  \item \txx{transitive (VP:ing)}
+    \\ \eng{I will \ul{begin/start} lecturing at 18:00}
+  \item \txx{transitive (VP:to)}
+    \\ \eng{I will \ul{begin/start} to lecture at 18:00}
+  \end{itemize}
+\item So how do they differ?
+\end{itemize}
+
+\myslide{\lex{begin} vs \lex{start}}
+\MyLogo{}
+\begin{itemize}
+\item Automatically tag text from two registers 
+(Longman-Lancaster Fiction and Academic)
+\\ \texttt{V (ADV)? NP} $\Rightarrow$ T (transitive) 
+\\ \texttt{V (ADV)? to} $\Rightarrow$ TCLS (to clause transitive)
+\\ \texttt{V (ADV)? V+ing } $\Rightarrow$ ING (-ing clause transitive)
+\\ \textbf{else}: $\Rightarrow$ I (intransitive)
+\item Aim for 250 samples, take every third 
+\item Hand correct the initial sample
+\end{itemize}
+
+\myslide{Example}
+
+\begin{verbatim}
+00018.FCT
+<valency=TCLS (I)
+hath her in thrall. "After a minute, the trio
+==> began
+rather carefully to cross the room
+
+
+00021.FCT
+<valency=ING (I)
+station, shops, roadhouses, all closed. A dog
+==> began
+barking and , having begun , went on.
+\end{verbatim}
+
+\myslide{Corrected Results}
+
+\begin{tabular}{lrrrrr}
+   & Intransitive & +NP & +to & +ing  \\
+\hline
+\lex{begin} \\
+Fiction & 22\% & 3\% & 72\% & 4\% \\ 
+Academic & 43\% & 12\% & 34\% &12\% \\ 
+\lex{start} \\
+Fiction & 40\% & 22\% & 20\% & 18\% \\ 
+Academic & 64\% & 16\% & 15\% & 6\% \\ 
+\end{tabular}
+
+\begin{itemize}
+\item \lex{start} is more common as intransitive
+\item \lex{begin} is more common as \lex{to}-transitive
+\end{itemize}
+
+(After table 4.3 \citep[p 98]{Biber:Conrad:Reppen:1998})
+\myslide{Discussion}
+
+Typically \lex{start} is used to show the onset of a process, often
+with an adverb
+\begin{itemize}
+\item \eng{The soil formation  process may \ul{start} again in the fresh material}
+\item \eng{The train \ul{started} down the hill}
+\end{itemize}
+
+\lex{begin} is used with more concrete agents
+\begin{itemize}
+\item \eng{Then I \ul{began}  to laugh a bit.}
+\item \eng{The original mass of gas cooled and \ul{began} to contract.}
+\end{itemize}
+
+Because the corpus doesn't mark \txx{animacy} or \txx{concrete agent} these
+statements are weak: we can't really make predictions or measure correlation.
+
+\myslide{Can we do better?}
+\lurl{http://nltk.ldc.upenn.edu:8080/ts/search}
+\begin{itemize}
+\item Treebanks exist for some languages
+\item We can search some English treebanks
+\\ \lurl{http://nltk.ldc.upenn.edu:8080/ts/search}
+\\ \verb|//VP/VB/begin[->S/VP/TO/to]|
+\\ \verb|//VP/VB/start[->S/VP/VBG]|
+\item This can also be done offline to get counts
+\end{itemize}
+
+\myslide{What about SQL?}
+
+We can look at a word and the next word by \txx{joining} a table to itself
+
+\begin{itemize}
+\item Transitive (V N) 
+\begin{verbatim}
+SELECT a.word, b.word, b.pos
+FROM word AS a JOIN word AS b 
+  ON a.sid=b.sid AND a.wid=b.wid-1
+WHERE a.lemma='start' AND b.pos GLOB 'N*'
+\end{verbatim}
+\item Transitive (VP:ing)
+\begin{verbatim}
+SELECT a.word, b.word, b.pos
+FROM word AS a JOIN word AS b 
+  ON a.sid=b.sid AND a.wid=b.wid-1
+WHERE a.lemma='start' AND b.pos='VBG'
+\end{verbatim}
+\newpage
+\item Transitive (VP:to)
+\begin{verbatim}
+SELECT a.word, b.word, b.pos
+FROM word AS a JOIN word AS b 
+  ON a.sid=b.sid AND a.wid=b.wid-1
+WHERE a.lemma='start' AND b.pos='TO'
+\end{verbatim}
+\item Intransitive (remainder)
+\end{itemize}
+
+Regular expressions are better for this, SQL is not very good at one
+or none.  But it is easy to write a few queries and add them together.
+\newpage
+\begin{itemize}
+\item Transitive (V ADV N) (none in eng.db)
+\begin{verbatim}
+SELECT a.word, b.word, b.pos
+FROM word AS a JOIN word AS b JOIN word as c
+  ON a.sid=b.sid AND a.wid=b.wid-1 AND a.wid=c.wid-2
+WHERE a.lemma='start' AND b.pos GLOB 'R*' AND c.pos GLOB 'N*'
+\end{verbatim}
+\end{itemize}
+
+Try to do these as nested loops!
+
+
+\myslide{JOINS}
+\MyLogo{Can be very, very slow}
+
+An SQL \txx{JOIN} clause is used to combine rows from two or more
+tables, based on common fields between them.
+
+\begin{itemize}\addtolength{\itemsep}{-1ex}
+\item (INNER) JOIN: Returns all rows with a  match in BOTH tables
+\item LEFT JOIN: Return all rows from the left table, and matched rows from the right table
+\item RIGHT JOIN: Return all rows from the right table, and matched rows from the left table
+\item FULL JOIN: Return all rows with a match in EITHER table
+\end{itemize}
+\begin{verbatim}
+SELECT column_name(s)
+FROM table1
+JOIN table2
+ON table1.column_name=table2.column_name;
+\end{verbatim}
+
+
+\myslide{\lex{little} vs \lex{small}} 
+\MyLogo{\citet[\S~4.2]{Biber:Conrad:Reppen:1998}}
+\begin{itemize}
+\item \lex{little} and \lex{small} are nearly synonymous
+\item WordNet 3.0 has them share 4 synsets out of 10 for \lex{small} and 8 for \lex{little}
+  \begin{itemize}
+  \item \lex{small, little} --- ``limited or below average in number or quantity or magnitude or extent'' \eng{a little dining room; a little house; a small car; a little (or small) group}
+  \item \lex{little, small} --- ``(of children and animals) young, immature'' \eng{what a big little boy you are; small children}
+  \item \lex{little, minuscule, small} --- ``lowercase'' \eng{little a; small a; e.e.cummings's poetry is written all in minuscule letters}
+  \item \lex{little, small} --- ``(of a voice) faint'' \eng{a little voice; a still small voice}
+\end{itemize}
+\item Yet they differ semantically and syntactically
+\end{itemize}
+
+\myslide{Syntax: predicative vs attributive}
+\MyLogo{}
+\begin{itemize}
+\item \txx{Predicative}
+  \\ \eng{When I was \ul{little/small}, I couldn't say ``hospital''}
+\item \txx{Attributive}
+  \\ \eng{It's only a \ul{little/small} puppy}
+\item Are they used in the same way?
+  \begin{itemize}
+  \item 5 million words of conversation from BNC
+  \item 5 million words of academic text from Longman-Lancaster
+  \end{itemize}
+\end{itemize}
+
+\myslide{How to find usage examples?}
+
+\begin{itemize}
+\item Automatic pass (collect data matching patterns)
+\item Hand checking of a sample
+\item Re-weigh counts
+\end{itemize}
+
+\myslide{Automatic pass}
+\begin{itemize}
+\item Match patterns against the corpus
+\begin{itemize}
+\item \txx{Predicative}
+  \\ \eng{When I was \{little/small\}, I couldn't say ``hospital''}
+  \\ \texttt{be (ADV)? (little$\|$small)}
+\item \txx{Attributive}
+  \\ \eng{It's only a \ul{little/small} puppy}
+ \\  \texttt{(little$\|$small) (ADJ)? NN}
+\item \txx{No tag} (the remainder)
+\end{itemize}
+\item Store the results
+\begin{verbatim}
+Type = Atrb; File = 00116.TEC
+section at the center of each lesion is a 
+-----> small
+bronchus containing lungworms and ...
+\end{verbatim}
+\end{itemize}
+
+\myslide{Initial Results}
+
+\begin{tabular}{llrrrr}
+  Type & Word & Atrb & Pred & No Tag & Total \\ 
+\hline\hline
+Conversation & little & 2,101 & 104 & 405 & 2,610 \\
+             & small &   399 & 72 & 158 & 629 \\   
+\hline
+Academic & little & 1,033 & 65 & 411 & 1,509 \\
+             & small & 2,557 & 316 & 399 & 3,272 \\
+\hline
+Total  & & 6,090& 557 & 1,373 & 8,020 
+\end{tabular}
+
+(After table 4.1 \citep[p 91]{Biber:Conrad:Reppen:1998})
+
+\begin{itemize}
+\item More \txx{no tag} than \txx{predicative}
+\item So we can't be confident
+\item Look at a sample (about a hundred) of each group
+  
+\end{itemize}
+
+\myslide{Some example errors}
+\MyLogo{Simplified}
+\begin{verbatim}
+Type = No tag; File = 00116.TEC  -> attributive
+Shut up you 
+-----> little
+... cow
+
+Type = No tag; File = 00117.TEC  -> predicative
+It is by no means
+-----> small
+for a brachiapod
+
+Type = No tag; File = 02316.TEC  -> attributive
+A: Cause they have 
+-----> little
+B: We
+A: milk bottles
+\end{verbatim}
+
+
+
+\myslide{Hand checking of a sample}
+\MyLogo{}
+\begin{enumerate}
+\item Extract a random sample of occurrences
+  \\ the bigger the better, make sure it is uniform
+\item Analyze the grammatical feature by hand
+\item Compute the proportional use of each variant in the sample
+\item Multiply the total number of occurrences by these proportions
+\item Adjust the original counts by the weighted counts
+\end{enumerate}
+
+\myslide{Hand checking of a sample}
+
+\begin{itemize}
+\item In this case look at a hundred from each group (6 samples)
+  \begin{itemize}
+  \item Consider \lex{little} in conversation
+    \begin{itemize}
+    \item attributive: 100\% atrb
+    \item predicative:   42\% atrb; 39\% pred; 19\% other
+    \item no tag: 57\% atrb; 4\% pred; 39\% other
+%(/ 41 104.0) 0.3942307692307692
+%(/ 44 104.0) 0.4230769230769231
+    \end{itemize}
+  \end{itemize}
+\item Use these proportions to recalculate:
+  \begin{itemize}
+  \item Attributive: $2,101 + .42\times 104 + .57 \times 405 = 2,376$
+  \item Predicative: $.39\times 104 + .04 \times 405 = 57$
+  \end{itemize}
+\end{itemize}
+
+\myslide{Re-weighted Counts}
+
+\begin{tabular}{llrr}
+  Type & Word & Original & Weighted \\ 
+  &  & \% Pred & \%  Pred \\ 
+\hline\hline
+Conversation & little & $5$ & $2$ \\
+             & small &  $15$ & $23$ \\
+\hline
+Academic & little & $6$  & $<1$\\
+           & small & $11$ & $13$ \\
+
+\end{tabular}
+
+(After table 4.2 \citep[p 93]{Biber:Conrad:Reppen:1998})
+
+\begin{itemize}
+\item Adjusted counts more accurate
+\item Only had to check 600 (of 8,020)
+\item But hard to reuse or go further: only a small accurate sample
+  \\ parsed text is better
+\end{itemize}
+
+\myslide{Interpretation}
+
+\begin{itemize}
+\item Attributive much more common for both
+  \begin{itemize}
+  \item Predicative relatively more common in conversation
+  \item Predicative relatively more common for \lex{small} than \lex{little}
+  \end{itemize}
+\item Collocation results:
+  \begin{itemize}
+  \item \lex{little}: concrete objects (\eng{little boy})
+  \item \lex{small}: amounts  (\eng{small proportion})
+  \end{itemize}
+\item But predicative \lex{small} also for physical size:
+  \begin{itemize}
+  \item \eng{She's small and really skinny}
+  \item \eng{He's really small isn't he?}
+  \end{itemize}
+\item We still don't really know why \frownie
+ \\ corpus linguistics gives us the \emp{what}, but not the \emp{why}
+\end{itemize}
+
+
+\myslide{Can we do better?}
+\lurl{http://nltk.ldc.upenn.edu:8080/ts/search}
+\begin{itemize}
+\item Treebanks exist for some languages
+\item We can search some English treebanks (wikipedia)
+\\ \lurl{http://nltk.ldc.upenn.edu:8080/ts/search}
+\begin{itemize}
+\item  \verb|//VP/ADJP/JJ/small| \com{predicative}
+\item \verb|//NP/ADJP/JJ/small| + \verb|//NP/JJ/small| \com{attributive}
+\end{itemize}
+\item This can also be done offline to get counts
+\end{itemize}
+
+
+
+
+\myslide{Where do we go from here?}
+\MyLogo{}
+\begin{itemize}
+\item Corpora show clearly that even semantically very similar words
+  can show different behavior.
+\item But they still don't explain why
+  \begin{itemize}
+  \item Hand correction limits data sizes
+  \item Without semantic tags, we can't generalize automatically
+  \end{itemize}
+\item Corpora with more mark-up (syntax and semantics) would help
+  \begin{itemize}
+  \item But they are expensive, \ldots
+  \end{itemize}
+\end{itemize}
+
+\myslide{Acknowledgments}
+\MyLogo{HG351 (2011)}
+
+\begin{itemize}
+\item Many examples from chapters 3 and 4 of \bibentry{Biber:Conrad:Reppen:1998}
+\end{itemize}
+% \item Thanks to Stefan Th. Gries (University of California, Santa
+%    Barbara) for his great introduction \textit{Useful statistics for
+%      corpus linguistics} \url{http://www.linguistics.ucsb.edu/faculty/stgries/research/UsefulStatsForCorpLing.pdf}
+%  \item Some examples taken from Ted Dunning's \textit{Surprise and
+%      Coincidence - musings from the long tail}
+%    \url{http://tdunning.blogspot.com/2008/03/surprise-and-coincidence.html}
+
+%   inspiration for some of the slides (from  \textit{LING 2050 Special Topics in Linguistics: Corpus linguistics}, U Penn).
+% \item Thanks to Sandra K\"{u}bler for some of the slides from her 
+% \textit{RoCoLi\footnote{Romania Computational Linguistics Summer School} Course: Computational Tools for Corpus Linguistics}
+% %\item Thanks to Mark Davies (BYU) for the exploration ideas.
+% \item Definitions from WordNet 3.0
+% \end{itemize}
+
+
+
+%%
+%% Future
+%%
+\clearpage
+\end{CJK}
+\end{document}
+
+% Local Variables: 
+% TeX-view-style: (("." "xdvi-ja %d -paper a4r -s 7"))
+% LaTeX-section-list:  (("myslide" 1))
+% TeX-master: t
+% End:

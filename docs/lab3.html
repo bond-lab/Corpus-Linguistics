@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>HG3051: Lab 3 (Corpus Linguistics)</title>
+</head>
+<body>
+
+
+<h1><a href='http://compling.hss.ntu.edu.sg/courses/hg3051'>HG3051</a> Lab 3: SQL</h1>
+
+<p>This lab will give you practice using SQL.  We will
+use <a href='https://www.sqlite.org/'>SQLite</a> (e.g. using
+the <a href='http://sqlitebrowser.org/'>DB Browser for SQLite</a>) to
+search through the <a href='http://compling.hss.ntu.edu.sg/ntumc/'>NTU
+Multilingual Corpus</a> (NTU-MC).  The NTU-MC is a multilingual
+sense-tagged corpus. You'll be provided with working databases for
+both English and Mandarin Chinese (but you don't need to have any
+command of Mandarin Chinese to complete this assignment).
+
+<p>Please answer each question providing both the SQL query, the
+retrieved answer and where necessary some discussion.
+
+<p>Upload the final lab report 
+  <a href='https://script.google.com/macros/s/AKfycbyaemB96Ffn-6jpU3rJg_nsMIiY08loH0di9pJWtTc/dev'>here</a>
+  as pdf
+  <br>It should be called  <b>hg3051-lab3-name-misc.pdf</b>
+  or  <b>hg7032-lab3-name-misc.pdf</b>
+
+<p>Replace the ??? with your answers.
+
+<p>This is a simplified explanation of the tables you'll have to use:
+<pre>
+table: concept
+sid|cid|clemma|tag|tags|comment|ntag|usrname
+sid - sentence id (unique)
+cid - concept id (unique only in a given sentence)
+clemma - concept lemma (may be a multi-word expression)
+tag - concept tag (may be a synset, or a number of other predefined tags that you don't need to know about)
+tags - IGNORE
+comment - IGNORE
+ntag - IGNORE
+usrname - IGNORE
+
+table: word
+sid|wid|word|pos|lemma|cfrom|cto|comment|usrname
+sig - sentence id (unique)
+wid - word id (unique only in a given sentence)
+word - word surface form
+pos - part-of-speech (consult http://compling.hss.ntu.edu.sg/ntumc/ for the tag sets)
+cfrom - IGNORE
+cto - IGNORE
+comment - IGNORE
+usrname - IGNORE
+
+### not actually used 
+table: cwl (concept to word links for each sentence) 
+sid|wid|cid|usrname
+sid - sentence id (unique)
+wid - word id (unique only in a given sentence) 
+cid - concept id (unique only in a given sentence)
+usrname - IGNORE
+</pre>
+
+
+<h3>Q1: (2)</h3>
+<p>What is the most frequent word in the English Corpus? And in the (Mandarin) Chinese Corpus?
+
+<p>???
+
+<h3>Q2: (2)</h3>
+
+<p>What is the total number of words tagged as Adjective, Noun, Verb
+and Adverb (using the Universal Part-of-Speech Tagset) for English?
+And for Chinese? (Please use the mappings provided
+by <a href='http://compling.hss.ntu.edu.sg/ntumc/'>NTU-MC</a>).
+<p>Your answer should have eight numbers (one for each POS+Language
+combination) and possibly eight queries.
+
+<p>???
+
+
+<h3>Q3: (4)</h3>
+<p>What are the five concepts with the most variety in lemmas for
+ English and Mandarin (i.e. the synsets with the most different
+ lemmas).  Please ignore tags that are not synsets, i.e. the tag must
+ be of the form: xxxxxxxx-p (where x are numbers and p is the pos
+ code).
+
+<p>???
+
+<p>Look the synsets up in the corpus search and the open multilingual
+wordnet and look at the lemmas (in either English, Mandarin or both):
+why you think these concepts have so many lemmas.
+
+<p>???
+
+
+
+<h3>Q4: (2)</h3>
+<p>Compare the frequency of usage of adjectives (using Petrov, Das and
+McDonald's Universal Part-of-Speech Tagset) between English and
+Chinese.  Use the Frequency Comparison provided at
+<a href='http://sigil.collocations.de/wizard.html'>http://sigil.collocations.de/wizard.html</a>. Using
+the Universal Part-of-Speech Tagset and the NTU-MC as sample, can we
+say that any of the two languages differ (significantly) in the usage
+of adjectives?  (Please show any new queries used, the input you give
+to the wizard, and paste the statistical results along with a short
+answer).
+
+<p>???
+
+<hr>
+<p><a href='http://compling.hss.ntu.edu.sg/courses/hg3051'>HG3051 (Corpus Linguistics) main page</a>.
+
+
+<address>
+<strong>Francis Bond </strong>
+&lt;<a href="mailto:bond@ieee.org">bond@ieee.org</a>&gt;
+<br> <a href="http://compling.hss.ntu.edu.sg/">Computational Linguistics Lab</a>
+<br> <a href="http://linguistics.hss.ntu.edu.sg/">Division of Linguistics and Multilingual Studies</a>
+<br> <a href="http://www.ntu.edu.sg/">Nanyang Technological University</a>
+<br>Level 3, Room 55, 14 Nanyang Drive, Singapore 637332
+<br>Tel:  (+65) 6592 1568; Fax: (+65) 6794 6303
+</address>
+<hr>
+
+</body>
+</html>

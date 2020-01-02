@@ -1,0 +1,336 @@
+\documentclass[a4paper,landscape,headrule,footrule,dvips]{foils}
+%%%
+%%% Revision
+%%%  * some notes on copyright and licensing
+%%%  * style guide
+%%%
+\input{headx.tex}
+\usepackage{bibentry}
+\renewcommand{\cite}{\bibentry}
+
+\header{Lecture 12}{Review of Corpus Linguistics}{}
+
+\usepackage{pst-node}
+\newcommand{\sa}[2]{\rnode{c#1}{\iz{#2}}}%\nodebox{c#1}}
+
+%\usepackage{hieroglf}
+\usepackage{wasysym}
+%\newcommand{\grn}[1]{\textcolor{PineGreen}{#1}}
+\newcommand{\ont}[1]{\textcolor{blue}{#1}}
+\newcommand{\jcy}[1]{\textcolor{orange}{#1}}
+\newcommand{\lxd}[1]{\textcolor{brown}{#1}}
+
+
+\newcommand{\psp}[1]{\textcolor{purple}{#1}}
+\newcommand{\dtr}[1]{\textcolor{blue}{#1}}
+\newcommand{\nam}[1]{\textcolor{blue}{#1}}
+\newcommand{\idm}[1]{\textcolor{brown}{#1}}
+\newcommand{\gen}[1]{\textcolor{orange}{#1}}
+\newcommand{\exl}[1]{\textcolor{orange}{#1}}
+\newcommand{\trg}[1]{\textcolor{red}{#1}}
+
+
+\newcommand{\hinoki}{\grn{Hinoki}\xspace}
+\newcommand{\lexeed}{\lxd{Lexeed}\xspace}
+\newcommand{\jacy}{\jcy{JACY}\xspace}
+\newcommand{\onto}{\ont{Ontology}\xspace}
+%\newcommand{\itsdb}{\textsf{[incr tsdb()]}\xspace}
+\newcommand{\GT}{Goi-Taikei\xspace}
+
+
+\begin{document}
+\begin{CJK}{UTF8}{min}
+\bibliographystyle{apalike}
+\nobibliography{abb,mtg,nlp,ling}
+\maketitle
+
+
+\myslide{Overview}
+
+\begin{itemize} \addtolength{\itemsep}{-0.3\itemsep}
+%\item What can we do with Corpora?
+\item Markup and Annotation 
+\item Using Corpora: Regular Expressions
+\item Multimodal and Multilingual Corpora 
+\item Collocation, Frequency, Corpus Statistics 
+\item DIY Corpora, Corpus Tools, Processing Raw Text 
+\item Case studies: Lexical, Grammatical, Contrastive, Diachronic
+\item Corpora and Language Engineering 
+\item Representativeness and Balance
+\item Copyright and Licensing
+\end{itemize}
+
+
+%%% 
+%%% this changes each year, so keep separate
+%%%
+\include{schedule}
+
+\section{More SQL \\ Creating; Inserting; Updating and Deleting}
+
+\myslide{How to create a Table}
+\MyLogo{There are more types if you must know google them}
+\begin{verbatim}
+CREATE TABLE database_name.table_name(
+   column1 datatype  PRIMARY KEY(one or more columns),
+   column2 datatype,
+   column3 datatype,
+   .....
+   columnN datatype,
+);
+\end{verbatim}
+
+Each column should have a \txx{datatype}
+
+\begin{tabular}{ll}
+  TEXT & 	A text string, stored using the database encoding\\
+  INTEGER	& Signed integer (or INT)\\
+  REAL	& Floating point number \\
+  CHAR(N)  & String of N characters padded with spaces \\
+  VARCHAR(N)  & String of N characters
+\end{tabular}
+
+\texttt{sqlite} is very forgiving, you can store any data type in any column. 
+
+\myslide{For example}
+
+\begin{verbatim}
+CREATE TABLE word (
+	sid INTEGER,
+	wid INTEGER,
+	word TEXT,
+	pos TEXT,
+	lemma TEXT,
+	cfrom INTEGER,
+	cto INTEGER,
+	comment TEXT,
+        PRIMARY KEY (sid, wid),
+        FOREIGN KEY(sid) REFERENCES sent(sid)
+	);
+\end{verbatim}
+\myslide{PRIMARY KEYS}
+\MyLogo{If you don't define one, nothing bad happens}
+\begin{itemize}
+\item The PRIMARY KEY constraint uniquely identifies each record in a database table.
+\item Primary keys must contain UNIQUE values.
+\item A primary key column cannot contain NULL values.
+\item Each table can have only ONE primary key.
+\item Most tables should have a primary key
+\end{itemize}
+
+\myslide{You can show it with \texttt{.tables} or \texttt{.schema}}
+
+\begin{verbatim}
+sqlite>.tables
+sent word concept ...
+
+sqlite>.schema word
+CREATE TABLE word (
+	sid INTEGER,
+	wid INTEGER,
+	word TEXT,
+	pos TEXT,
+	lemma TEXT,
+	cfrom INTEGER,
+	cto INTEGER,
+	comment TEXT,
+        PRIMARY KEY (sid, wid),
+        FOREIGN KEY(sid) REFERENCES sent(sid) );
+\end{verbatim}
+
+\myslide{Inserting Information}
+
+\begin{verbatim}
+INSERT INTO word (sid, wid, word, pos, lemma)  
+  VALUES (1, 0, "The", "DT", "the");
+INSERT INTO word (sid, wid, word, pos, lemma)  
+  VALUES (1, 1, "Adventure", "NNS", "ADVENTURE");
+INSERT INTO word (sid, wid, word, pos, lemma)  
+  VALUES (1, 2, "of", "PP", "of");
+\end{verbatim}
+
+\myslide{Upating Information}
+
+\begin{verbatim}
+UPDATE word SET lemma='adventure'
+  WHERE sid=1 AND id=1;
+\end{verbatim}
+
+or
+
+\begin{verbatim}
+UPDATE word SET lemma='adventure'
+  WHERE lemma='ADVENTURE';
+\end{verbatim}
+
+\emp{Everything that matches the condition gets updated}
+
+Best to check with a SELECT first:
+\begin{verbatim}
+SELECT * FROM word 
+  WHERE lemma='ADVENTURE';
+\end{verbatim}
+
+\myslide{Deleting Information}
+
+Be very, very careful:
+\begin{verbatim}
+DELETE FROM table_name
+  WHERE [condition];
+\end{verbatim}
+
+\myslide{Dates and times}
+\MyLogo{And much more: \url{http://www.tutorialspoint.com/sqlite/sqlite_date_time.htm}}
+\begin{tabular}{ll}
+Time String  & Example \\ \hline
+YYYY-MM-DD & 2010-12-30 \\
+YYYY-MM-DD HH:MM & 2010-12-30 12:10 \\
+YYYY-MM-DD HH:MM:SS.SSS & 2010-12-30 12:10:04.100 \\
+MM-DD-YYYY HH:MM & 30-12-2010 12:10 \\
+HH:MM & 12:10 \\
+YYYY-MM-DDTHH:MM & 2010-12-30 12:10 \\
+HH:MM:SS & 12:10:01 \\
+now & 2015-04-15
+\end{tabular}
+\begin{verbatim}
+sqlite> SELECT date('now');
+2015-04-15
+sqlite> SELECT date('now', '+1 months');
+2015-05-15
+sqlite> SELECT date('now', 'start of month');
+2015-05-01
+\end{verbatim}
+
+\myslide{Task}
+
+\begin{itemize}
+\item Create a new table in your database
+\item Add three entries
+\item Update two
+\item Delete one
+\end{itemize}
+
+\myslide{Make a bigram Table}
+
+\begin{verbatim}
+create TABLE bigram (sid INT, wid INT, bigram TEXT);
+
+INSERT INTO bigram (sid, wid, bigram) 
+  SELECT a.sid, a.wid, a.lemma || ' ' || b.lemma  
+    FROM word AS a JOIN word AS b 
+    ON a.sid=b.sid AND a.wid = b.wid-1 
+  LIMIT 5;
+\end{verbatim}
+
+The result:
+
+\begin{verbatim}
+sqlite> SELECT sid, wid, bigram FROM bigram;
+60000	0	prime minister_tomiichi_murayama
+60000	1	minister_tomiichi_murayama on
+60000	2	on the
+60000	3	the 28
+60000	4	28 hold
+\end{verbatim}
+
+\myslide{Trading SPACE for TIME}
+\MyLogo{There are whole courses on this}
+\begin{itemize}
+\item Storing bigrams makes the DB bigger
+\item But you can manipulate them quickly
+\item For large tables, you can also \txx{INDEX} them
+\begin{verbatim}
+CREATE INDEX word_idx
+on word (lemma, pos);
+\end{verbatim}
+\item This allows you to query \texttt{word} or \texttt{word+pos} much faster
+\item Use indexes for big tables you search often but don't update much
+\item Indexes can double the size of your database
+  \begin{itemize}
+  \item But speed big searches up from hours to seconds
+  \end{itemize}
+
+
+\end{itemize}
+
+\myslide{Batch Import}
+
+\begin{itemize}
+\item You can input well formatted data using \texttt{sqliteman} or similar
+  \begin{itemize}
+  \item define the column separator ':' or '$\|$' or TAB or ',' or \ldots
+  \item or load from spreadsheet
+  \end{itemize}
+\item Or through some program
+  \begin{itemize}
+  \item Learn more in HG2051
+  \end{itemize}
+\end{itemize}
+
+
+
+\section{Revision}
+\MyLogo{}
+
+
+\myslide{The goal of this course}
+
+\begin{center}
+  \LARGE 
+Master the uses of text corpora 
+\\ in linguistics research and applications.
+\end{center}
+\begin{itemize}
+\item Selecting text
+\item Marking up extra information
+\item The range of existing corpora
+\item How to build your own corpus
+\item Using corpora to test linguistic hypotheses
+\item Using corpora to train language tools
+\end{itemize}
+
+
+\myslide{What did you learn?}
+
+HG351 students should be able to:
+
+\begin{itemize}
+\item Understand the uses of text corpora in language research
+  \\ Be able to manipulate them with simple tools
+\item Use a concordance program to extract data from a corpus
+\item Design and build a corpus for some task
+\begin{itemize}
+\item considering representativeness, balance and legal issues
+\item  as well as usability and accuracy
+\end{itemize}
+\item Understand how to analyse corpus data through basic statistical methods
+\item Understand the issues involved in using data for NLP
+\end{itemize}
+
+
+
+\myslide{Reflection}
+\begin{itemize}
+\item What was the most surprising thing in this class?
+\item What do you think is most likely wrong?
+\item What do you think is the coolest result/corpus?
+\item What do you think you’re most likely to
+remember?
+\item How do you think this course will influence you as a linguist/specialist?
+\item What (if anything) did you hope to learn that you didn't?
+\end{itemize}
+
+
+
+%%
+%% Future
+%%
+\clearpage
+\end{CJK}
+\end{document}
+
+% Local Variables: 
+% TeX-view-style: (("." "xdvi-ja %d -paper a4r -s 7"))
+% LaTeX-section-list:  (("myslide" 1))
+% TeX-master: t
+% End:
