@@ -3,26 +3,28 @@
 %%%
 \newcommand{\logo}{~}
 \newcommand{\header}[3]{%
-\title{\vspace*{-2ex} \large HG351  Corpus Linquistics
-\\[2ex] \Large  \emp{#2} \\ \emp{#3}}
-\author{\blu{Francis Bond}   \\ 
-\normalsize  \textbf{Division of Linguistics and Multilingual Studies}\\
-\normalsize  \url{http://www3.ntu.edu.sg/home/fcbond/}\\
-\normalsize  \texttt{bond@ieee.org}}
-\MyLogo{HG3051 (2018)}
-\renewcommand{\logo}{#2}
-\special{! /pdfmark where
-  {pop} {userdict /pdfmark /cleartomark load put} ifelse
-  [ /Author (Francis Bond)
-  /Title (#1: #2)
-  /Subject (HG3052: Corpus Linguistics)
-  /Keywords (Corpora)
-  /DOCINFO pdfmark}
-\date{#1 \\ \url{http://compling.hss.ntu.edu.sg/courses/hg3051/}}
+  \title{\vspace*{-2ex} \large HG351  Corpus Linquistics
+    \\[2ex] \Large  \emp{#2} \\ \emp{#3}}
+  \author{\blu{Francis Bond}   \\ 
+    \normalsize  \textbf{Division of Linguistics and Multilingual Studies}\\
+    \normalsize  \url{http://www3.ntu.edu.sg/home/fcbond/}\\
+    \normalsize  \texttt{bond@ieee.org}}
+  \MyLogo{HG3051 (2018)}
+  \renewcommand{\logo}{#2}
+  \hypersetup{
+    pdfinfo={
+      Author={Francis Bond},
+      Title={#1: #2},
+      Subject={HG3051: Corpus Linguistics},
+      Keywords={Corpus Linguistics},
+      License={CC BY 4.0}
+    }
+  }
+  \date{#1 \\ \url{https://github.com/bond-lab/Corpus-Linguistics}}
 }
 
 
-\usepackage[dvips]{xcolor}
+\usepackage{xcolor}
 \usepackage{graphicx}
 \newcommand{\blu}[1]{\textcolor{blue}{#1}}
 \newcommand{\grn}[1]{\textcolor{green}{#1}}
@@ -81,7 +83,13 @@
 \newcommand{\ull}{\uuline}
 \newcommand{\wl}{\uwave}
 \newcommand{\vs}{\ensuremath{\Leftrightarrow}~}
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+     colorlinks,
+     linkcolor={blue!50!black},
+     citecolor={red!50!black},
+     urlcolor={blue!80!black}
+}
 %%%
 %%% Bibliography
 %%%

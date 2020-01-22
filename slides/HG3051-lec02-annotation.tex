@@ -1,5 +1,6 @@
-
-\documentclass[a4paper,landscape,headrule,footrule,dvips]{foils}
+\PassOptionsToPackage{xetex}{xcolor}
+\PassOptionsToPackage{xetex}{graphicx}
+\documentclass[a4paper,landscape,headrule,footrule,xetex]{foils}
 
 \input{headx.tex}
 
@@ -11,7 +12,6 @@
 
 
 \begin{document}
-\begin{CJK}{UTF8}{min}
 \maketitle
 
 
@@ -384,8 +384,8 @@ enough for fully automatic annotation
   \item  \eng{quick/quicker/quickest}: \lx{quick}, \eng{quickly}: \lx{quickly}
   \item  \eng{Korea}: \lx{Korea}, \eng{Korean}: \lx{Korean}
   \end{itemize}
-\item  Lemmatization for English can be performed reliably and accurately
-using automated programs.
+\item  Lemmatization for English can be performed reasonably reliably and accurately
+using automated programs: as long as the POS is correct.
 \item  Why do we need lemmatization?
 %\item  Find out why it's useful on Collins Concordance Sampler
 \end{itemize}
@@ -462,10 +462,25 @@ X & other: foreign words, typos, abbreviations &  ersatz, esprit, dunno, gr8, un
 }
 
 
-\textbf{Task}: Find a tagset in a language you speak --- map it to
-the universal tagset.  (format tag---utag e.g. NNS---Noun).
+\myslide{Task UPOS}
+
+Find a tagset in a language you speak --- map it to the universal
+tagset.  (format tag---utag e.g. NNS---Noun).  Try to do the most
+exotic language you know.
 
 
+\begin{itemize}
+\item Make a group of two or three
+\item Pick a language (good if we can have two or more groups)
+\item Find a tagset online (with some documentation)
+  \begin{itemize}
+  \item try not to look at existing mappings
+  \end{itemize}
+\item Map it to UPOS
+\item See if you can find a mapping online to compare to.
+\end{itemize}
+
+30 minutes?
 
 \myslide{Parsing (Syntactic Annotation)}
 \begin{itemize}\addtolength{\itemsep}{-1.5ex}
@@ -1432,12 +1447,15 @@ ls *.txt *.tex
 %%
 %% Future
 %%
-\clearpage
-\end{CJK}
+
+
 \end{document}
 
-% Local Variables: 
-% TeX-view-style: (("." "xdvi-ja %d -paper a4r -s 7"))
-% LaTeX-section-list:  (("myslide" 1))
-% TeX-master: t
-% End:
+ 
+%%% Local Variables: 
+%%% coding: utf-8
+%%% mode: latex
+%%% TeX-PDF-mode: t
+%%% TeX-engine: xetex
+%%% LaTeX-section-list:  (("myslide" 1))
+%%% End: 

@@ -1,4 +1,6 @@
-\documentclass[a4paper,landscape,headrule,footrule]{foils}
+\PassOptionsToPackage{xetex}{xcolor}
+\PassOptionsToPackage{xetex}{graphicx}
+\documentclass[a4paper,landscape,headrule,footrule,xetex]{foils}
 
 \input{headx.tex}
 
@@ -51,7 +53,7 @@
 \\ HPSG parses of Japanese definitions, examples and newspaper text
 \\ sense tagging of same
 \item \textit{Tanaka Corpus} of aligned Japanese-English text
-\\ Now the \textit{Tatoeba multilingual project}x: \url{www.tatoeba.org}
+\\ Now the \textit{Tatoeba multilingual project}: \url{www.tatoeba.org}
 \item NICT English learner corpus (advisor)
 \item \textit{Japanese WordNet gloss corpus}, jSEMCOR corpus
 \\  aligned Japanese-English text, sense tagging
@@ -164,7 +166,7 @@ Master the uses of text corpora
 \end{itemize}
 
 
-\myslide{HG3051 Prerequisites: HG1002 or HG2051}
+\myslide{HG3051 Prerequisites}
 
 \begin{itemize}
 \item Some linguistic knowledge assumed
@@ -175,7 +177,7 @@ Master the uses of text corpora
   \end{itemize}
  If you don't know these, you will have to do a little background
  reading, I recommend \citet{Huddleston:1988} 
-\item A little computational knowledge (waived but useful)
+\item A little computational knowledge (not required but useful)
   \begin{itemize}
   \item You will learn some very simple techniques here
   \item You will learn to use some corpus programs
@@ -418,14 +420,14 @@ grammatical.
  \end{exe}
  \begin{quote}
    It is fair to assume that neither sentence (\ref{gram}) nor
-   \ref{ungram}) (nor indeed any part of these sentences) has ever
+   (\ref{ungram}) (nor indeed any part of these sentences) has ever
    occurred in an English discourse. Hence, in any statistical model
    for grammaticalness, these sentences will be ruled out on identical
    grounds as equally `remote' from English. Yet (\ref{gram}), though
    nonsensical, is grammatical, while (\ref{ungram}) is not.
  \end{quote}
 
-\txx{Yes!}
+\txx{Not really:}
 Using a simple probabilistic model (based only on the probability of a
 word occurring given the two proceeding words) \citet{Pereira:2000} showed
 that P(\ref{gram}) $\gg$ P(\ref{ungram}) ($\times 200,000$).
@@ -650,6 +652,7 @@ quickly for the purpose at hand, and therefore are more common
 %\item Collins WordBank (NTU Library$|$Databases)
 %\item BNC (online)
 \item Cantonese Corpus (KK)
+\\ Now at \href{https://github.com/fcbond/hkcancor}{https://github.com/fcbond/hkcancor}
 \item Tatoeba Japanese-English (FCB)
 \item Various small corpora (AC, FK)
 \item NTU Multilingual Corpus (under construction: FCB)
@@ -660,9 +663,8 @@ quickly for the purpose at hand, and therefore are more common
 \myslide{Let's Explore}
 \MyLogo{Inspired by \url{davies-linguistics.byu.edu/ling485/projects/p01.htm}}
 
-Go to the BYU interface to the BNC: \url{http://corpus.byu.edu/bnc/}
+Go to the BYU interface to the BNC (see web page for logon details).
 
-Please log in giving a suitable category.
 
 \begin{description}
 \item [MORPHOLOGY]: Look for words starting with the prefix \eng{dis-}
@@ -681,9 +683,15 @@ Please log in giving a suitable category.
    [FREQUENCY]). Now change to [SORT] = [RELEVANCE]. What are the five
    most highly-ranked adjectives. What has changed, and why?
 
-\item[GRAMMATICAL]: In which genre is the present perfect (\url{has [vvn*]}) and the past perfect (\url{had [vvn*]}) most common? Any idea why?
+\item[GRAMMATICAL]: In which genre is the present perfect (\url{has
+    [vvn*]}) and the past perfect (\url{had [vvn*]}) most common? Any
+  idea why? (you can use CHART)
 
-\item[LEXICO-GRAMMAR]: Look at the top five adjectives following \eng{come} and \eng{go} ( use [COMPARE WORDS]; WORD(S) = come , go; CONTEXT =  [j*] [0] [2]). Is there any pattern in terms of which adjectives occur with the two verbs?
+\item[LEXICO-GRAMMAR]: Look at the top five adjectives following
+  \eng{come} and \eng{go} ( use [COMPARE WORDS]; WORD(S) = come , go;
+  CONTEXT =  [j*] [0] [2]). Is there any pattern in terms of which
+  adjectives occur with the two verbs?
+
 \newpage
 \item[SEMANTICS]: Compare the collocates of \eng{find} and
   \eng{discover} ( use [COMPARE WORDS]; WORD(S) = find.[v*] ,
@@ -691,11 +699,11 @@ Please log in giving a suitable category.
 
 \item[LEXICO-GRAMMAR]: Compare the five most common phrases with
   \url{we [v*]} in SPOKEN vs ACADEMIC.  What is the major difference
-  between the two registers?
+  between the two registers? (use LIST with SECTIONS)
 
 \item[LEXICAL]: Compare the most frequent singular and plural nouns
   (\url{[nn1*]} and \url{[nn2*]}) in MAGAZINE vs ACADEMIC).  Which
-  types are more common in each register?
+  types are more common in each register? (Use two searches in LIST)
 \end{description}
 
 
@@ -720,8 +728,11 @@ Please log in giving a suitable category.
 
 \end{document}
 
-% Local Variables: 
-% TeX-view-style: (("." "xdvi-ja %d -paper a4r -s 7"))
-% LaTeX-section-list:  (("myslide" 1))
-% TeX-master: t
-% End:
+ 
+%%% Local Variables: 
+%%% coding: utf-8
+%%% mode: latex
+%%% TeX-PDF-mode: t
+%%% TeX-engine: xetex
+%%% LaTeX-section-list:  (("myslide" 1))
+%%% End: 
