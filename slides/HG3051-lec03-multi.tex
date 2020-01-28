@@ -1,5 +1,6 @@
-
-\documentclass[a4paper,landscape,headrule,footrule,dvips]{foils}
+\PassOptionsToPackage{xetex}{xcolor}
+\PassOptionsToPackage{xetex}{graphicx}
+\documentclass[a4paper,landscape,headrule,footrule,xetex]{foils}
 
 \input{headx.tex}
 
@@ -12,7 +13,6 @@
 \usepackage{wasysym}
 
 \begin{document}
-\begin{CJK}{UTF8}{min}
 \bibliographystyle{apalike}
 \nobibliography{abb,mtg,nlp,ling}
 \maketitle
@@ -32,10 +32,6 @@
 \item \blu{Multi-lingual Corpora}
 \end{itemize}
 
-%%%
-%%% this changes each year, so keep separate
-%%%
-\include{schedule}
 
 %%%
 \section{Revision of Annotation}
@@ -548,7 +544,7 @@ Making the data maximally useful
 \end{itemize}
 
 \myslide{E-Nightingale: Nursing Task Corpus}
-\MyLogo{\url{http://www.aclweb.org/anthology-new/I/I05/I05-6005.pdf}}
+\MyLogo{\url{www.aclweb.org/anthology/I05-6005.pdf}}
 \begin{itemize}
 \item Japanese project to analyze Nursing tasks and dialogs
 \item recorder worn all day
@@ -585,6 +581,8 @@ Polytechnic Institute and State University (Video online at:
   \item detailed information about the participants
   \item detailed information about the task
   \end{itemize}
+\item I think there should be newer corpora than this, but could not
+  find one with such complete description.
 
 \end{itemize}
 
@@ -655,7 +653,7 @@ Polytechnic Institute and State University (Video online at:
 \myslide{Euro Matrix SMT Results}
   \MyLogo{}
 \begin{center}
-\rotatebox{180}{\includegraphics[angle=90,height=0.97\textheight]{include/euro-matrix.epsi}}
+\rotatebox{180}{\includegraphics[angle=90,height=0.97\textheight]{include/euro-matrix}}
 \end{center}
 
 \myslide{Euro Matrix Discussion}
@@ -781,7 +779,7 @@ Polytechnic Institute and State University (Video online at:
   \item match using a dictionary
   \item content words only
   \end{itemize}
-\item The better the alignment, the easier
+\item The better the alignment, the easier it is to extract information
 \end{itemize}
 
 \myslide{Word Alignment}
@@ -825,12 +823,13 @@ Polytechnic Institute and State University (Video online at:
 %%
 %% Future
 %%
-\clearpage
-\end{CJK}
+
 \end{document}
 
-% Local Variables: 
-% TeX-view-style: (("." "xdvi-ja %d -paper a4r -s 7"))
-% LaTeX-section-list:  (("myslide" 1))
-% TeX-master: t
-% End:
+%%% Local Variables: 
+%%% coding: utf-8
+%%% mode: latex
+%%% TeX-PDF-mode: t
+%%% TeX-engine: xetex
+%%% LaTeX-section-list:  (("myslide" 1))
+%%% End: 

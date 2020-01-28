@@ -23,6 +23,20 @@
   \date{#1 \\ \url{https://github.com/bond-lab/Corpus-Linguistics}}
 }
 
+\usepackage{fontenc}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\setmainfont{TeX Gyre Pagella}
+%\setmainfont{Linux Libertine}
+%\setmainfont{Charis SIL}
+\newfontfamily{\ipafont}{Gentium}
+\newcommand{\ipa}[1]{{\ipafont\selectfont #1}}
+\usepackage{xeCJK}
+
+\setCJKmainfont{Noto Sans CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+
+
 
 \usepackage{xcolor}
 \usepackage{graphicx}
@@ -58,7 +72,7 @@
 \let\eachwordone=\itshape
 \newcommand{\lx}[1]{\textbf{\textit{#1}}}
 
-\usepackage{times}
+%\usepackage{times}
 %\usepackage{nttfoilhead}
 \newcommand{\myslide}[1]{\foilhead[-25mm]{\raisebox{12mm}[0mm]{\emp{#1}}}\MyLogo{\logo}}
 \newcommand{\myslider}[1]{\rotatefoilhead[-25mm]{\raisebox{12mm}[0mm]{\emp{#1}}}}
@@ -96,8 +110,6 @@
 \usepackage{natbib}
 %\usepackage{url}
 \usepackage{bibentry}
-\usepackage{CJKutf8}
-\newcommand{\zh}[1]{\CJKfamily{gbsn}#1\CJKfamily{min}}
 %%% From Tim
 \newcommand{\WMngram}[1][]{$n$-gram#1\xspace}
 \newcommand{\infers}{$\rightarrow$\xspace}
