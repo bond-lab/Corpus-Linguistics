@@ -1,6 +1,7 @@
+\PassOptionsToPackage{xetex}{xcolor}
+\PassOptionsToPackage{xetex}{graphicx}
+\documentclass[a4paper,landscape,headrule,footrule,xetex]{foils}
 
-
-\documentclass[a4paper,landscape,headrule,footrule,dvips]{foils}
 
 \input{headx.tex}
 \usepackage{bibentry}
@@ -27,7 +28,6 @@
 
 
 \begin{document}
-\begin{CJK}{UTF8}{min}
 \bibliographystyle{apalike}
 \nobibliography{abb,mtg,nlp,ling}
 \maketitle
@@ -67,7 +67,7 @@
 \begin{itemize}
 \item Basic notions of lexical statistics
 \item Typical frequency distribution patterns
-\item Zipf’s law
+\item Zipf's law
 \item Some applications
 \end{itemize}
 
@@ -149,12 +149,12 @@ function of $\log(r)$
   \includegraphics[height=0.98\textheight]{include/bc-2}
 \end{center}
 
-\myslide{Zipf’s law}
+\myslide{Zipf's law}
 
 \begin{itemize}
 \item Straight line in double-logarithmic space corresponds to
 power law for original variables
-\item This leads to Zipf’s (1949, 1965) famous law:
+\item This leads to Zipf's (1949, 1965) famous law:
 
   \begin{equation}
     \label{eq:1}
@@ -164,7 +164,7 @@ power law for original variables
  \\ $r(w)$: Rank of the Frequency of Word $w$ (most frequent = 1, \ldots)
 
 \begin{itemize}
-  \item With a = 1 and C =60,000, Zipf’s law predicts that:
+  \item With a = 1 and C =60,000, Zipf's law predicts that:
 \begin{itemize}
   \item most frequent word occurs 60,000 times
   \item second most frequent word occurs 30,000 times
@@ -185,7 +185,7 @@ size and frequency spectrum to larger sample sizes
 \\ (in stylometry, language acquisition, clinical linguistics, \ldots)
 \item practical NLP (est. proportion of OOV words, typos, \ldots)
 \end{itemize}
-\item Direct applications of Zipf’s law in NLP
+\item Direct applications of Zipf's law in NLP
 \begin{itemize}
 \item Population model for Good-Turing smoothing \\ If you have not
   seen a word before its probability should probably not be $0$ but
@@ -883,7 +883,7 @@ of certain idiosyncratic properties
 \item \txx{noun compounds}, lexicalised or productively formed
 \\(\eng{bucket shop, bucket seat, slop bucket, champagne bucket})
 \item \txx{lexical collocations} = semi-compositional combinations
-\\(\eng{weep buckets, brush one’s teeth, give a speech})
+\\(\eng{weep buckets, brush one's teeth, give a speech})
 \item cultural \txx{stereotypes} 
   (\eng{bucket and spade})
 \item \txx{semantic compatibility} (\eng{full, empty, leaky \ul{bucket};
@@ -898,7 +898,7 @@ throw, carry, fill, empty, kick, tip, take, fetch a \ul{bucket}})
 \item Firth introduced collocations as an essential component of
 his methodology, but without any clear definition
 \begin{quote}
-  Moreover, these and other technical words are given their ‘meaning’
+  Moreover, these and other technical words are given their ‘meaning'
   by the restricted language of the theory, and by applications of the
   theory in quoted works. (Firth 1957, 169)
 \end{quote}
@@ -958,9 +958,9 @@ his methodology, but without any clear definition
   \begin{quotation}
 A vast deal of coolness and a peculiar degree of judgement, are requisite in catching a \blu{hat} . A man must
 not be precipitate, or he runs over it ; he must not rush into the opposite extreme, or he loses it
-altogether. [. . . ] There was a fine gentle \ul{wind, and Mr. Pickwick’s \blu{hat} \emp{rolled} sportively before it} . The
+altogether. [. . . ] There was a fine gentle \ul{wind, and Mr. Pickwick's \blu{hat} \emp{rolled} sportively before it} . The
 wind puffed, and Mr. \ul{Pickwick puffed, and the \blu{hat} \emp{rolled} over and over} as merrily as a lively porpoise
-in a strong tide ; and on it might have \emp{rolled}, far beyond Mr. Pickwick’s reach, had not its course been
+in a strong tide ; and on it might have \emp{rolled}, far beyond Mr. Pickwick's reach, had not its course been
 providentially stopped, just as that gentleman was on the point of resigning it to its fate.
   \end{quotation}
   \begin{itemize}
@@ -997,7 +997,7 @@ providentially stopped, just as that gentleman was on the point of resigning it 
       &
       —
       \\
-      There was a fine gentle wind, and Mr. Pickwick’s hat rolled
+      There was a fine gentle wind, and Mr. Pickwick's hat rolled
       sportively before it.
       &
       hat
@@ -1152,7 +1152,7 @@ significance level (commonly .05, .01 or .001)
 \begin{itemize}
 \item convention for association scores: high scores indicate
 strong attraction between words
-\item Fisher’s test: transform p-value, e.g.$-log_{10}$p
+\item Fisher's test: transform p-value, e.g.$-log_{10}$p
 \item satisfied by test statistic $X^2$, but not by p-value
 \item Also log-likelihood $G^2$
 \end{itemize}
@@ -1163,13 +1163,13 @@ strong attraction between words
 
 
 \myslide{Acknowledgments}
- \MyLogo{HG351 (2011)}
 
  \begin{itemize}
  \item Thanks to Stefan Th. Gries (University of California, Santa
-   Barbara) for his great introduction \href{Useful statistics for
-     corpus
-linguistics}{http://www.linguistics.ucsb.edu/faculty/stgries/research/2010_STG_UsefulStats4CorpLing_MosaicCorpLing.pdf}
+   Barbara) for his great introduction \textit{Useful statistics for
+     corpus linguistics}:
+\url{https://pdfs.semanticscholar.org/069f/d4b980d75af1125afa2ac3c8f5af2e66414d.pdf}
+
  \item Many slides inspired by Marco Baroni and Stefan Evert's
    \textbf{SIGIL} \textit{A gentle introduction to statistics for
    (computational) linguists}
@@ -1184,15 +1184,12 @@ linguistics}{http://www.linguistics.ucsb.edu/faculty/stgries/research/2010_STG_U
 % \item Definitions from WordNet 3.0
  \end{itemize}
 
-%%
-%% Future
-%%
-\clearpage
-\end{CJK}
 \end{document}
 
-% Local Variables: 
-% TeX-view-style: (("." "xdvi-ja %d -paper a4r -s 7"))
-% LaTeX-section-list:  (("myslide" 1))
-% TeX-master: t
-% End:
+%%% Local Variables: 
+%%% coding: utf-8
+%%% mode: latex
+%%% TeX-PDF-mode: t
+%%% TeX-engine: xetex
+%%% LaTeX-section-list:  (("myslide" 1))
+%%% End: 
