@@ -694,10 +694,9 @@ proporition of words with upper-case initial letters, \ldots
 
 \section{Relational Databases \\ and SQL}
 
-\myslide{Many corpora are stored as DBs}
+\myslide{Many corpora are stored as Relational Data-Bases}
 
 \begin{itemize}
-\item In relational databases
 \item Data is stored in \txx{Table}s (or relations)
   \begin{itemize}
   \item \txx{attribute}s are  \txx{column}s
@@ -707,7 +706,7 @@ proporition of words with upper-case initial letters, \ldots
   \begin{itemize}
   \item If they share a common column
   \end{itemize}
-\item It can be retrieved with \txx{Queries}
+\item Data can be retrieved with \txx{Queries}
   \begin{itemize}
   \item Properly written these can be very fast
   \end{itemize}
@@ -722,6 +721,7 @@ database management system (RDBMS)
 \begin{tabular}{lllll}
   \multicolumn{2}{c}{TABLE: sent} \\
   sid & sent \\ \hline
+  INTEGER & STRING \\ \hline
   1   & Does this work? \\
   2   & I hope so. \\
 \end{tabular}
@@ -729,11 +729,14 @@ database management system (RDBMS)
 
 \begin{tabular}{lllll}
   \multicolumn{5}{c}{TABLE: word} \\
-  sid & wid & word & pos & lemma \\ \hline
+  sid & wid & word & pos& lemma \\ \hline
+  INTEGER &INTEGER & STRING& STRING & STRING \\ \hline
   1   &  1 & Does & VBZ & do \\
   1   &  2 & this & DT & this \\
   1   &  3 & work & NN & work \\
   1   &  4 & ?    & . & ? \\
+  2   &  1 & I & PRN & i \\
+  \ldots
 \end{tabular}
 
 
@@ -770,6 +773,9 @@ WHERE word = 'does'
 \item Select only those parts indicated by the SELECT clause.
 \end{itemize}
 
+
+Note: each query ends with a semicolon ``;'', not shown in the example
+
 \myslide{* in SELECT}
 
 \begin{itemize}
@@ -794,7 +800,7 @@ WHERE word = 'does'
 \begin{itemize}
 \item What information is there associated with the word \eng{does}?
 \begin{verbatim}
-SELECT word as surface, lemma as indexform, pos
+SELECT word AS surface, lemma AS indexform, pos
 FROM word
 WHERE word = 'does'
 \end{verbatim}
@@ -812,10 +818,10 @@ WHERE word = 'does'
 \begin{itemize}\addtolength{\itemsep}{-1ex}
 \item What information is there associated with the word \eng{does}, sorted by POS?
 \begin{verbatim}
-SELECT word as surface, lemma as indexform, pos
+SELECT word AS surface, lemma AS indexform, pos
 FROM word
 WHERE word = 'does'
-ORDER BY pos ASC
+ORDER BY pos DESC
 \end{verbatim}
   \begin{tabular}{lllll}
     \textbf{surface}  & \textbf{indexform}  &  \textbf{pos} \\ \hline
@@ -833,7 +839,7 @@ ORDER BY pos ASC
 \begin{itemize}\addtolength{\itemsep}{-1ex}
 \item What is the lemma, its length and pos associated with the word \eng{does}?
 \begin{verbatim}
-SELECT  lemma, length(lemma) as length, pos
+SELECT  lemma, LENGTH(lemma) AS length, pos
 FROM word
 WHERE word = 'does'
 \end{verbatim}
@@ -844,7 +850,9 @@ WHERE word = 'does'
     doe & 3 &  NNS \\
     \ldots
   \end{tabular}
-\item strings:  \texttt{LENGTH(), LOWER(), UPPER(), TRIM(), LTRIM(), RTRIM(), SUBSTR(str,from, len), REPLACE(str, from, into)}
+\item strings:  \texttt{LENGTH(), LOWER(), UPPER(), TRIM(), LTRIM(),
+    RTRIM()}
+  \\ \texttt{SUBSTR(str,from, len), REPLACE(str, from, into)}
 \item numbers:  \texttt{ROUND(num,digits=0), ABS(num)}
 \end{itemize}
 
@@ -859,8 +867,13 @@ WHERE word = 'does'
   \item Find all surface forms of \lex{leave}, and show their length
   \item Find all surface forms of \lex{leave}, ordered from longest to shortest
   \end{itemize}
-
 \end{itemize}
+
+\begin{enumerate}
+\item Open the database
+\item Look at the database structure
+\item Execute SQL
+\end{enumerate}
 
 \myslide{You can have complex conditions and limits}
 
@@ -911,7 +924,7 @@ dogged     & dog        &  VBD   \\
 \begin{verbatim}
 SELECT  word, lemma, pos
 FROM word
-WHERE word GLOB '[dD]og*' and pos not GLOB 'N*'
+WHERE word GLOB '[dD]og*' AND pos NOT GLOB 'N*'
 LIMIT 5
 \end{verbatim}
   \begin{tabular}{lllll}
@@ -921,7 +934,9 @@ LIMIT 5
 \begin{itemize}
 \item[*] matches anything
 \item[?] matches one or one of anything
-\item[{[]}] matches all characters listed (and allows \textasciicircum\ for negation and - for ranges)
+\item[{[\ ]}] matches all characters listed (and allows
+  \textasciicircum\ for negation and - for ranges)
+  \\ e.g., [a-z], [\textasciicircum{}H], 
 \end{itemize}
 \end{itemize}
 
@@ -930,7 +945,7 @@ LIMIT 5
 \begin{itemize}
 \item Tell me more about the words
 \begin{verbatim}
-SELECT count(word), count(DISTINCT word),
+SELECT COUNT(word), COUNT(DISTINCT word),
        MIN(LENGTH(word)), 
        MAX(LENGTH(word)), AVG(LENGTH(word))
 FROM word
