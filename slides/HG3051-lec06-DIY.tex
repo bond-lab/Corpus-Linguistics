@@ -1,4 +1,7 @@
-\documentclass[a4paper,landscape,headrule,footrule,dvips]{foils}
+\PassOptionsToPackage{xetex}{xcolor}
+\PassOptionsToPackage{xetex}{graphicx}
+\documentclass[a4paper,landscape,headrule,footrule,xetex]{foils}
+
 
 \input{headx.tex}
 \usepackage{bibentry}
@@ -25,7 +28,6 @@
 
 
 \begin{document}
-\begin{CJK}{UTF8}{min}
 \bibliographystyle{apalike}
 \nobibliography{abb,mtg,nlp,ling}
 \maketitle
@@ -690,32 +692,59 @@ proporition of words with upper-case initial letters, \ldots
 \end{itemize}
 
 
-\section{SQL}
+\section{Relational Databases \\ and SQL}
 
-\myslide{Many corpora are stored as SQL}
+\myslide{Many corpora are stored as DBs}
 
 \begin{itemize}
-\item \txx{Structured Query Language} is a special-purpose
-programming language designed for managing data held in a relational
-database management system (RDBMS)
-\item Data is stored in \txx{Table}s
+\item In relational databases
+\item Data is stored in \txx{Table}s (or relations)
   \begin{itemize}
-  \item Tables can be joined together
+  \item \txx{attribute}s are  \txx{column}s
+  \item \txx{record}s are \txx{row}s
+  \end{itemize}
+    \item Tables can be joined together
+  \begin{itemize}
+  \item If they share a common column
   \end{itemize}
 \item It can be retrieved with \txx{Queries}
   \begin{itemize}
   \item Properly written these can be very fast
   \end{itemize}
 \end{itemize}
+\txx{Structured Query Language} (SQL) is a special-purpose
+programming language designed for managing data held in a relational
+database management system (RDBMS)
+
+
+\myslide{Example tables}
+
+\begin{tabular}{lllll}
+  \multicolumn{2}{c}{TABLE: sent} \\
+  sid & sent \\ \hline
+  1   & Does this work? \\
+  2   & I hope so. \\
+\end{tabular}
+
+
+\begin{tabular}{lllll}
+  \multicolumn{5}{c}{TABLE: word} \\
+  sid & wid & word & pos & lemma \\ \hline
+  1   &  1 & Does & VBZ & do \\
+  1   &  2 & this & DT & this \\
+  1   &  3 & work & NN & work \\
+  1   &  4 & ?    & . & ? \\
+\end{tabular}
+
 
 \myslide{Select-From-Where}
 
 \begin{itemize} \addtolength{\itemsep}{-1ex}
 \item The simplest query
   \begin{itemize}
-  \item SELECT desired attributes
+  \item SELECT desired attributes (columns)
   \item FROM one or more tables
-  \item WHERE condition applies about the records in the tables
+  \item WHERE condition applies about the records  in the tables
   \end{itemize}
 \item What lemmas are there associated with the word \eng{does}?
 \begin{verbatim}
@@ -1079,7 +1108,33 @@ database bigger.  You normally add them after you have added the
 data.  Whether they speed things up or not is an empirical question,
 and should be tested.
 
+\myslide{SQL and NLP}
 
+
+\begin{itemize}
+\item RDMS and SQL are the backbone of most data storage
+\item There are many implementations:
+  \begin{itemize}
+  \item SQLite, PostgreSQL, ORACLE, MySQL, MS SQL Server, \ldots
+  \item typically share the same core
+  \item may have different extensions
+  \end{itemize}
+\item Text to SQL query is a popular task
+  \begin{itemize}
+  \item \eng{Which is the longest verb?}
+  \item[\ensuremath{\rightarrow}]
+\begin{verbatim}
+    SELECT word, pos FROM word
+    WHERE POS GLOB 'V*' AND
+    LENGTH(word) =
+    (SELECT MAX(LENGTH(word)) FROM word
+    WHERE POS GLOB 'V*');
+\end{verbatim}
+    
+    
+  \end{itemize}
+
+\end{itemize}
 
 % \myslide{Acknowledgments}
 
@@ -1090,15 +1145,13 @@ and should be tested.
 
 
 
-%%
-%% Future
-%%
-\clearpage
-\end{CJK}
 \end{document}
 
-% Local Variables: 
-% TeX-view-style: (("." "xdvi-ja %d -paper a4r -s 7"))
-% LaTeX-section-list:  (("myslide" 1))
-% TeX-master: t
-% End:
+
+%%% Local Variables: 
+%%% coding: utf-8
+%%% mode: latex
+%%% TeX-PDF-mode: t
+%%% TeX-engine: xetex
+%%% LaTeX-section-list:  (("myslide" 1))
+%%% End: 
