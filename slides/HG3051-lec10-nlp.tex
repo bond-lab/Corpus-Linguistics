@@ -1,4 +1,6 @@
-\documentclass[a4paper,landscape,headrule,footrule,dvips]{foils}
+\PassOptionsToPackage{xetex}{xcolor}
+\PassOptionsToPackage{xetex}{graphicx}
+\documentclass[a4paper,landscape,headrule,footrule,xetex]{foils}
 
 \input{headx.tex}
 \usepackage{bibentry}
@@ -35,7 +37,7 @@
 
 
 \begin{document}
-\begin{CJK}{UTF8}{min}
+
 \bibliographystyle{apalike}
 \nobibliography{abb,mtg,nlp,ling}
 \maketitle
@@ -390,10 +392,11 @@ Calculate the WER for the following pairs:
 \begin{enumerate}
 \item Develop an algorithm and gather examples/rules from \blu{training data}
 \item Optimize any parameters on \blu{development data}
-  \begin{itemize}
-  \item Normally about 10\% of the training data
-  \end{itemize}
+ 
 \item Test on held-out, unseen \blu{test data}
+   \begin{itemize}
+  \item 80\% Train, 10\% Develop, 10\% Test  is very common
+  \end{itemize}
 \end{enumerate}
 
 This gives a fair estimate of how good the algorithm is 
@@ -420,8 +423,10 @@ This gives a fair estimate of how good the algorithm is
 \begin{itemize}
 \item Evaluating MT output is non-trivial
   \begin{itemize}
-  \item There may be multiple correct answers 
-    \\ 泳ぐ\,の\,が\ 好き\,だ \jpn{oyogu-no-ga suki-da}
+  \item There may be multiple correct answers
+     \makexeCJKactive 
+     \\ 泳ぐ\,の\,が\ 好き\,だ \jpn{oyogu-no-ga suki-da}
+       \makexeCJKinactive
     \begin{itemize}
     \item \eng{I like to swim}
     \item \eng{I like swimming}
@@ -485,7 +490,7 @@ This gives a fair estimate of how good the algorithm is
   \end{center}
 
 \myslide{An Example of Variation}
-
+ \makexeCJKactive
 \begin{enumerate}
 \item \textit{Early and frequent releases are a critical part of the Linux development model}
   \begin{enumerate}
@@ -494,11 +499,12 @@ This gives a fair estimate of how good the algorithm is
   \item 早く 、 そして 頻繁 な リリース は 、 Linux 開発 モデル にとって は 重要 な 部分 で ある 。 % yoshimura
   \end{enumerate}
 \end{enumerate}
-
+ \makexeCJKinactive
 \hspace{-20mm}\includegraphics[width=1.2\textwidth]{include/lattice-24.eps}
 
 \myslide{1-grams (56)}
 \begin{small}
+   \makexeCJKactive
 \begin{verbatim}
 な<>5 
 の<>4 
@@ -516,18 +522,19 @@ BOS<>3
 開発<>2 
 そして<>2 
 こと<>1 
-\end{verbatim}
+\end{verbatim} \makexeCJKinactive
+   
 \end{small}
 
 
 \myslide{2-grams (55)}
-\begin{small}
+\begin{small} \makexeCJKactive
 \begin{verbatim}
 で<>ある<>3 3 3 
 重要<>な<>3 3 5 
 ある<>EOS<>3 3 3 
 な<>部分<>2 5 2 
-頻繁<>な<>2 3 5 
+頻繁<>な<>2 3 5  
 は<>リナックス<>2 4 2 
 早く<>そして<>2 2 2 
 開発<>モデル<>2 2 3 
@@ -540,11 +547,11 @@ BOS<>早く<>2 3 2
 部分<>で<>2 2 3 
 は<>重要<>1 4 3 
 は<>Linux<>1 4 1 
-\end{verbatim}
+\end{verbatim} \makexeCJKinactive
 \end{small}
 
 \myslide{3-grams (54)}
-\begin{small}
+\begin{small} \makexeCJKactive
 \begin{verbatim}
 で<>ある<>EOS<>3 3 3 3 3 3 3 
 ある<>EOS<>BOS<>2 2 2 2 2 2 2 
@@ -561,8 +568,8 @@ BOS<>早く<>そして<>2 3 2 2 2 2 2
 は<>重要<>な<>1 4 3 5 1 1 3 
 頻繁<>な<>公開<>1 3 5 1 2 1 1 
 そして<>頻繁<>に<>1 2 3 1 2 1 1 
-\end{verbatim}
-\end{small}
+\end{verbatim} \makexeCJKinactive
+\end{small} 
 
 \myslide{4-grams}
 
@@ -597,7 +604,7 @@ BOS<>早く<>そして<>2 3 2 2 2 2 2
 \end{itemize}
 
 
-
+ \makexeCJKactive
 
 \myslide{Misleading Bleu Scores}
 \begin{itemize}
@@ -617,7 +624,7 @@ BOS<>早く<>そして<>2 3 2 2 2 2 2
   \item \ul{I am} \ul{telephoning} from the \ul{airports}.\com{0.22}
   \end{itemize}
 \end{itemize}
-
+ \makexeCJKinactive
 
 \myslide{How to improve the reliability?}
 
@@ -674,7 +681,7 @@ BOS<>早く<>そして<>2 3 2 2 2 2 2
 
  \myslide{Variation in Translation (MRS Test set)}
 \MyLogo{Translated by my students in Nara Women's University}
-
+ \makexeCJKactive
 \begin{enumerate}
 \item \textit{The dog to chase is barking.}
   \begin{enumerate}
@@ -747,7 +754,7 @@ BOS<>早く<>そして<>2 3 2 2 2 2 2
   \item その 犬 が 吠える 可能 性 は ない 。 
   \end{enumerate}
 \end{enumerate}
-
+ \makexeCJKinactive
 
 
 
@@ -794,10 +801,12 @@ BOS<>早く<>そして<>2 3 2 2 2 2 2
     WSJ & WSJ & 86.1 & 86.6 \\
     WSJ+Brown & WSJ & 86.3 & 86.9 \\ 
   \end{tabular}
-  \\[2ex] tested using similar test sets, 
-  \\ training data roughly twice as large for WSJ, 
-  \\ precision/recall measured with labeled parse constituents
-  \\ Brown is non-homogeneous, WSJ is homogeneous
+  \begin{flushleft}
+    tested using similar test sets,
+    \\ Brown training data roughly twice as large for WSJ,
+    \\ precision/recall measured with labeled parse constituents
+    \\ Brown is non-homogeneous, WSJ is homogeneous
+  \end{flushleft}
 \end{center}
 
 \begin{itemize}
@@ -883,15 +892,14 @@ BOS<>早く<>そして<>2 3 2 2 2 2 2
 \end{itemize}
 
 
-%%
-%% Future
-%%
-\clearpage
-\end{CJK}
 \end{document}
 
-% Local Variables: 
-% TeX-view-style: (("." "xdvi-ja %d -paper a4r -s 7"))
-% LaTeX-section-list:  (("myslide" 1))
-% TeX-master: t
-% End:
+
+%%% Local Variables: 
+%%% coding: utf-8
+%%% mode: latex
+%%% TeX-PDF-mode: t
+%%% TeX-engine: xetex
+%%% LaTeX-section-list:  (("myslide" 1))
+%%% End: 
+

@@ -1,4 +1,6 @@
-\documentclass[a4paper,landscape,headrule,footrule,dvips]{foils}
+\PassOptionsToPackage{xetex}{xcolor}
+\PassOptionsToPackage{xetex}{graphicx}
+\documentclass[a4paper,landscape,headrule,footrule,xetex]{foils}
 
 \input{headx.tex}
 \usepackage{bibentry}
@@ -35,7 +37,6 @@
 
 
 \begin{document}
-\begin{CJK}{UTF8}{min}
 \bibliographystyle{apalike}
 \nobibliography{abb,mtg,nlp,ling}
 \maketitle
@@ -67,7 +68,7 @@
 \item Introduction
 
 \item Possessive Expressions in Japanese and English
-  
+  \makexeCJKactive
  \begin{exe}
    \ex
     \begin{tabular}[t]{lllll}
@@ -78,7 +79,7 @@
       Eng:   & \multicolumn{4}{l}{`I bit \psp{my} tongue'}
     \end{tabular}
   \end{exe}
-  
+  \makexeCJKinactive
 \item Differences in Noun Phrase Structure
 
 \item Pragmatic Analysis 
@@ -242,9 +243,10 @@ Results of the generation of all noun phrases headed by
 
 \myslide{How do we count Email in Japanese?}
 \lurl{http://www5b.biglobe.ne.jp/~aiida/iida2006-message.pdf}
-
+ \makexeCJKactive
 \begin{itemize}
 \item Japanese has two main classifiers for counting messages:
+ 
   \begin{itemize}
   \item 通 \jpn{tsuu}: used for letters
   \item 件 \jpn{ken}: used for incidents
@@ -264,7 +266,7 @@ Results of the generation of all noun phrases headed by
   \\[2ex] Change in Classifier use with increased familiarity
   \\ Classifiers listed in frequency order
 \end{center}
-
+\makexeCJKinactive
 
 
 \section{Contrastive Studies}
@@ -451,7 +453,7 @@ Chinese & Gloss  & Frequency \\ \hline
 \end{itemize}
 
 \myslide{HLM Parallel Corpus}
-
+ \makexeCJKactive
 \begin{itemize}
 \item Took 20 English sentences with \lex{however} and compared to the Chinese translation and then the other English Translation
   \begin{itemize}
@@ -463,7 +465,7 @@ Chinese & Gloss  & Frequency \\ \hline
   \item 1 \zh{人來客往} ``however many guests''
   \end{itemize}
 \end{itemize}
-
+ \makexeCJKinactive
 \myslide{Discussion}
 
 \begin{itemize}
@@ -481,7 +483,7 @@ beginning of the sentence or clause
 \end{itemize}
 
 \myslide{Babel Parallel Corpus}
-
+ \makexeCJKactive
 \begin{itemize}
 \item 101 sentence pairs
   \begin{itemize}
@@ -494,7 +496,7 @@ beginning of the sentence or clause
   \item 6 others
   \end{itemize}
 \end{itemize}
-
+ \makexeCJKinactive
 \myslide{Discussion}
 
 \begin{itemize}
@@ -712,31 +714,15 @@ diachronic corpora", ICAME Journal 13: 16-19.
      Corpora in Contrastive and Translation Studies (UCCTS 2008)}, Alberta
 \\ \url{www.lancs.ac.uk/fass/projects/corpus/UCCTS2008Proceedings/}
  \end{itemize}
-% \item Thanks to Stefan Th. Gries (University of California, Santa
-%    Barbara) for his great introduction \textit{Useful statistics for
-%      corpus linguistics} \url{http://www.linguistics.ucsb.edu/faculty/stgries/research/UsefulStatsForCorpLing.pdf}
-%  \item Some examples taken from Ted Dunning's \textit{Surprise and
-%      Coincidence - musings from the long tail}
-%    \url{http://tdunning.blogspot.com/2008/03/surprise-and-coincidence.html}
-
-%   inspiration for some of the slides (from  \textit{LING 2050 Special Topics in Linguistics: Corpus linguistics}, U Penn).
-% \item Thanks to Sandra K\"{u}bler for some of the slides from her 
-% \textit{RoCoLi\footnote{Romania Computational Linguistics Summer School} Course: Computational Tools for Corpus Linguistics}
-% %\item Thanks to Mark Davies (BYU) for the exploration ideas.
-% \item Definitions from WordNet 3.0
-% \end{itemize}
-
-
-
-%%
-%% Future
-%%
-\clearpage
-\end{CJK}
+%
 \end{document}
 
-% Local Variables: 
-% TeX-view-style: (("." "xdvi-ja %d -paper a4r -s 7"))
-% LaTeX-section-list:  (("myslide" 1))
-% TeX-master: t
-% End:
+
+%%% Local Variables: 
+%%% coding: utf-8
+%%% mode: latex
+%%% TeX-PDF-mode: t
+%%% TeX-engine: xetex
+%%% LaTeX-section-list:  (("myslide" 1))
+%%% End: 
+

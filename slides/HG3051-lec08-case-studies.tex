@@ -1,4 +1,6 @@
-\documentclass[a4paper,landscape,headrule,footrule,dvips]{foils}
+\PassOptionsToPackage{xetex}{xcolor}
+\PassOptionsToPackage{xetex}{graphicx}
+\documentclass[a4paper,landscape,headrule,footrule,xetex]{foils}
 
 \input{headx.tex}
 \usepackage{bibentry}
@@ -39,7 +41,6 @@
 
 
 \begin{document}
-\begin{CJK}{UTF8}{min}
 \bibliographystyle{apalike}
 \nobibliography{abb,mtg,nlp,ling}
 \maketitle
@@ -1358,16 +1359,13 @@ limit 50
 % \end{itemize}
 
 
-
-%%
-%% Future
-%%
-\clearpage
-\end{CJK}
 \end{document}
 
-% Local Variables: 
-% TeX-view-style: (("." "xdvi-ja %d -paper a4r -s 7"))
-% LaTeX-section-list:  (("myslide" 1))
-% TeX-master: t
-% End:
+%%% Local Variables: 
+%%% coding: utf-8
+%%% mode: latex
+%%% TeX-PDF-mode: t
+%%% TeX-engine: xetex
+%%% LaTeX-section-list:  (("myslide" 1))
+%%% End: 
+
