@@ -1,4 +1,6 @@
-\documentclass[a4paper,landscape,headrule,footrule,dvips]{foils}
+\PassOptionsToPackage{xetex}{xcolor}
+\PassOptionsToPackage{xetex}{graphicx}
+\documentclass[a4paper,landscape,headrule,footrule,xetex]{foils}
 
 \input{headx.tex}
 \usepackage{bibentry}
@@ -35,7 +37,6 @@
 
 
 \begin{document}
-\begin{CJK}{UTF8}{min}
 \bibliographystyle{apalike}
 \nobibliography{abb,mtg,nlp,ling}
 \maketitle
@@ -195,7 +196,7 @@ There are no definite answers to these questions.
 \myslide{How to be representative}
 
 \begin{enumerate}
-\item \blu{decide on the structural criteria} that you will use to build the corpus, and apply then to create a framework for the principal corpus components;
+\item \blu{decide on the structural criteria} that you will use to build the corpus, and apply them to create a framework for the principal corpus components;
 \item for each component \blu{draw up a comprehensive inventory} of text types that are found there, \blu{using external criteria} only;
 \item \blu{put the text types in a priority order}, taking into account all the factors that you think might increase or decrease the importance of a text type — the kind of factors discussed above;
 \item \blu{estimate a target size} for each text type, relating together (i) the overall target size for the component (ii) the number of text types (iii) the importance of each (iv) the practicality of gathering quantities of it;
@@ -222,7 +223,7 @@ There are no definite answers to these questions.
 \begin{itemize}
 \item for a corpus to be  balanced, the proportions of different kinds of text it contains should correspond with informed and intuitive judgments.
 \item Most general corpora of today are biased towards text: estimates of the optimal proportion of spoken language range from 50\% to 90\%
-\\ because text is so expensive to collect this imbalance is likely to remain.
+\\ because speech  is so expensive to collect this imbalance is likely to remain.
 \item Balance can conflict with representativeness
   \begin{itemize}
   \item Consider popular magazines in English
@@ -376,6 +377,15 @@ There are no definite answers to these questions.
   \item Open Source Software
   \end{itemize}
 \item Try to chose a standard license (such as Creative Commons)
+\end{itemize}
+\myslide{NTU's policy on Data Sharing}
+\begin{itemize}
+\item[5.6.1]  ``The final research data from projects carried out
+  at NTU shall be made available for sharing (via the NTU Data
+  Repository) unless there are prior formal agreements with external
+  collaborators and parties on non-disclosure or proprietary use of
+  the data.''  \url{http://research.ntu.edu.sg/rieo/RI/Pages/Research-Data-Policies.aspx}
+\item[5.6.2]  ``The sharing and use of research data shall be based on Creative Commons license CC:BY:NC, where others may use data for non-commercial applications only and must correctly attribute the data source in NTU.''
 
 \end{itemize}
 
@@ -395,12 +405,36 @@ There are no definite answers to these questions.
 \begin{description} \addtolength{\itemsep}{-0.5\itemsep}
 \item[BY] Attribution (all licenses)
 \item[SA] Share Alike (requires copies to have the same license)
-\item[NC] Non-Commercial \com{not open source}
-\item[ND] No Derivatives (allows only exact copies) \com{not open source}
+\item[NC] Non-Commercial
+    \com{\href{https://opendefinition.org/}{Not Open}}
+\item[ND] No Derivatives (allows only exact copies) 
+  \com{\href{https://opendefinition.org/}{Not Open}}
 \end{description}
 
 Many, many other license also exist (GPL, MIT, BSD, Apache, \ldots)
 
+ \myslide{The Open Definition}
+\MyLogo{https://opendefinition.org/}
+ \begin{itemize}
+ \item The Open Definition sets out principles that define \txx{openness}
+   in relation to data and content.
+ \item It makes precise the meaning of \txx{open} in the terms \txx{open data}
+   and \txx{open content} and thereby ensures quality and encourages
+   compatibility between different pools of open material.
+ \item It can be summed up in the statement that:
+   \begin{quote}
+     “Open means anyone can freely access, use, modify, and share for
+     any purpose (subject, at most, to requirements that preserve
+     provenance and openness).”
+   \end{quote}
+ \item Put most succinctly:
+   \begin{quote}
+     “Open data and content can be freely used, modified, and shared
+     by anyone for any purpose”
+   \end{quote}
+ \end{itemize}
+
+ 
 \myslide{Conclusions}
 
 \begin{center}
@@ -432,17 +466,13 @@ Many, many other license also exist (GPL, MIT, BSD, Apache, \ldots)
 % \item Definitions from WordNet 3.0
 % \end{itemize}
 
-
-
-%%
-%% Future
-%%
-\clearpage
-\end{CJK}
 \end{document}
 
-% Local Variables: 
-% TeX-view-style: (("." "xdvi-ja %d -paper a4r -s 7"))
-% LaTeX-section-list:  (("myslide" 1))
-% TeX-master: t
-% End:
+
+%%% Local Variables: 
+%%% coding: utf-8
+%%% mode: latex
+%%% TeX-PDF-mode: t
+%%% TeX-engine: xetex
+%%% LaTeX-section-list:  (("myslide" 1))
+%%% End: 

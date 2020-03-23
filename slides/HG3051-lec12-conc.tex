@@ -1,4 +1,7 @@
-\documentclass[a4paper,landscape,headrule,footrule,dvips]{foils}
+\PassOptionsToPackage{xetex}{xcolor}
+\PassOptionsToPackage{xetex}{graphicx}
+\documentclass[a4paper,landscape,headrule,footrule,xetex]{foils}
+
 %%%
 %%% Revision
 %%%  * some notes on copyright and licensing
@@ -39,7 +42,6 @@
 
 
 \begin{document}
-\begin{CJK}{UTF8}{min}
 \bibliographystyle{apalike}
 \nobibliography{abb,mtg,nlp,ling}
 \maketitle
@@ -66,10 +68,10 @@
 %%%
 \include{schedule}
 
-\section{More SQL \\ Creating; Inserting; Updating and Deleting}
+\section{More SQL \\ Creating; Inserting; \\ Updating and Deleting}
 
 \myslide{How to create a Table}
-\MyLogo{There are more types if you must know google them}
+\MyLogo{There are more types, if you must know, google them}
 \begin{verbatim}
 CREATE TABLE database_name.table_name(
    column1 datatype  PRIMARY KEY(one or more columns),
@@ -92,21 +94,23 @@ Each column should have a \txx{datatype}
 
 \texttt{sqlite} is very forgiving, you can store any data type in any column. 
 
-\myslide{For example}
+\myslide{For example: thw word table}
 
 \begin{verbatim}
 CREATE TABLE word (
-	sid INTEGER,
-	wid INTEGER,
-	word TEXT,
-	pos TEXT,
-	lemma TEXT,
-	cfrom INTEGER,
-	cto INTEGER,
-	comment TEXT,
-        PRIMARY KEY (sid, wid),
-        FOREIGN KEY(sid) REFERENCES sent(sid)
-	);
+-- store words, with POS and lemma
+-- start and end in the corresponding sentence (cfrom, cto)
+       sid INTEGER,     -- sentence ID
+       wid INTEGER,     -- wid (should be consecutive)
+       word TEXT,       -- surface form of the word
+       pos TEXT,        -- part of speech
+       lemma TEXT,      -- lemma (true-cased)
+       cfrom INTEGER,   -- start position 
+       cto INTEGER,     -- end position  
+       comment TEXT,
+       PRIMARY KEY (sid, wid),
+       FOREIGN KEY(sid) REFERENCES sent(sid)
+       );
 \end{verbatim}
 \myslide{PRIMARY KEYS}
 \MyLogo{If you don't define one, nothing bad happens}
@@ -153,7 +157,7 @@ INSERT INTO word (sid, wid, word, pos, lemma)
 
 \begin{verbatim}
 UPDATE word SET lemma='adventure'
-  WHERE sid=1 AND id=1;
+  WHERE sid=1 AND wid=1;
 \end{verbatim}
 
 or
@@ -263,7 +267,7 @@ on word (lemma, pos);
   \end{itemize}
 \item Or through some program
   \begin{itemize}
-  \item Learn more in HG2051
+  \item Learn more in HG2051 \textit{Language and the Computer}
   \end{itemize}
 \end{itemize}
 
@@ -292,7 +296,7 @@ Master the uses of text corpora
 
 \myslide{What did you learn?}
 
-HG351 students should be able to:
+You should be able to:
 
 \begin{itemize}
 \item Understand the uses of text corpora in language research
@@ -321,16 +325,14 @@ remember?
 \end{itemize}
 
 
-
-%%
-%% Future
-%%
-\clearpage
-\end{CJK}
 \end{document}
 
-% Local Variables: 
-% TeX-view-style: (("." "xdvi-ja %d -paper a4r -s 7"))
-% LaTeX-section-list:  (("myslide" 1))
-% TeX-master: t
-% End:
+
+%%% Local Variables: 
+%%% coding: utf-8
+%%% mode: latex
+%%% TeX-PDF-mode: t
+%%% TeX-engine: xetex
+%%% LaTeX-section-list:  (("myslide" 1))
+%%% End: 
+
