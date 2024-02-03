@@ -4,7 +4,7 @@
 
 \input{headx.tex}
 
-\header{Lecture 2}{Markup and Annotation}{}
+\header{Markup and Annotation}{}
 
 \usepackage{pst-node}
 \newcommand{\sa}[2]{\rnode{c#1}{\iz{#2}}}%\nodebox{c#1}}
@@ -537,13 +537,13 @@ exotic language you know.
 \item  Word sense disambiguation between homonyms
 \item  ex. \eng{lie} in:
   \begin{itemize}
-  \item  \eng{The boy lied$_1$ to his parents.}
-  \item  \eng{Mary lied$_2$ down for  a nap.}
+  \item  \eng{The boy lies\,$_1$ to his parents.}
+  \item  \eng{Mary lies\,$_2$ down after lunch for  a nap.}
   \end{itemize}
 \item  ex. \eng{share} in:
   \begin{itemize}
-  \item  \eng{Mary did not share$_1$ her secret with anyone.}
-  \item  \eng{The share$_2$ holders of Intel were disappointed.}
+  \item  \eng{They all did their share\,$_1$ of the work.}
+  \item  \eng{The Twitter share\,$_2$ holders  were disappointed.}
   \end{itemize}
 \end{itemize}
 
@@ -580,7 +580,7 @@ exotic language you know.
   \begin{itemize}
   \item  He wrapped up a \ul{three-hour} meeting with the Iraqi president in
     Baghdad \ul{today}.
-  \item The king lived \ul{4,000 years ago}.extent.
+  \item The king lived \ul{4,000 years ago}.
   \item I’m a creature of \ul{the 1960s, the days of free love}.
   \end{itemize}
 \end{itemize}
@@ -619,8 +619,8 @@ are tagged for errors, as well as numerous other learner corpora
   \item  word/phrase that needs replacing
   \item  unnecessary word/phrase
   \item  wrongly derived words
-  \item  ex: 
-    \begin{small}
+\newpage    
+  \item  Example: 
 \begin{verbatim}
 For example, my friend told me if I knew about Shakespare. 
 But, <TIP id=17-56 etype=24 tutor="I knew">I know</TIP> 
@@ -628,7 +628,6 @@ about him <TIP id=17-57 etype=10 tutor="a little bit">little
 bit</TIP>, so I couldn 't <TIP id=17-56679-5 etype=15 
 tutor="explain it">explain</TIP> fairly to her.
 \end{verbatim}
-    \end{small}
 
   \end{itemize}
 \end{itemize}
@@ -843,287 +842,116 @@ Parliament’s Secretariat.</p>
   \end{itemize}
 \end{itemize}
 
-\myslide{Dynamic Annotation}
+% \myslide{Dynamic Annotation}
 
-\begin{itemize}
-\item Update the tagging as the theory develops!
-  \begin{itemize}
-  \item Annotation is a link between text and a model
-  \item As the model changes, update the annotation
-  \end{itemize}
-\item Idea developed in the Redwoods project for HPSG annotation
-\end{itemize}
+% \begin{itemize}
+% \item Update the tagging as the theory develops!
+%   \begin{itemize}
+%   \item Annotation is a link between text and a model
+%   \item As the model changes, update the annotation
+%   \end{itemize}
+% \item Idea developed in the Redwoods project for HPSG annotation
+% \end{itemize}
 
-Stephan Oepen, Dan Flickinger and Francis Bond (2004)
-     ``Towards Holistic Grammar Engineering and Testing --- Grafting Treebank Maintenance into the Grammar Revision Cycle'' In \textit{Beyond Shallow Analyses --- Formalisms and Statistical Modelling for Deep Analysis (Workshop at IJCNLP-2004)}, Hainan Island. 
-
-
-\myslide{Case Study: the Hinoki Corpus}
-
-\begin{itemize}
-\item Grammar-based syntactic annotation using discriminants
-\end{itemize}
-
-\myslide{Approaches to Treebanking}
-
-\begin{itemize}
-\item Manual Annotation
-\item Semi-Automatic 
-  \begin{itemize}
-  \item \textbf{Parse and repair by hand}: Penn WSJ, Kyoto Corpus
-    \begin{description}
-    \item [↑] 100\% cover, reasonably fast
-    \item [↓] Often inconsistent, Hard to update,   \\
-      Simple grammars only (prop-bank is separate)
-    \end{description}
-  \item \textbf{Parse and select by hand}: Redwoods, \emp{Hinoki}
-    \begin{description}
-    \item [↑] All parses grammatical, Feedback to grammar
-      \\ Both syntax and semantics, Easy to update
-    \item [↓] Cover restricted by grammar
-    \end{description}
-  \end{itemize}
-\end{itemize}
-
-\myslide{Discriminant-based Treebanking}
-\begin{itemize}
-\item Calculate \emp{elementary discriminants} (Carter 1997)
-  \begin{itemize}
-  \item Basic contrasts between parses
-  \item Mostly independent and local
-  \item Can be syntactic or semantic
-  \end{itemize}
-\item Select or reject discriminants until one parse remains
-  \begin{itemize}
-  \item $|{\textnormal{decisions}| \propto \log |\textnormal{parses}|}$
-  \end{itemize}
-\item Alternatively reject all parses
-  \begin{itemize}
-  \item i.e, the grammar can not parse successfully
-  \end{itemize}
-\end{itemize}
-
-\myslide{Our Contribution}
-\begin{itemize}
-\item Evaluation of discriminant-based treebanking
-  \begin{itemize}
-  \item Evaluated inter-annotator agreement 
-    \begin{itemize}
-    \item 5,000 sentences with 3 annotators
-    \end{itemize}
-  \item Measured number of decisions needed
-  \end{itemize}
-\item Improved Efficiency of Treebanking (\emp{Blazing})
-  \begin{itemize}
-  \item Use Part-of-Speech tags to pre-select discriminants
-  \end{itemize}
-\end{itemize}
+% Stephan Oepen, Dan Flickinger and Francis Bond (2004)
+%      ``Towards Holistic Grammar Engineering and Testing --- Grafting Treebank Maintenance into the Grammar Revision Cycle'' In \textit{Beyond Shallow Analyses --- Formalisms and Statistical Modelling for Deep Analysis (Workshop at IJCNLP-2004)}, Hainan Island. 
 
 
-\myslide{Japanese Semantic Lexicon (Lexeed)}%基本語辞典
+% \myslide{Case Study: the Hinoki Corpus}
 
-\begin{itemize}
-\item All words from the NTT Goitokusei with familiarity $\ge 5.0$
-  \begin{itemize}
-    \item Japanese Lexicon defining word familiarity for each word
-    \item Familiarity is estimated by psychological experiments
-  \end{itemize}
-\item 28,000 words and 46,347 senses
-\item Covers 75\% of tokens in a typical newspaper
-% \vspace{-7mm}
-\item Rewritten so \blu{definition sentences use only basic words} \\
-(and function words): 4 candidates/definition
-\end{itemize}
+% \begin{itemize}
+% \item Grammar-based syntactic annotation using discriminants
+% \end{itemize}
 
-%\myslide{Treebanking Using Discriminants}
+% \myslide{Approaches to Treebanking}
+
+% \begin{itemize}
+% \item Manual Annotation
+% \item Semi-Automatic 
+%   \begin{itemize}
+%   \item \textbf{Parse and repair by hand}: Penn WSJ, Kyoto Corpus
+%     \begin{description}
+%     \item [↑] 100\% cover, reasonably fast
+%     \item [↓] Often inconsistent, Hard to update,   \\
+%       Simple grammars only (prop-bank is separate)
+%     \end{description}
+%   \item \textbf{Parse and select by hand}: Redwoods, \emp{Hinoki}
+%     \begin{description}
+%     \item [↑] All parses grammatical, Feedback to grammar
+%       \\ Both syntax and semantics, Easy to update
+%     \item [↓] Cover restricted by grammar
+%     \end{description}
+%   \end{itemize}
+% \end{itemize}
+
+% \myslide{Discriminant-based Treebanking}
+% \begin{itemize}
+% \item Calculate \emp{elementary discriminants} (Carter 1997)
+%   \begin{itemize}
+%   \item Basic contrasts between parses
+%   \item Mostly independent and local
+%   \item Can be syntactic or semantic
+%   \end{itemize}
+% \item Select or reject discriminants until one parse remains
+%   \begin{itemize}
+%   \item $|{\textnormal{decisions}| \propto \log |\textnormal{parses}|}$
+%   \end{itemize}
+% \item Alternatively reject all parses
+%   \begin{itemize}
+%   \item i.e, the grammar can not parse successfully
+%   \end{itemize}
+% \end{itemize}
+
+% \myslide{Our Contribution}
+% \begin{itemize}
+% \item Evaluation of discriminant-based treebanking
+%   \begin{itemize}
+%   \item Evaluated inter-annotator agreement 
+%     \begin{itemize}
+%     \item 5,000 sentences with 3 annotators
+%     \end{itemize}
+%   \item Measured number of decisions needed
+%   \end{itemize}
+% \item Improved Efficiency of Treebanking (\emp{Blazing})
+%   \begin{itemize}
+%   \item Use Part-of-Speech tags to pre-select discriminants
+%   \end{itemize}
+% \end{itemize}
 
 
-\myslide{Syntactic View of \jpn[curtain]{k\=aten}$_2$}
+% \myslide{Japanese Semantic Lexicon (Lexeed)}%基本語辞典
 
-\begin{tabular}{ccccccc}
-    &\multicolumn{5}{c}{\sa{1}{UTTERANCE}}  \\[1ex]
-    &\multicolumn{5}{c}{\sa{2}{NP}}  \\[1ex]
-    &\multicolumn{3}{c}{\sa{3}{VP}} & \sa{4}{N} \\[1ex]
-    \multicolumn{3}{c}{\sa{5}{PP}} & \multicolumn{1}{c}{\sa{J}{V}} &
-    \\[1ex]
-    \multicolumn{2}{c}{\sa{I}{NP}} & & &  & \\[1ex]
-    \sa{H}{DET} & \sa{7}{N}      & \sa{8}{CASE-P} &   &  \\[1ex]
-                                %N      & &  &  V &  \\   
-    \sa{G}{ある} & \sa{B}{物事} & \sa{C}{を} & \sa{D}{隠す} &  \sa{F}{物} \\
-    \jpn{aru} & \jpn{monogoto} &  \jpn{o} & \jpn{kakusu} &  \jpn{mono} \\
-    a certain & stuff &  \textsc{acc} & hide &  thing \\[1ex]
-%\multicolumn{5}{c}{Curtain$_2$: ``a thing that hides something''}
-  \end{tabular}
-  \centering
-  \ncline[nodesep=3pt]{c1}{c2} \ncline[nodesep=3pt]{c2}{c3}
-  \ncline[nodesep=3pt]{c2}{c4} \ncline[nodesep=3pt]{c3}{c5}
-  \ncline[nodesep=3pt]{cA}{c6} \ncline[nodesep=3pt]{c4}{cF}
-  \ncline[nodesep=3pt]{c5}{c8}
-  \ncline[nodesep=3pt]{cJ}{c3} \ncline[nodesep=3pt]{cI}{c5} 
-  \ncline[nodesep=3pt]{c7}{cI} \ncline[nodesep=3pt]{c8}{cC}
-  \ncline[nodesep=3pt]{cG}{cH} \ncline[nodesep=3pt]{cH}{cI}
-  \ncline[nodesep=3pt]{cD}{cJ} 
-%\ncline[nodesep=3pt]{cA}{cE} \ncline[nodesep=3pt]{cJ}{c6}
+% \begin{itemize}
+% \item All words from the NTT Goitokusei with familiarity $\ge 5.0$
+%   \begin{itemize}
+%     \item Japanese Lexicon defining word familiarity for each word
+%     \item Familiarity is estimated by psychological experiments
+%   \end{itemize}
+% \item 28,000 words and 46,347 senses
+% \item Covers 75\% of tokens in a typical newspaper
+% % \vspace{-7mm}
+% \item Rewritten so \blu{definition sentences use only basic words} \\
+% (and function words): 4 candidates/definition
+% \end{itemize}
 
-\myslide{Semantic View of \jpn[curtain]{k\=aten}$_2$}
-  \setlength{\arraycolsep}{0em}
-\[\begin{array}[t]{llll}\setlength{\arraycolsep}{0em}
-\langle  h_0,x_2 & \{& h_0:prpstn\_rel(h_5) \\
-                  && h_1:aru(e_1,x_1,u_0) & \textnormal{``a certain''}\\
-                  && h_1:monogoto(x_1) & \textnormal{``stuff''}\\ 
-                  && h_2:u\_def(x_1,h_1,h_6) & \\
-                  && h_5:kakusu(e_2,x_2,x_1) & \textnormal{``hide''}\\
-                  && h_3:koto(x_2) & \textnormal{``thing''}\\
-                  && h_4:u\_def(x_2,h_3,h_7) 
-               \} \rangle
-\end{array}\]
+% %\myslide{Treebanking Using Discriminants}
 
-\myslide{Derivations of \jpn[curtain]{k\=aten}$_2$ (4/6)}
 
-{\tiny
- \hspace*{-15mm}\begin{tabular}{c@{\,}c} 
+% \myslide{Syntactic View of \jpn[curtain]{k\=aten}$_2$}
 
-  \addtolength{\tabcolsep}{-0.3em}
-  \begin{tabular}{ccccccc}
-   &\multicolumn{5}{c}{\sa{1}{NP-frag}}  \\[1ex]
-   &\multicolumn{5}{c}{\sa{2}{\wl{rel-cl-sbj-gap}}}  \\[1ex]
-   &\multicolumn{3}{c}{\sa{3}{hd-complement}} & \sa{4}{N} \\[1ex]
-   \multicolumn{3}{c}{\sa{5}{hd-complement}} & \multicolumn{1}{c}{\sa{J}{V}} &
-   \\[1ex]
-   \multicolumn{2}{c}{\sa{I}{\ul{hd-specifier}}} & & &  & \\[1ex]
-   \sa{H}{DET} & \sa{7}{N}      & \sa{8}{CASE-P} &   &  \\[1ex]
-   %N      & &  &  V &  \\   
-   \sa{G}{ある} & \sa{B}{物事} & \sa{C}{を} & \sa{D}{隠す} &  \sa{F}{ 物} \\
-   \texttt{\emp{\ul{adnominal}}} & \texttt{noun} & \texttt{particle} & \texttt{verb} & \texttt{noun} \\
-   a certain & thing &  \textsc{acc} & hide &  thing \\
-   \multicolumn{5}{c}{Tree \#1 (Correct)} \\ \\
-  \end{tabular}
-  \centering
-  \ncline[nodesep=3pt]{c1}{c2} \ncline[nodesep=3pt]{c2}{c3}
-  \ncline[nodesep=3pt]{c2}{c4} \ncline[nodesep=3pt]{c3}{c5}
-  \ncline[nodesep=3pt]{cA}{c6} \ncline[nodesep=3pt]{c4}{cF}
-  \ncline[nodesep=3pt]{c5}{c8}
-  \ncline[nodesep=3pt]{cJ}{c3} \ncline[nodesep=3pt]{cI}{c5} 
-  \ncline[nodesep=3pt]{c7}{cI} \ncline[nodesep=3pt]{c8}{cC}
-  \ncline[nodesep=3pt]{cG}{cH} \ncline[nodesep=3pt]{cH}{cI}
-  \ncline[nodesep=3pt]{cD}{cJ} 
-  \ncline[nodesep=3pt]{cB}{c7} 
-  %\caption{Derivation Tree \#1 of the Definition of カーテン$_2$ \jpn[curtain]{k\=aten}}
-  %  \label{fig:derivation-curtain-1}
-%\end{figure}
-  
-  %\begin{figure}[htbp]
-  %  \centering
-  %\addtolength{\tabcolsep}{-0.3em}
-  %\vspace{3mm}
-  &
-  \begin{tabular}{ccccccc}
-    &\multicolumn{5}{c}{\sa{1}{NP-frag}}  \\[1ex]
-    &\multicolumn{5}{c}{\sa{2}{\wl{rel-clause}}}  \\[1ex]
-    &\multicolumn{3}{c}{\sa{3}{hd-complement}} & \sa{4}{N} \\[1ex]
-    \multicolumn{3}{c}{\sa{5}{hd-complement}} & \multicolumn{1}{c}{\sa{J}{\wl{subj-zpro}}} &
-    \\[1ex]
-    \multicolumn{2}{c}{\sa{I}{\ul{hd-specifier}}} & & \sa{K}{V} & & \\[1ex]
-    \sa{H}{DET} & \sa{7}{N}      & \sa{8}{CASE-P} &   &  \\[1ex]
-                                %N      & &  &  V &  \\   
-    \sa{G}{ある} & \sa{B}{物事} & \sa{C}{を} & \sa{D}{隠す} &  \sa{F}{ 物} \\
-   \texttt{\emp{\ul{adnominal}}} & \texttt{noun} & \texttt{particle} & \texttt{verb} & \texttt{noun} \\
-    a certain & thing &  \textsc{acc} & hide &  thing \\
-   \multicolumn{5}{c}{Tree \#2} \\ \\
-  \end{tabular}\\
-  \centering
-  \ncline[nodesep=3pt]{c1}{c2} \ncline[nodesep=3pt]{c2}{c3}
-  \ncline[nodesep=3pt]{c2}{c4} \ncline[nodesep=3pt]{c3}{c5}
-  \ncline[nodesep=3pt]{cA}{c6} \ncline[nodesep=3pt]{c4}{cF}
-  \ncline[nodesep=3pt]{c5}{c8}
-  \ncline[nodesep=3pt]{cJ}{c3} \ncline[nodesep=3pt]{cI}{c5} 
-  \ncline[nodesep=3pt]{c7}{cI} \ncline[nodesep=3pt]{c8}{cC}
-  \ncline[nodesep=3pt]{cG}{cH} \ncline[nodesep=3pt]{cH}{cI}
-  \ncline[nodesep=3pt]{cD}{cK} \ncline[nodesep=3pt]{cK}{cJ} 
-  \ncline[nodesep=3pt]{cB}{c7} 
-
-  %\label{fig:derivation-curtain-2}
-   %\end{figure}
-
- \begin{tabular}{ccccccc}
-    &\multicolumn{5}{c}{\sa{1}{NP-frag}}  \\[1ex]
-    &\multicolumn{5}{c}{\sa{2}{\wl{rel-cl-sbj-gap}}}  \\[1ex]
-    &\multicolumn{3}{c}{\sa{3}{hd-complement}} & \sa{4}{N} \\[1ex]
-    \multicolumn{3}{c}{\sa{5}{hd-complement}} & \multicolumn{1}{c}{\sa{J}{V}} &
-    \\[1ex]
-    \multicolumn{2}{c}{\sa{I}{\ul{rel-cl-sbj-gap}}} & & &  & \\[1ex]
-    \sa{H}{V} & \sa{7}{N}      & \sa{8}{CASE-P} &   &  \\[1ex]
-                                %N      & &  &  V &  \\   
-    \sa{G}{ある} & \sa{B}{物事} & \sa{C}{を} & \sa{D}{隠す} &  \sa{F}{ 物} \\
-   \texttt{\emp{\ul{verb}}} & \texttt{noun} & \texttt{particle} & \texttt{verb} & \texttt{noun} \\
-    exist & thing &  \textsc{acc} & hide &  thing \\
-   \multicolumn{5}{c}{Tree \#3} \\ \\
- \end{tabular}
-  \centering
-  \ncline[nodesep=3pt]{c1}{c2} \ncline[nodesep=3pt]{c2}{c3}
-  \ncline[nodesep=3pt]{c2}{c4} \ncline[nodesep=3pt]{c3}{c5}
-  \ncline[nodesep=3pt]{cA}{c6} \ncline[nodesep=3pt]{c4}{cF}
-  \ncline[nodesep=3pt]{c5}{c8}
-  \ncline[nodesep=3pt]{cJ}{c3} \ncline[nodesep=3pt]{cI}{c5} 
-  \ncline[nodesep=3pt]{c7}{cI} \ncline[nodesep=3pt]{c8}{cC}
-  \ncline[nodesep=3pt]{cG}{cH} \ncline[nodesep=3pt]{cH}{cI}
-  \ncline[nodesep=3pt]{cD}{cJ} 
-  \ncline[nodesep=3pt]{cB}{c7} 
-% \caption{Derivation Tree \#3 of the Definition of カーテン$_2$ \jpn[curtain]{k\=aten}}
-%  \label{fig:derivation-curtain-3}
-%\end{figure}
-
-%\begin{figure}[htbp]
-%  \centering
-%\addtolength{\tabcolsep}{-0.3em}
-
-&
-  \begin{tabular}{ccccccc}
-    &\multicolumn{5}{c}{\sa{1}{NP-frag}}  \\[1ex]
-    &\multicolumn{5}{c}{\sa{2}{\wl{rel-clause}}}  \\[1ex]
-    &\multicolumn{3}{c}{\sa{3}{hd-complement}} & \sa{4}{N} \\[1ex]
-    \multicolumn{3}{c}{\sa{5}{hd-complement}} & \multicolumn{1}{c}{\sa{J}{\wl{subj-zpro}}} &
-    \\[1ex]
-    \multicolumn{2}{c}{\sa{I}{\ul{rel-cl-sbj-gap}}} & & \sa{K}{V} &  & \\[1ex]
-    \sa{H}{V} & \sa{7}{N}      & \sa{8}{CASE-P} &   &  \\[1ex]
-                                %N      & &  &  V &  \\   
-    \sa{G}{ある} & \sa{B}{物事} & \sa{C}{を} & \sa{D}{隠す} &  \sa{F}{ 物} \\
-   \texttt{\emp{\ul{verb}}} & \texttt{noun} & \texttt{particle} & \texttt{verb} & \texttt{noun} \\
-    exist & thing &  \textsc{acc} & hide &  thing \\
-   \multicolumn{5}{c}{Tree \#4} \\ \\
-  \end{tabular}
-  \ncline[nodesep=3pt]{c1}{c2} \ncline[nodesep=3pt]{c2}{c3}
-  \ncline[nodesep=3pt]{c2}{c4} \ncline[nodesep=3pt]{c3}{c5}
-  \ncline[nodesep=3pt]{cA}{c6} \ncline[nodesep=3pt]{c4}{cF}
-  \ncline[nodesep=3pt]{c5}{c8}
-  \ncline[nodesep=3pt]{cJ}{c3} \ncline[nodesep=3pt]{cI}{c5} 
-  \ncline[nodesep=3pt]{c7}{cI} \ncline[nodesep=3pt]{c8}{cC}
-  \ncline[nodesep=3pt]{cG}{cH} \ncline[nodesep=3pt]{cH}{cI}
-  \ncline[nodesep=3pt]{cD}{cK} \ncline[nodesep=3pt]{cK}{cJ} 
-  \ncline[nodesep=3pt]{cB}{c7} 
-% \caption{Derivation Tree \#4 of the Definition of カーテン$_2$ \jpn[curtain]{k\=aten}}
-%  \label{fig:derivation-curtain-4}
-%\end{figure}
-
-%\begin{figure}[htbp]
-%  \centering
-%\addtolength{\tabcolsep}{-0.3em}
-%\vspace{3mm}
-
-%   \begin{tabular}{ccccccc}
-%     &\multicolumn{5}{c}{\sa{1}{NP-frag}}  \\[1ex]
-%     &\multicolumn{5}{c}{\sa{2}{rel-cl-sbj-gap}}  \\[1ex]
-%     &\multicolumn{3}{c}{\sa{3}{hd-complement}} & \sa{4}{N} \\[1ex]
-%     \multicolumn{3}{c}{\sa{5}{hd-complement}} & \multicolumn{1}{c}{\sa{J}{V}} &
+% \begin{tabular}{ccccccc}
+%     &\multicolumn{5}{c}{\sa{1}{UTTERANCE}}  \\[1ex]
+%     &\multicolumn{5}{c}{\sa{2}{NP}}  \\[1ex]
+%     &\multicolumn{3}{c}{\sa{3}{VP}} & \sa{4}{N} \\[1ex]
+%     \multicolumn{3}{c}{\sa{5}{PP}} & \multicolumn{1}{c}{\sa{J}{V}} &
 %     \\[1ex]
-%     \multicolumn{2}{c}{\sa{I}{rel-clause}} & & &  & \\[1ex]
-%     \sa{L}{subj-zpro} &        &  &   &  \\[1ex]
-%     \sa{H}{V} & \sa{7}{N}      & \sa{8}{CASE-P} &   &  \\[1ex]
+%     \multicolumn{2}{c}{\sa{I}{NP}} & & &  & \\[1ex]
+%     \sa{H}{DET} & \sa{7}{N}      & \sa{8}{CASE-P} &   &  \\[1ex]
 %                                 %N      & &  &  V &  \\   
-%     \sa{G}{ある} & \sa{B}{物事} & \sa{C}{を} & \sa{D}{隠す} &  \sa{F}{ 物} \\
-%    \texttt{\ul{verb}} & \texttt{noun} & \texttt{particle} & \texttt{verb} & \texttt{noun} \\
-%     exist & thing &  \textsc{acc} & hide &  thing \\
-%    \multicolumn{5}{c}{Tree \#5} \\ \\
+%     \sa{G}{ある} & \sa{B}{物事} & \sa{C}{を} & \sa{D}{隠す} &  \sa{F}{物} \\
+%     \jpn{aru} & \jpn{monogoto} &  \jpn{o} & \jpn{kakusu} &  \jpn{mono} \\
+%     a certain & stuff &  \textsc{acc} & hide &  thing \\[1ex]
+% %\multicolumn{5}{c}{Curtain$_2$: ``a thing that hides something''}
 %   \end{tabular}
 %   \centering
 %   \ncline[nodesep=3pt]{c1}{c2} \ncline[nodesep=3pt]{c2}{c3}
@@ -1132,206 +960,377 @@ Stephan Oepen, Dan Flickinger and Francis Bond (2004)
 %   \ncline[nodesep=3pt]{c5}{c8}
 %   \ncline[nodesep=3pt]{cJ}{c3} \ncline[nodesep=3pt]{cI}{c5} 
 %   \ncline[nodesep=3pt]{c7}{cI} \ncline[nodesep=3pt]{c8}{cC}
-%   \ncline[nodesep=3pt]{cG}{cH} \ncline[nodesep=3pt]{cH}{cL} \ncline[nodesep=3pt]{cL}{cI}
-%   \ncline[nodesep=3pt]{cD}{cJ} \ncline[nodesep=3pt]{c7}{cB} 
-% % \caption{Another Derivation Tree \#5 of the Definition of カーテン$_2$ \jpn[curtain]{k\=aten}}
-% %  \label{fig:derivation-curtain-5}
+%   \ncline[nodesep=3pt]{cG}{cH} \ncline[nodesep=3pt]{cH}{cI}
+%   \ncline[nodesep=3pt]{cD}{cJ} 
+% %\ncline[nodesep=3pt]{cA}{cE} \ncline[nodesep=3pt]{cJ}{c6}
+
+% \myslide{Semantic View of \jpn[curtain]{k\=aten}$_2$}
+%   \setlength{\arraycolsep}{0em}
+% \[\begin{array}[t]{llll}\setlength{\arraycolsep}{0em}
+% \langle  h_0,x_2 & \{& h_0:prpstn\_rel(h_5) \\
+%                   && h_1:aru(e_1,x_1,u_0) & \textnormal{``a certain''}\\
+%                   && h_1:monogoto(x_1) & \textnormal{``stuff''}\\ 
+%                   && h_2:u\_def(x_1,h_1,h_6) & \\
+%                   && h_5:kakusu(e_2,x_2,x_1) & \textnormal{``hide''}\\
+%                   && h_3:koto(x_2) & \textnormal{``thing''}\\
+%                   && h_4:u\_def(x_2,h_3,h_7) 
+%                \} \rangle
+% \end{array}\]
+
+% \myslide{Derivations of \jpn[curtain]{k\=aten}$_2$ (4/6)}
+
+% {\tiny
+%  \hspace*{-15mm}\begin{tabular}{c@{\,}c} 
+
+%   \addtolength{\tabcolsep}{-0.3em}
+%   \begin{tabular}{ccccccc}
+%    &\multicolumn{5}{c}{\sa{1}{NP-frag}}  \\[1ex]
+%    &\multicolumn{5}{c}{\sa{2}{\wl{rel-cl-sbj-gap}}}  \\[1ex]
+%    &\multicolumn{3}{c}{\sa{3}{hd-complement}} & \sa{4}{N} \\[1ex]
+%    \multicolumn{3}{c}{\sa{5}{hd-complement}} & \multicolumn{1}{c}{\sa{J}{V}} &
+%    \\[1ex]
+%    \multicolumn{2}{c}{\sa{I}{\ul{hd-specifier}}} & & &  & \\[1ex]
+%    \sa{H}{DET} & \sa{7}{N}      & \sa{8}{CASE-P} &   &  \\[1ex]
+%    %N      & &  &  V &  \\   
+%    \sa{G}{ある} & \sa{B}{物事} & \sa{C}{を} & \sa{D}{隠す} &  \sa{F}{ 物} \\
+%    \texttt{\emp{\ul{adnominal}}} & \texttt{noun} & \texttt{particle} & \texttt{verb} & \texttt{noun} \\
+%    a certain & thing &  \textsc{acc} & hide &  thing \\
+%    \multicolumn{5}{c}{Tree \#1 (Correct)} \\ \\
+%   \end{tabular}
+%   \centering
+%   \ncline[nodesep=3pt]{c1}{c2} \ncline[nodesep=3pt]{c2}{c3}
+%   \ncline[nodesep=3pt]{c2}{c4} \ncline[nodesep=3pt]{c3}{c5}
+%   \ncline[nodesep=3pt]{cA}{c6} \ncline[nodesep=3pt]{c4}{cF}
+%   \ncline[nodesep=3pt]{c5}{c8}
+%   \ncline[nodesep=3pt]{cJ}{c3} \ncline[nodesep=3pt]{cI}{c5} 
+%   \ncline[nodesep=3pt]{c7}{cI} \ncline[nodesep=3pt]{c8}{cC}
+%   \ncline[nodesep=3pt]{cG}{cH} \ncline[nodesep=3pt]{cH}{cI}
+%   \ncline[nodesep=3pt]{cD}{cJ} 
+%   \ncline[nodesep=3pt]{cB}{c7} 
+%   %\caption{Derivation Tree \#1 of the Definition of カーテン$_2$ \jpn[curtain]{k\=aten}}
+%   %  \label{fig:derivation-curtain-1}
+% %\end{figure}
+  
+%   %\begin{figure}[htbp]
+%   %  \centering
+%   %\addtolength{\tabcolsep}{-0.3em}
+%   %\vspace{3mm}
+%   &
+%   \begin{tabular}{ccccccc}
+%     &\multicolumn{5}{c}{\sa{1}{NP-frag}}  \\[1ex]
+%     &\multicolumn{5}{c}{\sa{2}{\wl{rel-clause}}}  \\[1ex]
+%     &\multicolumn{3}{c}{\sa{3}{hd-complement}} & \sa{4}{N} \\[1ex]
+%     \multicolumn{3}{c}{\sa{5}{hd-complement}} & \multicolumn{1}{c}{\sa{J}{\wl{subj-zpro}}} &
+%     \\[1ex]
+%     \multicolumn{2}{c}{\sa{I}{\ul{hd-specifier}}} & & \sa{K}{V} & & \\[1ex]
+%     \sa{H}{DET} & \sa{7}{N}      & \sa{8}{CASE-P} &   &  \\[1ex]
+%                                 %N      & &  &  V &  \\   
+%     \sa{G}{ある} & \sa{B}{物事} & \sa{C}{を} & \sa{D}{隠す} &  \sa{F}{ 物} \\
+%    \texttt{\emp{\ul{adnominal}}} & \texttt{noun} & \texttt{particle} & \texttt{verb} & \texttt{noun} \\
+%     a certain & thing &  \textsc{acc} & hide &  thing \\
+%    \multicolumn{5}{c}{Tree \#2} \\ \\
+%   \end{tabular}\\
+%   \centering
+%   \ncline[nodesep=3pt]{c1}{c2} \ncline[nodesep=3pt]{c2}{c3}
+%   \ncline[nodesep=3pt]{c2}{c4} \ncline[nodesep=3pt]{c3}{c5}
+%   \ncline[nodesep=3pt]{cA}{c6} \ncline[nodesep=3pt]{c4}{cF}
+%   \ncline[nodesep=3pt]{c5}{c8}
+%   \ncline[nodesep=3pt]{cJ}{c3} \ncline[nodesep=3pt]{cI}{c5} 
+%   \ncline[nodesep=3pt]{c7}{cI} \ncline[nodesep=3pt]{c8}{cC}
+%   \ncline[nodesep=3pt]{cG}{cH} \ncline[nodesep=3pt]{cH}{cI}
+%   \ncline[nodesep=3pt]{cD}{cK} \ncline[nodesep=3pt]{cK}{cJ} 
+%   \ncline[nodesep=3pt]{cB}{c7} 
+
+%   %\label{fig:derivation-curtain-2}
+%    %\end{figure}
+
+%  \begin{tabular}{ccccccc}
+%     &\multicolumn{5}{c}{\sa{1}{NP-frag}}  \\[1ex]
+%     &\multicolumn{5}{c}{\sa{2}{\wl{rel-cl-sbj-gap}}}  \\[1ex]
+%     &\multicolumn{3}{c}{\sa{3}{hd-complement}} & \sa{4}{N} \\[1ex]
+%     \multicolumn{3}{c}{\sa{5}{hd-complement}} & \multicolumn{1}{c}{\sa{J}{V}} &
+%     \\[1ex]
+%     \multicolumn{2}{c}{\sa{I}{\ul{rel-cl-sbj-gap}}} & & &  & \\[1ex]
+%     \sa{H}{V} & \sa{7}{N}      & \sa{8}{CASE-P} &   &  \\[1ex]
+%                                 %N      & &  &  V &  \\   
+%     \sa{G}{ある} & \sa{B}{物事} & \sa{C}{を} & \sa{D}{隠す} &  \sa{F}{ 物} \\
+%    \texttt{\emp{\ul{verb}}} & \texttt{noun} & \texttt{particle} & \texttt{verb} & \texttt{noun} \\
+%     exist & thing &  \textsc{acc} & hide &  thing \\
+%    \multicolumn{5}{c}{Tree \#3} \\ \\
+%  \end{tabular}
+%   \centering
+%   \ncline[nodesep=3pt]{c1}{c2} \ncline[nodesep=3pt]{c2}{c3}
+%   \ncline[nodesep=3pt]{c2}{c4} \ncline[nodesep=3pt]{c3}{c5}
+%   \ncline[nodesep=3pt]{cA}{c6} \ncline[nodesep=3pt]{c4}{cF}
+%   \ncline[nodesep=3pt]{c5}{c8}
+%   \ncline[nodesep=3pt]{cJ}{c3} \ncline[nodesep=3pt]{cI}{c5} 
+%   \ncline[nodesep=3pt]{c7}{cI} \ncline[nodesep=3pt]{c8}{cC}
+%   \ncline[nodesep=3pt]{cG}{cH} \ncline[nodesep=3pt]{cH}{cI}
+%   \ncline[nodesep=3pt]{cD}{cJ} 
+%   \ncline[nodesep=3pt]{cB}{c7} 
+% % \caption{Derivation Tree \#3 of the Definition of カーテン$_2$ \jpn[curtain]{k\=aten}}
+% %  \label{fig:derivation-curtain-3}
+% %\end{figure}
+
+% %\begin{figure}[htbp]
+% %  \centering
+% %\addtolength{\tabcolsep}{-0.3em}
+
+% &
+%   \begin{tabular}{ccccccc}
+%     &\multicolumn{5}{c}{\sa{1}{NP-frag}}  \\[1ex]
+%     &\multicolumn{5}{c}{\sa{2}{\wl{rel-clause}}}  \\[1ex]
+%     &\multicolumn{3}{c}{\sa{3}{hd-complement}} & \sa{4}{N} \\[1ex]
+%     \multicolumn{3}{c}{\sa{5}{hd-complement}} & \multicolumn{1}{c}{\sa{J}{\wl{subj-zpro}}} &
+%     \\[1ex]
+%     \multicolumn{2}{c}{\sa{I}{\ul{rel-cl-sbj-gap}}} & & \sa{K}{V} &  & \\[1ex]
+%     \sa{H}{V} & \sa{7}{N}      & \sa{8}{CASE-P} &   &  \\[1ex]
+%                                 %N      & &  &  V &  \\   
+%     \sa{G}{ある} & \sa{B}{物事} & \sa{C}{を} & \sa{D}{隠す} &  \sa{F}{ 物} \\
+%    \texttt{\emp{\ul{verb}}} & \texttt{noun} & \texttt{particle} & \texttt{verb} & \texttt{noun} \\
+%     exist & thing &  \textsc{acc} & hide &  thing \\
+%    \multicolumn{5}{c}{Tree \#4} \\ \\
+%   \end{tabular}
+%   \ncline[nodesep=3pt]{c1}{c2} \ncline[nodesep=3pt]{c2}{c3}
+%   \ncline[nodesep=3pt]{c2}{c4} \ncline[nodesep=3pt]{c3}{c5}
+%   \ncline[nodesep=3pt]{cA}{c6} \ncline[nodesep=3pt]{c4}{cF}
+%   \ncline[nodesep=3pt]{c5}{c8}
+%   \ncline[nodesep=3pt]{cJ}{c3} \ncline[nodesep=3pt]{cI}{c5} 
+%   \ncline[nodesep=3pt]{c7}{cI} \ncline[nodesep=3pt]{c8}{cC}
+%   \ncline[nodesep=3pt]{cG}{cH} \ncline[nodesep=3pt]{cH}{cI}
+%   \ncline[nodesep=3pt]{cD}{cK} \ncline[nodesep=3pt]{cK}{cJ} 
+%   \ncline[nodesep=3pt]{cB}{c7} 
+% % \caption{Derivation Tree \#4 of the Definition of カーテン$_2$ \jpn[curtain]{k\=aten}}
+% %  \label{fig:derivation-curtain-4}
 % %\end{figure}
 
 % %\begin{figure}[htbp]
 % %  \centering
 % %\addtolength{\tabcolsep}{-0.3em}
 % %\vspace{3mm}
-% &
-%   \begin{tabular}{ccccccc}
-%     &\multicolumn{5}{c}{\sa{1}{NP-frag}}  \\[1ex]
-%     &\multicolumn{5}{c}{\sa{2}{rel-clause}}  \\[1ex]
-%     &\multicolumn{3}{c}{\sa{3}{hd-complement}} & \sa{4}{N} \\[1ex]
-%     \multicolumn{3}{c}{\sa{5}{hd-complement}} & \multicolumn{1}{c}{\sa{J}{subj-zpro}} &
-%     \\[1ex]
-%     \multicolumn{2}{c}{\sa{I}{rel-clause}} & & \sa{K}{V} &  & \\[1ex]
-%     \sa{L}{subj-zpro} &        &  &   &  \\[1ex]
-%     \sa{H}{V} & \sa{7}{N}      & \sa{8}{CASE-P} &   &  \\[1ex]
-%                                 %N      & &  &  V &  \\   
-%     \sa{G}{ある} & \sa{B}{物事} & \sa{C}{を} & \sa{D}{隠す} &  \sa{F}{ 物} \\
-%    \texttt{\ul{verb}} & \texttt{noun} & \texttt{particle} & \texttt{verb} & \texttt{noun} \\
-%     exist & thing &  \textsc{acc} & hide &  thing \\
-%    \multicolumn{5}{c}{Tree \#6} \\ \\
+
+% %   \begin{tabular}{ccccccc}
+% %     &\multicolumn{5}{c}{\sa{1}{NP-frag}}  \\[1ex]
+% %     &\multicolumn{5}{c}{\sa{2}{rel-cl-sbj-gap}}  \\[1ex]
+% %     &\multicolumn{3}{c}{\sa{3}{hd-complement}} & \sa{4}{N} \\[1ex]
+% %     \multicolumn{3}{c}{\sa{5}{hd-complement}} & \multicolumn{1}{c}{\sa{J}{V}} &
+% %     \\[1ex]
+% %     \multicolumn{2}{c}{\sa{I}{rel-clause}} & & &  & \\[1ex]
+% %     \sa{L}{subj-zpro} &        &  &   &  \\[1ex]
+% %     \sa{H}{V} & \sa{7}{N}      & \sa{8}{CASE-P} &   &  \\[1ex]
+% %                                 %N      & &  &  V &  \\   
+% %     \sa{G}{ある} & \sa{B}{物事} & \sa{C}{を} & \sa{D}{隠す} &  \sa{F}{ 物} \\
+% %    \texttt{\ul{verb}} & \texttt{noun} & \texttt{particle} & \texttt{verb} & \texttt{noun} \\
+% %     exist & thing &  \textsc{acc} & hide &  thing \\
+% %    \multicolumn{5}{c}{Tree \#5} \\ \\
+% %   \end{tabular}
+% %   \centering
+% %   \ncline[nodesep=3pt]{c1}{c2} \ncline[nodesep=3pt]{c2}{c3}
+% %   \ncline[nodesep=3pt]{c2}{c4} \ncline[nodesep=3pt]{c3}{c5}
+% %   \ncline[nodesep=3pt]{cA}{c6} \ncline[nodesep=3pt]{c4}{cF}
+% %   \ncline[nodesep=3pt]{c5}{c8}
+% %   \ncline[nodesep=3pt]{cJ}{c3} \ncline[nodesep=3pt]{cI}{c5} 
+% %   \ncline[nodesep=3pt]{c7}{cI} \ncline[nodesep=3pt]{c8}{cC}
+% %   \ncline[nodesep=3pt]{cG}{cH} \ncline[nodesep=3pt]{cH}{cL} \ncline[nodesep=3pt]{cL}{cI}
+% %   \ncline[nodesep=3pt]{cD}{cJ} \ncline[nodesep=3pt]{c7}{cB} 
+% % % \caption{Another Derivation Tree \#5 of the Definition of カーテン$_2$ \jpn[curtain]{k\=aten}}
+% % %  \label{fig:derivation-curtain-5}
+% % %\end{figure}
+
+% % %\begin{figure}[htbp]
+% % %  \centering
+% % %\addtolength{\tabcolsep}{-0.3em}
+% % %\vspace{3mm}
+% % &
+% %   \begin{tabular}{ccccccc}
+% %     &\multicolumn{5}{c}{\sa{1}{NP-frag}}  \\[1ex]
+% %     &\multicolumn{5}{c}{\sa{2}{rel-clause}}  \\[1ex]
+% %     &\multicolumn{3}{c}{\sa{3}{hd-complement}} & \sa{4}{N} \\[1ex]
+% %     \multicolumn{3}{c}{\sa{5}{hd-complement}} & \multicolumn{1}{c}{\sa{J}{subj-zpro}} &
+% %     \\[1ex]
+% %     \multicolumn{2}{c}{\sa{I}{rel-clause}} & & \sa{K}{V} &  & \\[1ex]
+% %     \sa{L}{subj-zpro} &        &  &   &  \\[1ex]
+% %     \sa{H}{V} & \sa{7}{N}      & \sa{8}{CASE-P} &   &  \\[1ex]
+% %                                 %N      & &  &  V &  \\   
+% %     \sa{G}{ある} & \sa{B}{物事} & \sa{C}{を} & \sa{D}{隠す} &  \sa{F}{ 物} \\
+% %    \texttt{\ul{verb}} & \texttt{noun} & \texttt{particle} & \texttt{verb} & \texttt{noun} \\
+% %     exist & thing &  \textsc{acc} & hide &  thing \\
+% %    \multicolumn{5}{c}{Tree \#6} \\ \\
+% %   \end{tabular}
+% %   \centering
+% %   \ncline[nodesep=3pt]{c1}{c2} \ncline[nodesep=3pt]{c2}{c3}
+% %   \ncline[nodesep=3pt]{c2}{c4} \ncline[nodesep=3pt]{c3}{c5}
+% %   \ncline[nodesep=3pt]{cA}{c6} \ncline[nodesep=3pt]{c4}{cF}
+% %   \ncline[nodesep=3pt]{c5}{c8}
+% %   \ncline[nodesep=3pt]{cJ}{c3} \ncline[nodesep=3pt]{cI}{c5} 
+% %   \ncline[nodesep=3pt]{c7}{cI} \ncline[nodesep=3pt]{c8}{cC}
+% %   \ncline[nodesep=3pt]{cG}{cH} \ncline[nodesep=3pt]{cH}{cL} \ncline[nodesep=3pt]{cL}{cI}
+% %   \ncline[nodesep=3pt]{cD}{cK} \ncline[nodesep=3pt]{cK}{cJ}
+% %  \ncline[nodesep=3pt]{c7}{cB} 
+%  \end{tabular}
+% }
+% \vspace*{-20mm}
+
+% \myslide{Discriminants}
+% {\small
+% \begin{tabular}{c@{\,} clll}
+% \textit{D} & \textit{A} &
+% \shortstack{rules / \\lexical types} &
+% \shortstack{subtrees / \\lexical items} & \shortstack{parse\\trees}\\
+% \hline
+% ? & ? &  \wl{rel-cl-sbj-gap}   & ある物事 を 隠す ‖  物 & 2,4,6\\
+% ? & ? &  \wl{rel-clause}   & ある 物事 を 隠す  ‖ 物 & 1,3,5\\
+% %- & ? &  runon-sentence  & ある  ‖ 物事 を 隠す 物 \\
+% % & ? &  hd-complement  & ある 物事 を  ‖ 隠す & \\ 
+% %- & ? &  rel-cl-sbj-gap   &   物事 を 隠す  ‖ 物 \\
+% %- & ? &  rel-clause   &  物事 を 隠す  ‖ 物 \\
+% % & ? &  hd-complement  & ある 物事  ‖ を \\
+% %- & ? &  hd-complement  &  物事 を  ‖ 隠す \\ 
+% - & ? &  \ul{rel-cl-sbj-gap}  & ある ‖ 物事 & 3,4\\
+% - & ? &   \ul{rel-clause}  &  ある ‖ 物事 & 5,6\\
+% + & ? &  \ul{hd-specifier}  & ある ‖ 物事 & 1,2\\
+% %- & ? &  hd-complement  & 物事 ‖ を \\
+% ? & ? &   \wl{subj-zpro}  &  隠す & 2,4,6\\
+% %- & ? &  ru-inflection  &  ある \\
+% - & ? &   \ul{subj-zpro}  & ある & 5,6\\
+% % -& ? &  vstem-vend  & ある \\
+% - & ? &   \emp{\ul{aru-verb-lex}} & ある & 3--6\\
+% + & + &   \emp{\ul{det-lex}} & ある & 1,2\\
+% \hline \\
+% \multicolumn{4}{l}{+: positive decision} \\
+% \multicolumn{4}{l}{-: negative decision} \\
+% \multicolumn{4}{l}{?: indeterminate / unknown} \\
+% \end{tabular}
+% }
+
+% \myslide{Number of Discriminants}
+
+
+%   \includegraphics[width=0.7\textwidth]{include/parse-decision-presented.eps}
+% \begin{itemize}
+% \item Blazing POS tags reduced discriminants shown by 20\%
+% \end{itemize}
+
+
+% \myslide{Utterance Inter-annotator Agreement}
+%   \begin{tabular}{l|rrr|r}
+%       & $\alpha$ -- $\beta$  &  $\beta$ -- $\gamma$ & $\gamma$ -- $\alpha$ 
+%         & \textbf{Average}\\
+%       \hline
+%       Parse Agreement & 63.9\% &  68.2\% &  64.2\% &  65.4\% \\  
+%       Parse Disagreement & 17.5\% &  19.2\% &  17.9\% &  18.2\% \\  
+%       Reject Agreement &  4.8\%  &   3.0\%  &   4.1\%  &   4.0\% \\  
+%       Reject Disagreement & 13.7\%  &   9.5\%  &  13.8\%  &  12.4\% \\  
+%     \end{tabular}
+% \begin{itemize}
+%    \item  Total Agreement 69.4\%\
+%      \begin{itemize}
+%      \item \textit{cf} German NeGra corpus: 52\% (Newspaper text)
+%      \end{itemize}
+%    \item Average of 190 parses/sentence (10 words)
+%      % * (Parse agreement: $\kappa = .628$)
+% %   \item 現在の解析カバー率は84\%
+%    \end{itemize}
+
+% \myslide{Mutual Labeled Precision F-Score}
+
+%     \begin{tabular}{@{}c|rr|rr|rr|r@{}}
+% % Sherry = alpha
+% % Cognac = beta
+% % Port = gamma
+% \textbf{Test}           & \multicolumn{2}{|c|}{\textbf{$\alpha$ -- $\beta$}}
+%       & \multicolumn{2}{|c|}{\textbf{$\beta$ -- $\gamma$ }}
+%       & \multicolumn{2}{|c|}{\textbf{$\gamma$ -- $\alpha$}}
+%       & {\textbf{Average}}\\
+% \textbf{Set}           & \multicolumn{1}{|c}{\textbf{\#}}
+%       & \multicolumn{1}{c|}{\textbf{F}}
+%       & \multicolumn{1}{|c}{\textbf{\#}}
+%       & \multicolumn{1}{c|}{\textbf{F}}
+%       & \multicolumn{1}{|c}{\textbf{\#}}
+%       & \multicolumn{1}{c|}{\textbf{F}}
+%       & \multicolumn{1}{|c}{\textbf{F}}\\
+%       \hline
+%       \textbf{A} & 507 & 96.03 & 516 & 96.22 & 481 & 96.24 & 96.19\\
+%       \textbf{B} & 505 & 96.79 & 551 & 96.40 & 511 & 96.57 & 96.58\\
+%       \textbf{C} & 489 & 95.82 & 517 & 95.15 & 477 & 95.42 & 95.46\\
+%       \textbf{D} & 454 & 96.83 & 477 & 96.86 & 447 & 97.40 & 97.06\\
+%       \textbf{E} & 480 & 95.15 & 497 & 96.81 & 484 & 96.57 & 96.51\\
+%       \hline
+%        & 2435 & 96.32 & 2558 & 96.28  & 2400 & 96.47 & 96.36\\
+%     \end{tabular}
+
+% \myslide{Blazing Using POS scores}
+
+%  \begin{tabular}{ll}
+%   (verb-aux  & \iz{v-stem-lex} $-1.0$) \\
+%   (verb-main & \iz{aspect-stem-lex} $-1.0$)\\
+%   (noun      & \iz{verb-stem-lex} $-1.0$) \\
+%   (adnominal  & \iz{noun\_mod-lex-l} $0.9$ \\
+%                 & \iz{det-lex} $0.9$)\\
+%   (conjunction& \iz{n\_conj-p-lex} $0.9$ \\
+%                  & \iz{v-coord-end-lex} $0.9$) \\
+%   (adjectival-noun & \iz{noun-lex} $-1.0$)
+% \end{tabular} 
+
+% \myslide{Number of Decisions}
+
+
+%   \includegraphics[width=0.7\textwidth]{include/parse-decision-selected.eps}
+
+% \begin{itemize}
+% \item Blazing  POS tags reduced decisions by 19.5\%
+% \end{itemize}
+
+
+% \myslide{Number of Decisions with Blazing}
+
+%   \begin{tabular}{crrrc}
+% \textbf{Test} & \multicolumn{3}{c}{\textbf{Annotator Decisions}}& \textbf{Blazed} \\
+% \textbf{Set} & $\alpha$ & $\beta$ & $\gamma$ & \textbf{Decisions}\\ \hline
+% %     Sherry         Cognac          Port          
+% \textbf{A} &   2,659         & 2,606         &  3,045          & 416\\
+% \textbf{B} &   2,848         & 2,939         &  \blu{2,253}  & 451\\
+% \textbf{C} &   \blu{1,930} & 2,487         &  2,882          & 468\\
+% \textbf{D} &   2,254         & \blu{2,157} &  2,347          & 397\\
+% \textbf{E} &   \blu{1,769} & \blu{2,278} &  \blu{1,811}  & 412\\ 
+% % A &   3745         & 2987         &  3838          & \\
+% % B &   2848         & 2939         &  \blu{2704}  & 451\\
+% % C &   \blu{2398} & 2487         &  2882          & 468\\
+% % D &   2254         & \blu{2554} &  2347          & 397\\
+% % E &   \blu{2181} & \blu{2690} &  \blu{2223}  & 412\\ 
 %   \end{tabular}
-%   \centering
-%   \ncline[nodesep=3pt]{c1}{c2} \ncline[nodesep=3pt]{c2}{c3}
-%   \ncline[nodesep=3pt]{c2}{c4} \ncline[nodesep=3pt]{c3}{c5}
-%   \ncline[nodesep=3pt]{cA}{c6} \ncline[nodesep=3pt]{c4}{cF}
-%   \ncline[nodesep=3pt]{c5}{c8}
-%   \ncline[nodesep=3pt]{cJ}{c3} \ncline[nodesep=3pt]{cI}{c5} 
-%   \ncline[nodesep=3pt]{c7}{cI} \ncline[nodesep=3pt]{c8}{cC}
-%   \ncline[nodesep=3pt]{cG}{cH} \ncline[nodesep=3pt]{cH}{cL} \ncline[nodesep=3pt]{cL}{cI}
-%   \ncline[nodesep=3pt]{cD}{cK} \ncline[nodesep=3pt]{cK}{cJ}
-%  \ncline[nodesep=3pt]{c7}{cB} 
- \end{tabular}
-}
-\vspace*{-20mm}
-
-\myslide{Discriminants}
-{\small
-\begin{tabular}{c@{\,} clll}
-\textit{D} & \textit{A} &
-\shortstack{rules / \\lexical types} &
-\shortstack{subtrees / \\lexical items} & \shortstack{parse\\trees}\\
-\hline
-? & ? &  \wl{rel-cl-sbj-gap}   & ある物事 を 隠す ‖  物 & 2,4,6\\
-? & ? &  \wl{rel-clause}   & ある 物事 を 隠す  ‖ 物 & 1,3,5\\
-%- & ? &  runon-sentence  & ある  ‖ 物事 を 隠す 物 \\
-% & ? &  hd-complement  & ある 物事 を  ‖ 隠す & \\ 
-%- & ? &  rel-cl-sbj-gap   &   物事 を 隠す  ‖ 物 \\
-%- & ? &  rel-clause   &  物事 を 隠す  ‖ 物 \\
-% & ? &  hd-complement  & ある 物事  ‖ を \\
-%- & ? &  hd-complement  &  物事 を  ‖ 隠す \\ 
-- & ? &  \ul{rel-cl-sbj-gap}  & ある ‖ 物事 & 3,4\\
-- & ? &   \ul{rel-clause}  &  ある ‖ 物事 & 5,6\\
-+ & ? &  \ul{hd-specifier}  & ある ‖ 物事 & 1,2\\
-%- & ? &  hd-complement  & 物事 ‖ を \\
-? & ? &   \wl{subj-zpro}  &  隠す & 2,4,6\\
-%- & ? &  ru-inflection  &  ある \\
-- & ? &   \ul{subj-zpro}  & ある & 5,6\\
-% -& ? &  vstem-vend  & ある \\
-- & ? &   \emp{\ul{aru-verb-lex}} & ある & 3--6\\
-+ & + &   \emp{\ul{det-lex}} & ある & 1,2\\
-\hline \\
-\multicolumn{4}{l}{+: positive decision} \\
-\multicolumn{4}{l}{-: negative decision} \\
-\multicolumn{4}{l}{?: indeterminate / unknown} \\
-\end{tabular}
-}
-
-\myslide{Number of Discriminants}
 
 
-  \includegraphics[width=0.7\textwidth]{include/parse-decision-presented.eps}
-\begin{itemize}
-\item Blazing POS tags reduced discriminants shown by 20\%
-\end{itemize}
+% \myslide{Current Status}
+
+% \begin{itemize}
+% \item Finished treebanking\\[2ex]
+% %\item 対照コーパス：意味辞書Lexeedの語義文と例文（１２．７万文）\\[2ex]
+%   \begin{tabular}{lrrr}
+%   Type  & Sentences & Words & Content Words\\ \hline
+%   Definition & 75,000 & 690,000 & 320,000 \\
+%   Example   & 46,000 & 500,000 & 220,000 \\
+%   \end{tabular}
+% \item But data not released by NTT, so I left them
+% \item Currently treebanking the Wordnet Definitions
+% %\item Exploit other lexicons ... 
+% %\item Use the grammar in other applications
+% %\item Treebank other genres
+%  \end{itemize}
 
 
-\myslide{Utterance Inter-annotator Agreement}
-  \begin{tabular}{l|rrr|r}
-      & $\alpha$ -- $\beta$  &  $\beta$ -- $\gamma$ & $\gamma$ -- $\alpha$ 
-        & \textbf{Average}\\
-      \hline
-      Parse Agreement & 63.9\% &  68.2\% &  64.2\% &  65.4\% \\  
-      Parse Disagreement & 17.5\% &  19.2\% &  17.9\% &  18.2\% \\  
-      Reject Agreement &  4.8\%  &   3.0\%  &   4.1\%  &   4.0\% \\  
-      Reject Disagreement & 13.7\%  &   9.5\%  &  13.8\%  &  12.4\% \\  
-    \end{tabular}
-\begin{itemize}
-   \item  Total Agreement 69.4\%\
-     \begin{itemize}
-     \item \textit{cf} German NeGra corpus: 52\% (Newspaper text)
-     \end{itemize}
-   \item Average of 190 parses/sentence (10 words)
-     % * (Parse agreement: $\kappa = .628$)
-%   \item 現在の解析カバー率は84\%
-   \end{itemize}
+% \myslide{Conclusions}
 
-\myslide{Mutual Labeled Precision F-Score}
-
-    \begin{tabular}{@{}c|rr|rr|rr|r@{}}
-% Sherry = alpha
-% Cognac = beta
-% Port = gamma
-\textbf{Test}           & \multicolumn{2}{|c|}{\textbf{$\alpha$ -- $\beta$}}
-      & \multicolumn{2}{|c|}{\textbf{$\beta$ -- $\gamma$ }}
-      & \multicolumn{2}{|c|}{\textbf{$\gamma$ -- $\alpha$}}
-      & {\textbf{Average}}\\
-\textbf{Set}           & \multicolumn{1}{|c}{\textbf{\#}}
-      & \multicolumn{1}{c|}{\textbf{F}}
-      & \multicolumn{1}{|c}{\textbf{\#}}
-      & \multicolumn{1}{c|}{\textbf{F}}
-      & \multicolumn{1}{|c}{\textbf{\#}}
-      & \multicolumn{1}{c|}{\textbf{F}}
-      & \multicolumn{1}{|c}{\textbf{F}}\\
-      \hline
-      \textbf{A} & 507 & 96.03 & 516 & 96.22 & 481 & 96.24 & 96.19\\
-      \textbf{B} & 505 & 96.79 & 551 & 96.40 & 511 & 96.57 & 96.58\\
-      \textbf{C} & 489 & 95.82 & 517 & 95.15 & 477 & 95.42 & 95.46\\
-      \textbf{D} & 454 & 96.83 & 477 & 96.86 & 447 & 97.40 & 97.06\\
-      \textbf{E} & 480 & 95.15 & 497 & 96.81 & 484 & 96.57 & 96.51\\
-      \hline
-       & 2435 & 96.32 & 2558 & 96.28  & 2400 & 96.47 & 96.36\\
-    \end{tabular}
-
-\myslide{Blazing Using POS scores}
-
- \begin{tabular}{ll}
-  (verb-aux  & \iz{v-stem-lex} $-1.0$) \\
-  (verb-main & \iz{aspect-stem-lex} $-1.0$)\\
-  (noun      & \iz{verb-stem-lex} $-1.0$) \\
-  (adnominal  & \iz{noun\_mod-lex-l} $0.9$ \\
-                & \iz{det-lex} $0.9$)\\
-  (conjunction& \iz{n\_conj-p-lex} $0.9$ \\
-                 & \iz{v-coord-end-lex} $0.9$) \\
-  (adjectival-noun & \iz{noun-lex} $-1.0$)
-\end{tabular} 
-
-\myslide{Number of Decisions}
-
-
-  \includegraphics[width=0.7\textwidth]{include/parse-decision-selected.eps}
-
-\begin{itemize}
-\item Blazing  POS tags reduced decisions by 19.5\%
-\end{itemize}
-
-
-\myslide{Number of Decisions with Blazing}
-
-  \begin{tabular}{crrrc}
-\textbf{Test} & \multicolumn{3}{c}{\textbf{Annotator Decisions}}& \textbf{Blazed} \\
-\textbf{Set} & $\alpha$ & $\beta$ & $\gamma$ & \textbf{Decisions}\\ \hline
-%     Sherry         Cognac          Port          
-\textbf{A} &   2,659         & 2,606         &  3,045          & 416\\
-\textbf{B} &   2,848         & 2,939         &  \blu{2,253}  & 451\\
-\textbf{C} &   \blu{1,930} & 2,487         &  2,882          & 468\\
-\textbf{D} &   2,254         & \blu{2,157} &  2,347          & 397\\
-\textbf{E} &   \blu{1,769} & \blu{2,278} &  \blu{1,811}  & 412\\ 
-% A &   3745         & 2987         &  3838          & \\
-% B &   2848         & 2939         &  \blu{2704}  & 451\\
-% C &   \blu{2398} & 2487         &  2882          & 468\\
-% D &   2254         & \blu{2554} &  2347          & 397\\
-% E &   \blu{2181} & \blu{2690} &  \blu{2223}  & 412\\ 
-  \end{tabular}
-
-
-\myslide{Current Status}
-
-\begin{itemize}
-\item Finished treebanking\\[2ex]
-%\item 対照コーパス：意味辞書Lexeedの語義文と例文（１２．７万文）\\[2ex]
-  \begin{tabular}{lrrr}
-  Type  & Sentences & Words & Content Words\\ \hline
-  Definition & 75,000 & 690,000 & 320,000 \\
-  Example   & 46,000 & 500,000 & 220,000 \\
-  \end{tabular}
-\item But data not released by NTT, so I left them
-\item Currently treebanking the Wordnet Definitions
-%\item Exploit other lexicons ... 
-%\item Use the grammar in other applications
-%\item Treebank other genres
- \end{itemize}
-
-
-\myslide{Conclusions}
-
-\begin{itemize}
-\item   5,000 sentences are annotated by three different annotators
-\item  average inter-annotator agreement
-  \begin{itemize}
-  \item   65.4\% (sentence)
-  \item  83.5\% using labeled precision
-  \item 96.6\% on ambiguous annotated trees 
-  \end{itemize}
-\item blazing  POS tags reduced decisions by 19.5\%
-\end{itemize}
+% \begin{itemize}
+% \item   5,000 sentences are annotated by three different annotators
+% \item  average inter-annotator agreement
+%   \begin{itemize}
+%   \item   65.4\% (sentence)
+%   \item  83.5\% using labeled precision
+%   \item 96.6\% on ambiguous annotated trees 
+%   \end{itemize}
+% \item blazing  POS tags reduced decisions by 19.5\%
+% \end{itemize}
 
 \section{Lab 1}
 

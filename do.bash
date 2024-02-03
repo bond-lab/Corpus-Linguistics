@@ -1,7 +1,7 @@
 sdir=slides
 pushd .
 cd $sdir
-for slide in `ls HG*.tex hkcancor.tex`
+for slide in `ls lec*.tex hkcancor.tex`
 do
     base=`basename $slide .tex`
     echo Processing ${base}

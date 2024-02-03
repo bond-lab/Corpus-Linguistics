@@ -4,7 +4,7 @@
 
 \input{headx.tex}
 
-\header{Lecture 1}{Introduction to Corpus Linguistics}{Main Issues}
+\header{Introduction to Corpus Linguistics}{Main Issues}
 
 
 \begin{document}
@@ -63,12 +63,12 @@
 \MyLogo{\citep{Tan:Bond:2012,NTUCLE:2017}}
 \begin{itemize}
 \item \textbf{\blu{NTU Multilingual Corpus: NTU-MC}}
-\\ with help from Tan Liling, HG2002, HG8011 and many more
+\\ with help from Tan Liling and many students
   \begin{itemize}
   \item Arabic, Chinese, English, Indonesian, Japanese, Korean, Vietnamese
     \begin{itemize}
     \item Essays
-    \item Short Stories (Sherlock Holmes)
+    \item Short Stories (Sherlock Holmes, Karel Čapek)
     \item News Text
     \item Singapore Tourist Web Sites
     \end{itemize}
@@ -107,17 +107,17 @@
 \end{itemize}
 
 
-\myslide{Guidelines for Written Work in HG3051}
+\myslide{Guidelines for Written Work}
 
 \begin{itemize}
 \item All assignments must follow the \textit{(Computational)
     Linguistic Style Guidelines: a guide for the perplexed. } \\
-  \url{http://www3.ntu.edu.sg/home/fcbond/data/ling-style.pdf}
+  \url{https://fcbond.github.io/static/img/ling-style.pdf}
 \item Proper citation is important 
     \\ --- failure to cite is plagiarism --- \textbf{zero} or \textbf{fail}
 \item Local Rules
   \begin{itemize}
-  \item ACL format for paper submission (No need for LMS title page)
+  \item ACL format for paper submission (No need for separate title page)
     \\ only the first $n$ pages will be marked
   \item Late assignments get \textbf{zero}
   \item I expect some quantitative analysis
@@ -144,7 +144,7 @@
     \item fixing a spelling error; rewording for clarity; translating to a new language
     \end{itemize}
   \end{itemize}
-\item Has to be for this course (not overlap with URECA, project, HG2051, \ldots)
+\item Has to be for this course (not overlap with another course or thesis, \ldots)
 \end{itemize}
 
 
@@ -166,7 +166,7 @@ Master the uses of text corpora
 \end{itemize}
 
 
-\myslide{HG3051 Prerequisites}
+\myslide{Prerequisites}
 
 \begin{itemize}
 \item Some linguistic knowledge assumed
@@ -204,7 +204,7 @@ On completion of this module, students should be able to:
 \begin{itemize}
 \item Understand the uses of text corpora in language research
   \\ Be able to manipulate them with simple tools
-\item Use a concordance program to extract data from a corpus
+\item Write simple SQL queries
 \item Design and build a corpus for some task
 \item Understand how to analyse corpus data through basic statistical methods
 \end{itemize}
@@ -218,7 +218,7 @@ On completion of this module, students should be able to:
 \myslide{Textbook and Readings}
 
 \begin{itemize}
-\item I haven't found a good text book, so we won't use one.
+\item I haven't found a perfect text book, so we won't use one.
   \begin{itemize}
   \item Stubbs, Michael, \textit{Text and Corpus Analysis}. Blackwell Publishers, 1996
 \\ is not bad
@@ -262,7 +262,6 @@ By remaining in this class, the student agrees to:
 \item A medical emergency (including mental health emergencies)
 \item A family emergency (death, birth, natural disaster, etc).
 \end{enumerate}
-You must provide documentation to me and the student office.
 \item There will be significant material covered in class that is not in your readings.  You cannot expect to do well without coming to class.
 \item If you miss a class, it is your responsibility to get the notes, any handouts you missed, schedule changes, etc. from a classmate.
 \end{enumerate}
@@ -272,14 +271,14 @@ You must provide documentation to me and the student office.
 \item No late work will be accepted, except in the case of a documented excuse.
 \item For planned, justified, absences on class days or days on which assignments are due, advance notice must be provided.
 \item Cheating will not be tolerated. Violations, including plagiarism, will be seriously dealt with, and could result in \textbf{a failing grade for the entire course}.
-\item For all other issues of academic integrity, refer to the University Honour Code: \url{http://www.ntu.edu.sg/sao/Pages/HonourCode.aspx}
+\item For all other issues of academic integrity, refer to the University Honour Code
 \item As always, use your common sense and conscience.
 \end{enumerate}
 
 
 
 
-\myslide{Why do you do HG351?}
+\myslide{Why do \txx{you} do Corpus Linguistics?}
 
 \begin{itemize}
 \item Language Poll (What do you speak and/or study?)
@@ -356,6 +355,7 @@ McArthur \& McArthur, 1992)
   \item training of speech recognizers
   \item training of statistical part-of-speech taggers and parsers
   \item training of example-based and statistical machine translation systems
+  \item training large language models
   \end{itemize}
 \item ``Big Data'' is just another corpus, to analyze it wisely
   requires the same techniques
@@ -599,7 +599,7 @@ quickly for the purpose at hand, and therefore are more common
   \begin{itemize}
   \item The British National Corpus
   \item The American National Corpus
-  \item The German National Corpus
+  \item The Czech National Corpus
   \item King Sejong the Great Corpus
   \end{itemize}
   Chinese, Greek, Italian, Hungarian, Polish, Czech \ldots
@@ -642,28 +642,28 @@ quickly for the purpose at hand, and therefore are more common
 \item ACL Siglex Links to the CORPORA Mailing List Archive
 \item Linguistics Data Consortium (LDC)
 \item European Language Resources Association (ELRA)
-\item 言語資源協会 \textit{Gengo Shigen Kyouyuukikou} Language Resource Consortium (GSK)
+\item \ja{言語資源協会} \textit{Gengo Shigen Kyouyuukikou} Language Resource Consortium (GSK)
 \item \zh{中文语言资源联盟} Chinese Linguistic Data Consortium (CLDC)
 \end{itemize}
 
-\myslide{Corpora at NTU}
+% \myslide{Corpora at NTU}
 
-\begin{itemize}
-%\item Collins WordBank (NTU Library$|$Databases)
-%\item BNC (online)
-\item Cantonese Corpus (KK)
-\\ Now at \href{https://github.com/fcbond/hkcancor}{https://github.com/fcbond/hkcancor}
-\item Tatoeba Japanese-English (FCB)
-\item Various small corpora (AC, FK)
-\item NTU Multilingual Corpus (under construction: FCB)
-\item NTU Learner Corpus (under construction: FCB)
-\item \emp{We may add to these in this class}
-\end{itemize}
+% \begin{itemize}
+% %\item Collins WordBank (NTU Library$|$Databases)
+% %\item BNC (online)
+% \item Cantonese Corpus (KK)
+% \\ Now at \href{https://github.com/fcbond/hkcancor}{https://github.com/fcbond/hkcancor}
+% \item Tatoeba Japanese-English (FCB)
+% \item Various small corpora (AC, FK)
+% \item NTU Multilingual Corpus (under construction: FCB)
+% \item NTU Learner Corpus (under construction: FCB)
+% \item \emp{We may add to these in this class}
+% \end{itemize}
 
 \myslide{Let's Explore}
 \MyLogo{Inspired by \url{davies-linguistics.byu.edu/ling485/projects/p01.htm}}
 
-Go to the BYU interface to the BNC (see web page for logon details).
+Go to the Brigham-Young University interface to the BNC (see web page for logon details).
 
 
 \begin{description}
