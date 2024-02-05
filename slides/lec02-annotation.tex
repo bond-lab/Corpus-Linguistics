@@ -403,7 +403,7 @@ using automated programs: as long as the POS is correct.
   \item  \url{http://www.comp.leeds.ac.uk/ccalas/tagsets/upenn.html}
   \item 45 tags (including punctuation)
   \end{itemize}
-\item  In Europe, CLAWS tagset is popular (also used by BYU Corpora):
+\item  In Europe, CLAWS tagset is popular (also used by \engcor):
   \begin{itemize}
   \item   \url{http://ucrel.lancs.ac.uk/claws7tags.html}
   \item 137 tags (without punctuation)
@@ -1408,22 +1408,23 @@ ls *.txt *.tex
 \end{itemize}
 
 
-\myslide{BYU Interface Specialties}
+\myslide{\engcor Interface Specialties}
 \MyLogo{\url{http://corpus.byu.edu/bnc/help/syntax_e.asp}}
 \begin{small}
   \begin{tabular}{llll}
     Pattern & Explanation & Example & Matches \\ \hline
     word & One exact word & mysterious  & mysterious \\
-    \texttt{[pos]} & Part of speech & \texttt{[vvg]} & going, using \\
-    \texttt{[pos*]} & Part of speech & \texttt{[v*]} & find, does, keeping, started  \\
-    \texttt{[lemma]} & Lemma & \texttt{[sing]} & sing, singing, sang \\
-    \texttt{[=word]} & Synonyms & \texttt{[=strong]} & 	formidible, muscular, fervent \\
+    \texttt{pos} & Part of speech & \texttt{[vvg]} & going, using \\
+    \texttt{pos*} & Part of speech & \texttt{[v*]} & find, does, keeping, started  \\
+    \texttt{WORD} & Lemma & \texttt{SING} & sing, singing, sang \\
+    \texttt{=word} & Synonyms & \texttt{=strong} & 	formidible, muscular, fervent \\
+    \texttt{=WORD} & Synonym+Lemma & \texttt{=STRONG} & 	formidible, muscular, fervent, strongest \\
     word$|$wurd & Any of the words & stunning$|$gorgeous & stunning, gorgeous \\
     x?xx* & wildcards & on*ly & only, ontologically, on-the-fly, \\
     x?xx* & wildcards & s?ng & sing, sang, song \\
     -word & negation & \texttt{-[nn*]} & the, in, is \\
-    \texttt{word.[pos]} & Word AND pos& can.\texttt{[v*]} &can, canning, canned (verbs)\\ 
-& & can.\texttt{[n*]} & can, cans (nouns)\\
+    \texttt{word\_pos} & Word AND pos& \texttt{can\_v*} & can, canning, canned (verbs)\\ 
+& & \texttt{can\_n*} & can, cans (nouns)\\
   \end{tabular}
 \end{small}
 
@@ -1441,7 +1442,6 @@ ls *.txt *.tex
   inspiration for some of the slides (from  \textit{LING 2050 Special Topics in Linguistics: Corpus linguistics}, U Penn).
 \item Thanks to Sandra K\"{u}bler for some of the slides from her 
 \textit{RoCoLi\footnote{Romania Computational Linguistics Summer School} Course: Computational Tools for Corpus Linguistics}
-%\item Thanks to Mark Davies (BYU) for the exploration ideas.
 \item Definitions from WordNet 3.0
 \end{itemize}
 
