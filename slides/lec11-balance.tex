@@ -45,12 +45,12 @@
 \myslide{Overview}
 
 \begin{itemize} 
-\item Revision of Corpora and Language Engineering
-  \begin{itemize}
-  \item Language as a Statistical Model
-  \item NLP and the Empirical Revolution
-  \item The Empirical Revolution and Linguistics
-  \end{itemize}
+% \item Revision of Corpora and Language Engineering
+%   \begin{itemize}
+%   \item Language as a Statistical Model
+%   \item NLP and the Empirical Revolution
+%   \item The Empirical Revolution and Linguistics
+%   \end{itemize}
 \item Representativeness and balance
 \item Copyright and Ethics
 \end{itemize}
@@ -58,121 +58,6 @@
 %%% this changes each year, so keep separate
 %%%
 
-%%
-%%% FIXME: Summarize
-%%%
-
-\section{Review}
-
-
-%%%
-%%% Evaluation and the Empirical Revolution
-%%%
-\myslide{Testing and Training}
-
-\begin{itemize}
-\item Language Engineering use Corpora in two important ways:
-  \begin{itemize}
-  \item Testing
-    \begin{itemize}
-    \item Create a \blu{reference set} or \blu{gold standard}
-    \item Test how well a system can produce these results
-    \end{itemize}
-  \item Training
-   \begin{itemize}
-    \item Create a collection of \blu{labeled examples}
-    \item Use these to learn features to classify new examples with
-      one of the labels
-    \end{itemize}
-
-  \item Models are implicit in the corpus, rather than written by hand
-  \item Even which features are useful can be learned
-  \item Annotation becomes the bottleneck
-  \end{itemize}
-\end{itemize}
-
-\myslide{The need for automatic testing}
-\MyLogo{}
-\begin{itemize}
-\item As systems get bigger, behavior is harder to predict
-\item Looking at system output one sentence at a time is slow
-
-\item Can we automate testing?
-  \begin{enumerate}
-  \item Create a gold standard or reference (the \blu{right} answer)
-  \item Compare your result to the reference
-  \item Measure the error
-  \item Attempt to minimize it \blu{globally} (over a large test set)
-    \begin{itemize}
-    \item \textit{the plural of anecdote is not data}
-    \item intuition tends to miss many examples of use
-    \end{itemize}
-  \end{enumerate} 
-
-\end{itemize}
-
-\myslide{The Empirical approach}
-
-\begin{enumerate}
-\item Develop an algorithm and gather examples/rules from \blu{training data}
-\item Optimize any parameters on \blu{development data}
-  \begin{itemize}
-  \item Normally about 10\% of the training data
-  \end{itemize}
-\item Test on held-out, unseen \blu{test data}
-\end{enumerate}
-
-This gives a fair estimate of how good the algorithm is 
-\\ --- if the test criteria are appropriate.
-
-
-\myslide{Empirical vs Rational NLP}
-  \begin{itemize}
-  \item The 1990s went through an empirical revolution
-  \item Funding agencies sponsored competitions
-    \begin{itemize}
-    \item TREC: Text REtrieval Conference
-    \item MUC: Message Understanding Conference
-    \item DARPA Machine Translation Competitions
-    \end{itemize}
-  \item Data to test with became more available
-  \item Reviewers demanded evaluation in papers
-  \item A lot of research on evaluation methods
-  \end{itemize}
-
-\myslide{Problems with testing}
-
-
-\begin{itemize}
-\item {\large You get better at what you test}
-\item If the metric is not the actual goal things go wrong
-  \begin{itemize}
-  \item  BLEU score originally correlated with human judgement
-  \item As systems optimized for BLEU
-  \item \ldots they lost the correlation
-  \item You can  improve the metric, not the goal
-  \end{itemize}
-\item The solution is better metrics, but that is hard for MT
-\item We need to test for similar meaning: a very hard problem
-\end{itemize}
-
-
-
-\myslide{Conclusions}
-\begin{itemize}
-\item A surprising amount of variation is possible in MT
-\item This makes evaluation difficult
-  \begin{itemize}
-  \item If we know \blu{a} correct answer, the problem is still not solved
-  \end{itemize}
-\item But evaluation is very important in NLP
-  \begin{itemize}
-  \item Use automatic evaluation
-  \item Recognize the risks
-  \end{itemize}
-\item The closer the training is to the test, the better the result
-\item The general conclusion: \blu{more data is better data}
-\end{itemize}
 
 \section{Representativeness and Balance}
 \MyLogo{}
@@ -244,6 +129,31 @@ There are no definite answers to these questions.
     definable and attainable goals, they must be used to guide the
     design of a corpus and the selection of its components.}
 \end{quotation}
+
+
+\myslide{Other issues}
+
+\begin{itemize}
+\item For large web corpora one issue is that of who wrote something
+  \begin{itemize}
+  \item Was it a native speaker?
+  \item Was it a text-mill?
+  \item Was it translated?
+  \item Was it created by a script?
+  \item Was it created by a language model?
+  \end{itemize}
+\item As more text is written by machine, we get problems of
+  data-pollution
+  \begin{itemize}
+  \item Machine generated text misses rare constructions
+  \item If you train a new model, you loose even more, \ldots 
+  \end{itemize}
+\item If you use corpora as knowledge sources, other problems arise
+  \begin{itemize}
+  \item Accuracy
+  \item Bias
+  \end{itemize}
+\end{itemize}
 
 \myslide{Summary}
 
@@ -329,20 +239,31 @@ There are no definite answers to these questions.
     \end{itemize}
   \end{itemize}
 
-\newpage \lurl{http://en.wikipedia.org/wiki/Fair_dealing}
+\newpage \lurl{https://www.czechmobility.info/en/topics/copyright-law/limitations-and-exceptions/exceptions-to-copyright}
 \item The following factors will be considered to decide if it is fair
-  dealing (in Singapore)
+  dealing (in Czechia)
+\item All exceptions must pass the 
+    three-step test under the Berne Convention
   \begin{itemize}
-  \item  purpose and character of the dealing, including whether such dealing is of a commercial nature or is for non-profit educational purposes
-  \item  nature of the work or adaptation
-  \item amount copied, relative to the whole work
-  \item  effect of the dealing upon the potential market for the work, and effect upon its value
-  \item the possibility of obtaining the work or adaptation within a reasonable time at an ordinary commercial price
-  \item whether the copy is for the purpose of criticism or review; for the purpose reporting of news; for the purpose of judicial proceedings or professional advice (a sufficient acknowledgment of the work is required)
-  \item it is not an infringement if a person makes a copy from an
-    original copy of a computer program  as a back-up
+  \item  any exception to copyright may only be used in special cases
+  \item it must not conflict with a normal exploitation of the work 
+  \item does not unreasonably prejudice the legitimate interests of the author
   \end{itemize}
+\item Examples of exceptions are
+  \begin{itemize}
+  \item Quotation
+  \item Government and journalistic use, civil and religious ceremonies and school performances 
+  \item Exhibitions and Catalogues
+  \item Freedom of Panorama (copyrighted works in public exhibits)
+  \item Fair use:  caricature and parody
+    \\ Less broad than US
+  \end{itemize} 
 \end{itemize}
+
+
+
+
+
 
 \myslide{Copyright for Corpora}
 \MyLogo{}
@@ -378,16 +299,31 @@ There are no definite answers to these questions.
   \end{itemize}
 \item Try to chose a standard license (such as Creative Commons)
 \end{itemize}
-\myslide{NTU's policy on Data Sharing}
-\begin{itemize}
-\item[5.6.1]  ``The final research data from projects carried out
-  at NTU shall be made available for sharing (via the NTU Data
-  Repository) unless there are prior formal agreements with external
-  collaborators and parties on non-disclosure or proprietary use of
-  the data.''  \url{http://research.ntu.edu.sg/rieo/RI/Pages/Research-Data-Policies.aspx}
-\item[5.6.2]  ``The sharing and use of research data shall be based on Creative Commons license CC:BY:NC, where others may use data for non-commercial applications only and must correctly attribute the data source in NTU.''
 
+\myslide{UPOL's policy on Data Sharing}
+\lurl{https://eur-lex.europa.eu/EN/legal-content/summary/open-data-and-the-reuse-of-public-sector-information.html}
+\begin{itemize}
+\item Directive (EU) 2019/1024 on open data and the reuse of public-sector information
+  \begin{quote}
+    The directive is based on the general principle that public and publicly funded data should be reusable for commercial or non-commercial purposes.
+  \end{quote}
+  \begin{itemize}
+  \item \txx{Dynamic and real-time data} --- made available as API and bulk download
+  \item \txx{Research data}
+    \begin{itemize}
+    \item Publicly funded research data must be openly available
+    \item Following the principle of ‘open by default’
+    \item Data should be findable, accessible, interoperable and reusable
+      \\ (the FAIR principle)
+    \end{itemize}
+  \item \txx{Fair trading and non-discrimination}
+    \begin{itemize}
+    \item The reuse of documents is open to everyone in the market
+    \item Any applicable reuse conditions should be non-discriminatory
+    \end{itemize}
+  \end{itemize}
 \end{itemize}
+
 
 \myslide{Creative Commons Licenses}
 \lurl{http://creativecommons.org/licenses/}
@@ -439,6 +375,7 @@ Many, many other license also exist (GPL, MIT, BSD, Apache, \ldots)
 
 \begin{center}
   Be careful of copyright
+  \\ Make your data open by default
 \end{center}
 
 % \myslide{Acknowledgments}
