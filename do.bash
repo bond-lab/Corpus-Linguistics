@@ -5,7 +5,7 @@ for slide in `ls lec*.tex hkcancor.tex`
 do
     base=`basename $slide .tex`
     echo Processing ${base}
-    latexmk -xelatex ${base}
+    latexmk -pdf -xelatex ${base}
     ## clean up
     #rm *.aux *.bbl *.blg *.log *~ *.dvi *.ps *.pdf
 done

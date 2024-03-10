@@ -36,7 +36,7 @@
 \myslide{Overview}
 
 \begin{itemize} 
-\item Revision  of Survey of Corpora
+%\item Revision  of Survey of Corpora
 \item Frequency
 \item Corpus Statistics
 \item Collocations
@@ -45,7 +45,7 @@
 %%%
 %%% this changes each year, so keep separate
 %%%
-\include{schedule}
+%\include{schedule}
 
 %%
 %%% FIXME: Summarize
@@ -720,29 +720,60 @@ appropriate for different (numerical) situations
 \myslide{Do Particle verbs correlate with compound verbs?}
 \MyLogo{For more details see Soh, Xue Ying Sandra (2015)}
 \begin{itemize}
-\item Compound verbs: 光り輝く \jpn[shine-sparkle]{hikari-kagayaku}; 
+\item Compound verbs (VV): 光り輝く \jpn[shine-sparkle]{hikari-kagayaku}; 
   書き上げる \jpn[write up (lit: write-rise)]{kaki-ageru}
-\item Particle Verbs: \eng{give up}, \eng{write up}
-\item Look at all verb pairs from Wordnet \\
-  \begin{tabular}{l|rr}
-      & PV & V \\ \hline
-   VV &  1,777 & 5,885 \\     
-   V  &  10,877 & 51,137 
-  \end{tabular}
-\item Questions:
+\item Particle Verbs (PV): \eng{give up}, \eng{write up}
+\item Syntactically they are quite different
+\item Semantically they are both examples of verb+satellite
   \begin{itemize}
-  \item What is the confidence interval for the distribution of VV in Japanese?
-  \item What is the confidence interval for the distribution of PV in English?
-  \item How many PV=VV would you expect if they were independent?
-  \item Is PV translated as VV more than chance?
+  \item One verb varies a lot
+  \item The satellite is more constrained and is often spatial
   \end{itemize}
 \end{itemize}
+\myslide{Do Particle verbs correlate with compound verbs? II}
 
+Look at all Japanese-English verb pairs from Wordnet
+
+\begin{center}
+  \begin{tabular}{l|rrr}
+      & PV & V  &  total \\ \hline
+   VV &   1,777 &  5,885  & 7,662  \\ %(+ 1777 5885) 7662
+    V &  10,877 & 51,137  &  62,014      \\ %(+ 10877 51137) 62014
+    total &  12,654 & 57,022 &  69,676\\
+% (+ 1777 10877) 12654  (+ 5885 51137) 57022 (+ 7662 62014)69676
+            
+  \end{tabular}
+\end{center}
+  \begin{itemize}\addtolength{\itemsep}{-2ex}
+  \item What is the confidence interval for the distribution of VV in Japanese?
+    \\ 12.36\% [12.10\% \ldots 12.62\%]
+    %7662 62014
+  \item What is the confidence interval for the distribution of PV in English?
+    \\ 14.92\% 	[14.66\% \ldots 15.18\%]
+     % (+ 10877  62014) 72891
+  \item How many PV=VV would you expect if they were independent?
+    \\ $0.1236 \times 0.1492 \times 69676 = 1,284$
+    % (* 0.1236  0.1492  69676) 1284.9034771200002
+  \item Is PV translated as VV more than chance?
+    \\ upper bound is $0.1262 \times 0.1518 \times 69676 = 1,334.8$
+    % (* 0.1262  0.1518  69676) 1334.79428016
+  \end{itemize}
+
+\myslide{Do Particle verbs correlate with compound verbs? III}
+
+
+\begin{itemize}
+\item You can test with a Chi Square Calculator for 2x2
+\item \url{https://www.socscistatistics.com/tests/chisquare/default.aspx}
+  \\ The chi-square statistic is 146.6123.
+  \\ The p-value is < 0.00001. Significant at p < .05.
+\item A chi-square test of independence was performed to examine the relation between  verb satellites in Japanese (VV) and English (PV).  The relation between these variables was significant, $\chi^2$ (1, N = 69,676) = 146,  p = < 0.00001. VV are more likely to be translated as PV.
+\end{itemize}
 
 \section{Collocations}
 %\lurl{???}
 % Statistical Analysis of Corpus Data with R
-% You shall know a word by the company it keeps!
+ % You shall know a word by the company it keeps!
 % Collocation extraction with statistical association measures
 % — Part 1 —
 % Designed by Marco Baroni1 and Stefan Evert2
@@ -773,7 +804,7 @@ appropriate for different (numerical) situations
 %Practice session
 
 \myslide{What is a collocation?}
-\MyLogo{My grand-supervisor: Bond - Huddleston - Halliday - Firth}
+\MyLogo{My great-grand-supervisor: Bond ← Huddleston ← Halliday ← Firth}
 \begin{itemize}
 \item Words tend to appear in typical, recurrent combinations:
 \begin{itemize}
@@ -810,7 +841,7 @@ speakers in order to sound natural
 \begin{itemize}
 \item can be observed in corpora and quantified
 \item provide a window to lexical meaning and word usage
-\item applications in language description (Firth 1957) and
+\item applications in language description \citep{Firth:1957} and
 computational lexicography \citep{Sinclair:1991}
 \end{itemize}
 \item \txx{Multiword expressions} = lexicalised word combinations
@@ -1064,7 +1095,7 @@ words in the text were arranged in completely random order
 \item 
 Statistical model required to bring in notion of \txx{chance
 cooccurrence} and to adjust for sampling variation
-\\ bigrams can be understood either as syntactic
+\item  bigrams can be understood either as syntactic
 cooccurrences (adjacency relation) or as surface
 cooccurrences (L1, R0 or L0, R1)
 \end{itemize}
