@@ -35,13 +35,13 @@
 \myslide{Overview}
 
 \begin{itemize} 
-\item Revision  of DIY Corpora
-  \begin{itemize} 
-  \item DIY Corpora
-  \item Corpus Tools
-  \item Processing Raw Text
-  \item SQL
-  \end{itemize}
+% \item Revision  of DIY Corpora
+%   \begin{itemize} 
+%   \item DIY Corpora
+%   \item Corpus Tools
+%   \item Processing Raw Text
+%   \item SQL
+%   \end{itemize}
 \item Lexical Studies
 \item Grammatical Studies
 \item Variation
@@ -52,106 +52,106 @@
 \include{schedule}
 
 %%%
-\myslide{Revision  of DIY Corpora}
+%\myslide{Revision  of DIY Corpora}
 %%%
 
 
-\myslide{DIY Corpora}
+% \myslide{DIY Corpora}
 
-\begin{enumerate}
-\item Decide what you want to study
-\\ see if you can do it with existing resources
-\\ No \frownie
-\item Collect data that fits your needs
-  \begin{itemize}
-  \item Speech (expensive)
-  \item Text (easy to get, hard to do legally)
-  \end{itemize}
-\item Process it
-  \begin{itemize}
-  \item Clean up
-  \item Mark up
-  \item Annotation
-  \end{itemize}
-\end{enumerate}
+% \begin{enumerate}
+% \item Decide what you want to study
+% \\ see if you can do it with existing resources
+% \\ No \frownie
+% \item Collect data that fits your needs
+%   \begin{itemize}
+%   \item Speech (expensive)
+%   \item Text (easy to get, hard to do legally)
+%   \end{itemize}
+% \item Process it
+%   \begin{itemize}
+%   \item Clean up
+%   \item Mark up
+%   \item Annotation
+%   \end{itemize}
+% \end{enumerate}
 
-\myslide{Web as Corpus}
-\myslide{Two Approaches to using the Web as a Corpus}
-\begin{itemize}
-\item \blu{Direct Query}: Search Engine as Query tool and WWW as corpus?
-\\  (Objection: Results are not reliable)
-\begin{itemize}
-\item Population and exact hit counts are unknown → no statistics
-possible.
-\item Indexing does not allow to draw conclusions on the data.
-\item[\Bad] Google is missing functionalities that linguists /
-lexicographers would like to have.
-\end{itemize}
-\item \blu{Web Sample}: Use search engine to download data from the
-net and build a corpus from it.
-\begin{itemize}
-\item known size and exact hit counts → statistics possible.
-\item people can draw conclusions over the included text types.
-\item (limited) control over the content.
-\item[\Bad] sparser data
-\end{itemize}
-\end{itemize}
+% \myslide{Web as Corpus}
+% \myslide{Two Approaches to using the Web as a Corpus}
+% \begin{itemize}
+% \item \blu{Direct Query}: Search Engine as Query tool and WWW as corpus?
+% \\  (Objection: Results are not reliable)
+% \begin{itemize}
+% \item Population and exact hit counts are unknown → no statistics
+% possible.
+% \item Indexing does not allow to draw conclusions on the data.
+% \item[\Bad] Google is missing functionalities that linguists /
+% lexicographers would like to have.
+% \end{itemize}
+% \item \blu{Web Sample}: Use search engine to download data from the
+% net and build a corpus from it.
+% \begin{itemize}
+% \item known size and exact hit counts → statistics possible.
+% \item people can draw conclusions over the included text types.
+% \item (limited) control over the content.
+% \item[\Bad] sparser data
+% \end{itemize}
+% \end{itemize}
 
 
-\myslide{Structured Query Language}
+% \myslide{Structured Query Language}
 
-A special-purpose programming language designed for managing data held
-in a relational database management system (RDBMS)
+% A special-purpose programming language designed for managing data held
+% in a relational database management system (RDBMS)
 
-\begin{itemize} \addtolength{\itemsep}{-1ex}
-\item The simplest query
-  \begin{itemize}
-  \item \txx{SELECT} desired attributes
-  \item \txx{FROM} one or more tables
-  \item \txx{WHERE} condition applies about the records in the tables
-  \end{itemize}
-\item What lemmas are there associated with the word \eng{does}?
+% \begin{itemize} \addtolength{\itemsep}{-1ex}
+% \item The simplest query
+%   \begin{itemize}
+%   \item \txx{SELECT} desired attributes
+%   \item \txx{FROM} one or more tables
+%   \item \txx{WHERE} condition applies about the records in the tables
+%   \end{itemize}
+% \item What lemmas are there associated with the word \eng{does}?
 
-  \begin{tabular}{l|ll}
-\textbf{QUERY}  &   \textbf{word} & \textbf{lemma} \\ \hline
-SELECT word, lemma  &   does & do \\
-FROM word           &   does & do \\
-WHERE word = 'does' &   does & doe \\
-    & \ldots
-  \end{tabular}
-\end{itemize}
+%   \begin{tabular}{l|ll}
+% \textbf{QUERY}  &   \textbf{word} & \textbf{lemma} \\ \hline
+% SELECT word, lemma  &   does & do \\
+% FROM word           &   does & do \\
+% WHERE word = 'does' &   does & doe \\
+%     & \ldots
+%   \end{tabular}
+% \end{itemize}
 
-\myslide{Queries can be rather complicated}
+% \myslide{Queries can be rather complicated}
 
-\begin{itemize}
-\item Tell me more about frequent common nouns
-\begin{verbatim}
-SELECT count(word), count(DISTINCT word),
-       MIN(LENGTH(word)), 
-       MAX(LENGTH(word)), AVG(LENGTH(word))
-FROM word
-WHERE word 
-IN (SELECT word
-    FROM word
-    WHERE POS in ('NN', 'NNS') 
-    GROUP BY word
-    ORDER BY COUNT(word) DESC
-    LIMIT 10)
+% \begin{itemize}
+% \item Tell me more about frequent common nouns
+% \begin{verbatim}
+% SELECT count(word), count(DISTINCT word),
+%        MIN(LENGTH(word)), 
+%        MAX(LENGTH(word)), AVG(LENGTH(word))
+% FROM word
+% WHERE word 
+% IN (SELECT word
+%     FROM word
+%     WHERE POS in ('NN', 'NNS') 
+%     GROUP BY word
+%     ORDER BY COUNT(word) DESC
+%     LIMIT 10)
 
-\end{verbatim}
-  \begin{tabular}{lllll}
-    \textbf{count}  & \textbf{distinct} &\textbf{min}  &  \textbf{max} & \textbf{avg} \\ \hline
-    1096 & 10 & 3 & 10 & 5.13
-  \end{tabular}
-\item First find the ten most common words, then do things to them
-  \begin{itemize}
-  \item \emp{the trick is to write simple queries first, and then combine them}
-  \end{itemize}
-\item Note that more common words are shorter (as we would expect)
-\end{itemize}
-\begin{center}
-  SQL allows you to search for a very wide variety of things
-\end{center}
+% \end{verbatim}
+%   \begin{tabular}{lllll}
+%     \textbf{count}  & \textbf{distinct} &\textbf{min}  &  \textbf{max} & \textbf{avg} \\ \hline
+%     1096 & 10 & 3 & 10 & 5.13
+%   \end{tabular}
+% \item First find the ten most common words, then do things to them
+%   \begin{itemize}
+%   \item \emp{the trick is to write simple queries first, and then combine them}
+%   \end{itemize}
+% \item Note that more common words are shorter (as we would expect)
+% \end{itemize}
+% \begin{center}
+%   SQL allows you to search for a very wide variety of things
+% \end{center}
 
 
 %%%
